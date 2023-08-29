@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Login | System Informasi KKN</title>
+        <!-- CSS files -->
+        <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-flags.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-payments.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-vendors.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/demo.min.css'%}" rel="stylesheet"/>
+        <link rel="shortcut icon" href="{% static 'img/logo_fkip.png' %}"type="image/x-icon">
+  </head>
+  
+  <body class="antialiased border-top-wide border-primary d-flex flex-column">
+    <div class="page page-center">
+        <div class="container-tight py-4">
+            <form class="card card-md" method="POST" id="login">
+                {% csrf_token %}
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login Siumapalak</h2>
+                    {{ form }}
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center text-muted mt-3">
+                <a href="#" tabindex="-1">  Register </a> |
+                <a href="#" tabindex="-1">  Reset Password </a>
+            </div>
+        </div>
+    </div>
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    
+    <script src="{% static 'tabler/js/tabler.min.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+</body>
+</html>
