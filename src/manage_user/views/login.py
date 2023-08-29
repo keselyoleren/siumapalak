@@ -13,9 +13,9 @@ from manage_user.form.login import LoginForm
 from manage_user.models import AccountUser
 from django.contrib.auth.views import PasswordChangeView
 
-class UserLoginView(IsLoginAuthenticated, LoginView):
+class UserLoginView(LoginView):
     template_name = 'auth/login.html'
     form_class = LoginForm
 
     def get_success_url(self) -> str:
-        return "http://103.250.10.241:1880/ui/"
+        return "http://www.siumapalak.com/ui/"
