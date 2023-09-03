@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from data.views import DashboardView
 
 from manage_user.views.login import UserLoginView
 
 urlpatterns = [
     path("", UserLoginView.as_view(), name="login"),
     path('admin/', admin.site.urls),
+    path("dashboard", DashboardView.as_view(), name="dashboard"),
     # path("auth/", include([
     #     path("login/", UserLoginView.as_view(), name="login"),
     # ])),

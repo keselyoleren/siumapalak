@@ -1,0 +1,631 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    </div>
+
+
+    <!-- Content Row -->
+    <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Peta Sawah</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <div style="position: relative;">
+                    <img src="https://drive.google.com/uc?id=1RtlBkKmWaiGf38IjmzSFa4QhuezKs8q2" alt="background Image" style="height: 410px; width: 900px;">
+                    <!-- Sensor 1 -->
+                    <div id="circle1"
+                        style="position: absolute; top: 137px; left: 650px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+                        data-payload="{{msg.payload5}}" onmouseover="showData('Sensor 1')" onmouseout="hideData()"></div>
+                
+                    <!-- sensor 2 -->
+                    <div id="circle2"
+                        style="position: absolute; top: 130px; left: 670px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+                        data-payload="{{msg.payload6}}" onmouseover="showData('Sensor 2')" onmouseout="hideData()"></div>
+                
+                    <!-- Sensor 3 -->
+                    <div id="circle3"
+                        style="position: absolute; top: 146px; left: 700px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+                        data-payload="{{msg.payload7}}" onmouseover="showData('Sensor 3')" onmouseout="hideData()"></div>
+                
+                    <!-- Sensor 4 -->
+                    <div id="circle4"
+                        style="position: absolute; top: 140px; left: 730px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+                        data-payload="{{msg.payload8}}" onmouseover="showData('Sensor 4')" onmouseout="hideData()"></div>
+                
+                    <!-- Pump1 -->
+                    <div id="square1"
+                        style="position: absolute; top: 30px; left: 650px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+                        data-payload="{{msg.payload2}}" onmouseover="showSquareData('Square 1')"
+                        onmouseout="hideSquareData('Square 1')"></div>
+                
+                    <!-- Pump2 -->
+                    <div id="square2"
+                        style="position: absolute; top: 60px; left: 720px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+                        data-payload="{{msg.payload3}}" onmouseover="showSquareData('Square 2')"
+                        onmouseout="hideSquareData('Square 2')">
+                    </div>
+                
+                    <!-- Pump3 -->
+                    <div id="square3"
+                        style="position: absolute; top: 245px; left: 560px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+                        data-payload="{{msg.payload4}}" onmouseover="showSquareData('Square 3')" onmouseout="hideSquareData('Square 3')">
+                    </div>
+                
+                    <!-- Door -->
+                    <div id="door"
+                        style="position: absolute; top: 120px; left: 750px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+                        data-payload="{{msg.payload1}}" onmouseover="showdoorData('door')" onmouseout="hidedoorData('door')">
+                    </div>
+                </div>
+                <div id="tooltip" style="display: none; position: absolute; background-color: #fff; padding: 5px; border: 1px solid #ccc;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Area Chart -->
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <ul class="list-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    V AC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    I AC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    P AC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    E AC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                            </div>
+                            <div class="col-md-6">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    V DC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    I DC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li><li class="list-group-item d-flex justify-content-between align-items-center">
+                                    P DC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    E DC
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                  </li>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Zone</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Rpm Generator</div>
+                                    <div id="rpm_generator" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Battery Level</div>
+                                    <div id="battrey" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
+                                        Control</div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="" for="toggleSwitch">Pompa 1</label>
+                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                            </div>
+                                        
+                                            <div class="col">
+                                                <label class="" for="toggleSwitch">Pompa 2</label>
+                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                            </div>
+                                        
+                                            <div class="col">
+                                                <label class="" for="toggleSwitch">Pompa 3</label>
+                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                            </div>
+                                        
+                                            <div class="col">
+                                                <label class="" for="toggleSwitch">Gate</label>
+                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                            </div>
+                                            <div class="col">
+                                                <label class="" for="toggleSwitch">Carging</label>
+                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="card shadow mb-4">
+        <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Zone</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Zone 1</div>
+                                    <div id="zone1" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Zone 2</div>
+                                    <div id="zone2" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Zone 3
+                                    </div>
+                                    <div id="zone3" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Pending Requests Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Zone 4</div>
+                                        <div id="zone4" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Temperatur</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-md-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Generator</div>
+                                    <div id="temp_generator" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-md-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Batrey 1</div>
+                                    <div id="temp_bat_1" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-md-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                        Battrey 2
+                                    </div>
+                                    <div id="temp_bat_2" class="gauge"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+{% endblock  %}
+{% block js %}
+<script>
+
+    var rmp_generator = new JustGage({
+        id: 'rpm_generator',
+        value: 40,
+        min: 0,
+        max: 100,
+        symbol: '%',
+        donut: true,
+        pointer: true,
+        gaugeWidthScale: 0.4,
+        pointerOptions: {
+          toplength: 10,
+          bottomlength: 10,
+          bottomwidth: 8,
+          color: '#000'
+        },
+        customSectors: [{
+          color: "#ff0000",
+          lo: 50,
+          hi: 100
+        }, {
+          color: "#00ff00",
+          lo: 0,
+          hi: 50
+        }],
+        counter: true
+      });
+
+    var battrey = new JustGage({
+        id: 'battrey',
+        value: 40,
+        min: 0,
+        max: 100,
+        symbol: '%',
+        pointer: true,
+        gaugeWidthScale: 0.4,
+        pointerOptions: {
+          toplength: 10,
+          bottomlength: 10,
+          bottomwidth: 8,
+          color: '#000'
+        },
+        customSectors: [{
+          color: "#ff0000",
+          lo: 50,
+          hi: 100
+        }, {
+          color: "#00ff00",
+          lo: 0,
+          hi: 50
+        }],
+        counter: true
+      });
+
+
+    var zone1 = new JustGage({
+        id: "zone1",
+        pointer: true,
+        symbol: '%',
+        value: 10,
+        min: 0,
+        max: 120,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+        customSectors: [{
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          }, {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }],
+          counter: true
+    });
+    var zone2 = new JustGage({
+        id: "zone2",
+        pointer: true,
+        symbol: '%',
+        value: 21,
+        min: 0,
+        max: 120,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+        customSectors: [{
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          }, {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }],
+          counter: true
+    });
+    var zone3 = new JustGage({
+        id: "zone3",
+        symbol: '%',
+        value: 79,
+        min: 0,
+        max: 120,
+        gaugeWidthScale: 0.9,
+        pointer: true,
+        counter: true,
+        formatNumber: true,
+        customSectors: [{
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          }, {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }],
+          counter: true
+    });
+
+    var zone4 = new JustGage({
+        id: "zone4",
+        symbol: '%',
+        value: 40,
+        min: 0,
+        max: 120,
+        gaugeWidthScale: 0.9,
+        pointer: true,
+        counter: true,
+        formatNumber: true,
+        customSectors: [{
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          }, {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }],
+          counter: true
+    });
+    
+    
+    var temp_generator = new JustGage({
+        id: "temp_generator",
+        symbol: 'C',
+        value: 2,
+        pointer: true,
+        min: 0,
+        max: 10,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+    });
+
+    var temp_bat_1 = new JustGage({
+        id: "temp_bat_1",
+        symbol: 'C',
+        value: 4,
+        pointer: true,
+        min: 0,
+        max: 10,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+    });
+
+    var temp_bat_2 = new JustGage({
+        id: "temp_bat_2",
+        symbol: 'C',
+        value: 7,
+        pointer: true,
+        min: 0,
+        max: 10,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+    });
+
+
+
+</script>
+
+<script>
+    const circles = document.querySelectorAll('[id^="circle"]');
+    const squares = document.querySelectorAll('[id^="square"]');
+    const doors = document.querySelectorAll('[id^="door"]');
+    const tooltip = document.getElementById('tooltip');
+
+    circles.forEach(circle => {
+        circle.style.backgroundColor = 'orange';
+        circle.addEventListener('mouseover', () => showData(circle));
+        circle.addEventListener('mouseout', hideData);
+    });
+
+    squares.forEach(square => {
+        square.style.backgroundColor = 'black'; 
+        square.addEventListener('mouseover', () => showSquareData(square));
+        square.addEventListener('mouseout', () => hideSquareData(square.id));
+    });
+
+    doors.forEach(door => {
+        door.style.backgroundColor = 'purple';
+        door.addEventListener('mouseover', () => showdoorData(door)); 
+        door.addEventListener('mouseout', hidedoorData);
+    });
+
+    function updateCircleColor(circle) {
+        
+        const payloadValue = circle.getAttribute('data-payload');
+        const intValue = parseInt(payloadValue); 
+
+        if (intValue > 90) {
+            circle.style.backgroundColor = 'blue';
+        } else {
+            circle.style.backgroundColor = 'red';
+        }
+    }
+
+    function updateSquareColor(square) {
+
+        const payloadValue = square.getAttribute('data-payload');
+        
+        if (payloadValue === 'ON') {
+            square.style.backgroundColor = 'yellow';
+        } else {
+            square.style.backgroundColor = 'grey';
+        }
+    }
+
+    function updatedoorColor(door) {
+    
+        const payloadValue = door.getAttribute('data-payload');
+    
+        if (payloadValue === 'OPEN') {
+            door.style.backgroundColor = 'green';
+        } else {
+            door.style.backgroundColor = 'pink';
+        }
+    }
+
+    setInterval(() => {
+        circles.forEach(circle => updateCircleColor(circle));
+        squares.forEach(square => updateSquareColor(square));
+        doors.forEach(door => updatedoorColor(door));
+    }, 1000); // 1000 milliseconds = 1 second
+
+    function showData(circle) {
+        const payloadValue = circle.getAttribute('data-payload');
+        const intValue = parseInt(payloadValue);
+        tooltip.innerHTML = `<strong>Sensor</strong>: ${intValue}`;
+        tooltip.style.top = (event.clientY + 10) + 'px';
+        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.style.display = 'block';
+    }
+
+    function hideData() {
+        tooltip.style.display = 'none';
+    }
+
+    function showSquareData(square) {
+        const payloadValue = square.getAttribute('data-payload');
+        tooltip.innerHTML = `<strong>Condition</strong>: ${payloadValue}`;
+        tooltip.style.top = (event.clientY + 10) + 'px';
+        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.style.display = 'block';
+    }
+
+    function hideSquareData(squareId) {
+        tooltip.style.display = 'none';
+    }
+
+    function showdoorData(door) {
+        const payloadValue = door.getAttribute('data-payload');
+        tooltip.innerHTML = `<strong>Situation</strong>: ${payloadValue}`;
+        tooltip.style.top = (event.clientY + 10) + 'px';
+        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.style.display = 'block';
+    }
+    
+    function hidedoorData(doorId) {
+    tooltip.style.display = 'none';
+    }
+</script>
+{% endblock  %}
