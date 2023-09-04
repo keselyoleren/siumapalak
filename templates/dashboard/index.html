@@ -86,36 +86,36 @@
                             <div class="col-md-6">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     V AC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="vac" class="badge badge-primary badge-pill">0</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     I AC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="iac" class="badge badge-primary badge-pill">0</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     P AC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="pac" class="badge badge-primary badge-pill">0</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     E AC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="eac" class="badge badge-primary badge-pill">0</span>
                                   </li>
                             </div>
                             <div class="col-md-6">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                     V DC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="vdc" class="badge badge-primary badge-pill">0</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     I DC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="idc" class="badge badge-primary badge-pill">0</span>
                                   </li><li class="list-group-item d-flex justify-content-between align-items-center">
                                     P DC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="pdc" class="badge badge-primary badge-pill">0</span>
                                   </li>
                                   <li class="list-group-item d-flex justify-content-between align-items-center">
                                     E DC
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span id="edc" class="badge badge-primary badge-pill">0</span>
                                   </li>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Battery Level</div>
-                                    <div id="battrey" class="gauge"></div>
+                                    <div id="battery" class="gauge"></div>
                                 </div>
                             </div>
                         </div>
@@ -344,37 +344,69 @@
     
 {% endblock  %}
 {% block js %}
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script>
+    const brokerUrl = 'ws://mqtt.ruanglab.com:8083/mqtt'; // Replace with your broker's URL
+    const options = {
+    username: 'ruanglab',
+    password: 'ruanglab@yk'
+    };
 
-    var rmp_generator = new JustGage({
+    const client = mqtt.connect(brokerUrl, options);
+    var pl1 = 'data/KMI/BALI/SIMORLM1';
+
+    client.on('error', (err) => {
+    console.log('Connection error: ', err);
+    client.end();
+    });
+
+    client.on('reconnect', () => {
+    console.log('Reconnecting...');
+    });
+
+    client.on('connect', () => {
+        console.log('Client connected');
+        client.subscribe(pl1, { qos: 0 })
+    });
+
+    var zone1 = 0
+    var zone2 = 0
+    var zone3 = 0
+    var zone4 = 0
+
+    // Define gauges
+    const rpmGenerator = new JustGage({
         id: 'rpm_generator',
         value: 40,
         min: 0,
         max: 100,
-        symbol: '%',
+        symbol: 'RPM',
         donut: true,
         pointer: true,
         gaugeWidthScale: 0.4,
         pointerOptions: {
-          toplength: 10,
-          bottomlength: 10,
-          bottomwidth: 8,
-          color: '#000'
+            toplength: 10,
+            bottomlength: 10,
+            bottomwidth: 8,
+            color: '#000'
         },
-        customSectors: [{
-          color: "#ff0000",
-          lo: 50,
-          hi: 100
-        }, {
-          color: "#00ff00",
-          lo: 0,
-          hi: 50
-        }],
+        customSectors: [
+            {
+                color: '#ff0000',
+                lo: 50,
+                hi: 100
+            },
+            {
+                color: '#00ff00',
+                lo: 0,
+                hi: 50
+            }
+        ],
         counter: true
-      });
+    });
 
-    var battrey = new JustGage({
-        id: 'battrey',
+    const battery = new JustGage({
+        id: 'battery',
         value: 40,
         min: 0,
         max: 100,
@@ -382,148 +414,147 @@
         pointer: true,
         gaugeWidthScale: 0.4,
         pointerOptions: {
-          toplength: 10,
-          bottomlength: 10,
-          bottomwidth: 8,
-          color: '#000'
+            toplength: 10,
+            bottomlength: 10,
+            bottomwidth: 8,
+            color: '#000'
         },
-        customSectors: [{
-          color: "#ff0000",
-          lo: 50,
-          hi: 100
-        }, {
-          color: "#00ff00",
-          lo: 0,
-          hi: 50
-        }],
+        customSectors: [
+            {
+                color: '#ff0000',
+                lo: 50,
+                hi: 100
+            },
+            {
+                color: '#00ff00',
+                lo: 0,
+                hi: 50
+            }
+        ],
         counter: true
-      });
-
-
-    var zone1 = new JustGage({
-        id: "zone1",
-        pointer: true,
-        symbol: '%',
-        value: 10,
-        min: 0,
-        max: 120,
-        gaugeWidthScale: 0.9,
-        counter: true,
-        formatNumber: true,
-        customSectors: [{
-            color: '#ff0000',
-            lo: 50,
-            hi: 100
-          }, {
-            color: '#00ff00',
-            lo: 0,
-            hi: 50
-          }],
-          counter: true
-    });
-    var zone2 = new JustGage({
-        id: "zone2",
-        pointer: true,
-        symbol: '%',
-        value: 21,
-        min: 0,
-        max: 120,
-        gaugeWidthScale: 0.9,
-        counter: true,
-        formatNumber: true,
-        customSectors: [{
-            color: '#ff0000',
-            lo: 50,
-            hi: 100
-          }, {
-            color: '#00ff00',
-            lo: 0,
-            hi: 50
-          }],
-          counter: true
-    });
-    var zone3 = new JustGage({
-        id: "zone3",
-        symbol: '%',
-        value: 79,
-        min: 0,
-        max: 120,
-        gaugeWidthScale: 0.9,
-        pointer: true,
-        counter: true,
-        formatNumber: true,
-        customSectors: [{
-            color: '#ff0000',
-            lo: 50,
-            hi: 100
-          }, {
-            color: '#00ff00',
-            lo: 0,
-            hi: 50
-          }],
-          counter: true
     });
 
-    var zone4 = new JustGage({
-        id: "zone4",
+    // Define zone gauges
+    const createZoneGauge = (id, value) => new JustGage({
+        id,
+        pointer: true,
         symbol: '%',
-        value: 40,
+        value,
         min: 0,
         max: 120,
         gaugeWidthScale: 0.9,
-        pointer: true,
         counter: true,
         formatNumber: true,
-        customSectors: [{
-            color: '#ff0000',
-            lo: 50,
-            hi: 100
-          }, {
-            color: '#00ff00',
-            lo: 0,
-            hi: 50
-          }],
-          counter: true
+        customSectors: [
+            {
+                color: '#ff0000',
+                lo: 50,
+                hi: 100
+            },
+            {
+                color: '#00ff00',
+                lo: 0,
+                hi: 50
+            }
+        ],
+        counter: true
+    });
+
+    
+
+    // Define temperature gauges
+    const createTempGauge = (id, symbol, value) => new JustGage({
+        id,
+        symbol,
+        value,
+        pointer: true,
+        min: 0,
+        max: 10,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true
+    });
+    
+
+    
+    const d_zone1 = createZoneGauge('zone1', 31);
+    const d_zone2 = createZoneGauge('zone2', 21);
+    const d_zone3 = createZoneGauge('zone3', 79);
+    const d_zone4 = createZoneGauge('zone4', 40);
+
+    // temperature
+    const tempGenerator = createTempGauge('temp_generator', 'C', 2);
+    const tempBat1 = createTempGauge('temp_bat_1', 'C', 4);
+    const tempBat2 = createTempGauge('temp_bat_2', 'C', 7);
+
+    client.on('message', (topic, message, packet) => {
+        const jsonData = JSON.parse(message.toString());
+        
+        // update data
+        if (jsonData.IDC !== undefined) {
+            document.getElementById('idc').innerHTML = jsonData.IDC;
+        }
+
+        if (jsonData.PDC !== undefined) {
+            document.getElementById('pdc').innerHTML = jsonData.PDC;
+        }
+
+        if (jsonData.EDC !== undefined) {
+            document.getElementById('edc').innerHTML = jsonData.EDC;
+        }
+
+        if (jsonData.VAC !== undefined) {
+            document.getElementById('vac').innerHTML = jsonData.VAC;
+        }
+
+        if (jsonData.IAC !== undefined) {
+            document.getElementById('iac').innerHTML = jsonData.IAC;
+        }
+
+        if (jsonData.PAC !== undefined) {
+            document.getElementById('pac').innerHTML = jsonData.PAC;
+        }
+
+        if (jsonData.EAC !== undefined) {
+            document.getElementById('eac').innerHTML = jsonData.EAC;
+        }
+
+        if (jsonData.VDC !== undefined) {
+            document.getElementById('vdc').innerHTML = jsonData.VDC;
+        }
+
+        if (jsonData.EDC !== undefined) {
+            document.getElementById('edc').innerHTML = jsonData.EDC;
+        }
+
+
+
+
+
+         // Update zone values based on received JSON data
+        if (jsonData.zone1 !== undefined) {
+            zone1 = jsonData.zone1;
+            d_zone1.refresh(zone1);
+        }
+
+        if (jsonData.zone2 !== undefined) {
+            zone2 = jsonData.zone2;
+            d_zone2.refresh(zone2);
+        }
+
+        if (jsonData.zone3 !== undefined) {
+            zone3 = jsonData.zone3;
+            d_zone3.refresh(zone3);
+        }
+
+        if (jsonData.zone4 !== undefined) {
+            zone4 = jsonData.zone4;
+            d_zone4.refresh(zone4);
+        }
+        console.log(`Received Message: ${message.toString()} On topic: ${topic}`);
     });
     
     
-    var temp_generator = new JustGage({
-        id: "temp_generator",
-        symbol: 'C',
-        value: 2,
-        pointer: true,
-        min: 0,
-        max: 10,
-        gaugeWidthScale: 0.9,
-        counter: true,
-        formatNumber: true,
-    });
-
-    var temp_bat_1 = new JustGage({
-        id: "temp_bat_1",
-        symbol: 'C',
-        value: 4,
-        pointer: true,
-        min: 0,
-        max: 10,
-        gaugeWidthScale: 0.9,
-        counter: true,
-        formatNumber: true,
-    });
-
-    var temp_bat_2 = new JustGage({
-        id: "temp_bat_2",
-        symbol: 'C',
-        value: 7,
-        pointer: true,
-        min: 0,
-        max: 10,
-        gaugeWidthScale: 0.9,
-        counter: true,
-        formatNumber: true,
-    });
-
-
 
 </script>
 
