@@ -128,13 +128,13 @@
     <div class="card shadow mb-4">
         <div
             class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Zone</h6>
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
 
         <div class="card-body">
             <div class="row">
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col">
+                <div class="col-md-6">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -149,62 +149,60 @@
                 </div>
     
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col">
+                <div class="col-md-6">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                         Battery Level</div>
-                                    <div id="battery" class="gauge"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-lg font-weight-bold text-success text-uppercase mb-1">
-                                        Control</div>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col">
-                                                <label class="" for="toggleSwitch">Pompa 1</label>
-                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                            </div>
-                                        
-                                            <div class="col">
-                                                <label class="" for="toggleSwitch">Pompa 2</label>
-                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                            </div>
-                                        
-                                            <div class="col">
-                                                <label class="" for="toggleSwitch">Pompa 3</label>
-                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                            </div>
-                                        
-                                            <div class="col">
-                                                <label class="" for="toggleSwitch">Gate</label>
-                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                            </div>
-                                            <div class="col">
-                                                <label class="" for="toggleSwitch">Carging</label>
-                                                <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                                            </div>
-                                        </div>
-                                        
-                                    
+                                     <div id="battery">
+                                        <div id="charge"></div>
+                                        <div id="charge-level"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div
+            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Control</h6>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-4">
+                        <label class="" for="toggleSwitch">Pompa 1</label>
+                        <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                
+                    <div class="col-md-4">
+                        <label class="" for="toggleSwitch">Pompa 2</label>
+                        <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                
+                    <div class="col-md-4">
+                        <label class="" for="toggleSwitch">Pompa 3</label>
+                        <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>    
                 </div>
-    
+                <div class="col-md-6">
+                    <div class="col-md-6">
+                        <label class="" for="toggleSwitch">Gate</label>
+                        <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="" for="toggleSwitch">Carging</label>
+                        <input type="checkbox"  data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -344,43 +342,29 @@
     
 {% endblock  %}
 {% block js %}
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
 <script>
-    const brokerUrl = 'ws://mqtt.ruanglab.com:8083/mqtt'; // Replace with your broker's URL
-    const options = {
-    username: 'ruanglab',
-    password: 'ruanglab@yk'
-    };
+    const chargeLevel = document.getElementById("charge-level");
+    const charge = document.getElementById("charge");
+    const chargingTimeRef = document.getElementById("charging-time");
 
-    const client = mqtt.connect(brokerUrl, options);
-    var pl1 = 'data/KMI/BALI/SIMORLM1';
 
-    client.on('error', (err) => {
-    console.log('Connection error: ', err);
-    client.end();
-    });
-
-    client.on('reconnect', () => {
-    console.log('Reconnecting...');
-    });
-
-    client.on('connect', () => {
-        console.log('Client connected');
-        client.subscribe(pl1, { qos: 0 })
-    });
+    let batteryLevel = `${parseInt(13)}%`;
+    charge.style.width = batteryLevel;
+    chargeLevel.textContent = batteryLevel;
 
     var zone1 = 0
     var zone2 = 0
     var zone3 = 0
     var zone4 = 0
 
-    // Define gauges
-    const rpmGenerator = new JustGage({
-        id: 'rpm_generator',
-        value: 40,
+
+    const npmGenerator = (id, value) => new JustGage({
+        id,
+        value,
         min: 0,
         max: 100,
-        symbol: 'RPM',
+        symbol: ' RPM',
         donut: true,
         pointer: true,
         gaugeWidthScale: 0.4,
@@ -404,41 +388,13 @@
         ],
         counter: true
     });
-
-    const battery = new JustGage({
-        id: 'battery',
-        value: 40,
-        min: 0,
-        max: 100,
-        symbol: '%',
-        pointer: true,
-        gaugeWidthScale: 0.4,
-        pointerOptions: {
-            toplength: 10,
-            bottomlength: 10,
-            bottomwidth: 8,
-            color: '#000'
-        },
-        customSectors: [
-            {
-                color: '#ff0000',
-                lo: 50,
-                hi: 100
-            },
-            {
-                color: '#00ff00',
-                lo: 0,
-                hi: 50
-            }
-        ],
-        counter: true
-    });
+    
 
     // Define zone gauges
     const createZoneGauge = (id, value) => new JustGage({
         id,
         pointer: true,
-        symbol: '%',
+        symbol: ' %',
         value,
         min: 0,
         max: 120,
@@ -460,8 +416,6 @@
         counter: true
     });
 
-    
-
     // Define temperature gauges
     const createTempGauge = (id, symbol, value) => new JustGage({
         id,
@@ -476,16 +430,20 @@
     });
     
 
+
+    // rpm Generator
+    const rpmGenerator = npmGenerator('rpm_generator', 0);
     
-    const d_zone1 = createZoneGauge('zone1', 31);
-    const d_zone2 = createZoneGauge('zone2', 21);
-    const d_zone3 = createZoneGauge('zone3', 79);
-    const d_zone4 = createZoneGauge('zone4', 40);
+    const d_zone1 = createZoneGauge('zone1', 0);
+    const d_zone2 = createZoneGauge('zone2', 0);
+    const d_zone3 = createZoneGauge('zone3', 0);
+    const d_zone4 = createZoneGauge('zone4', 0);
+
 
     // temperature
-    const tempGenerator = createTempGauge('temp_generator', 'C', 2);
-    const tempBat1 = createTempGauge('temp_bat_1', 'C', 4);
-    const tempBat2 = createTempGauge('temp_bat_2', 'C', 7);
+    const tempGenerator = createTempGauge('temp_generator', 'C', 0);
+    const tempBat1 = createTempGauge('temp_bat_1', 'C', 0);
+    const tempBat2 = createTempGauge('temp_bat_2', 'C', 0);
 
     client.on('message', (topic, message, packet) => {
         const jsonData = JSON.parse(message.toString());
@@ -527,31 +485,43 @@
             document.getElementById('edc').innerHTML = jsonData.EDC;
         }
 
-
-
-
-
          // Update zone values based on received JSON data
-        if (jsonData.zone1 !== undefined) {
-            zone1 = jsonData.zone1;
+        if (jsonData.MOIS1 !== undefined) {
+            zone1 = jsonData.MOIS1;
             d_zone1.refresh(zone1);
         }
 
-        if (jsonData.zone2 !== undefined) {
-            zone2 = jsonData.zone2;
+        if (jsonData.MOIS2 !== undefined) {
+            zone2 = jsonData.MOIS2;
             d_zone2.refresh(zone2);
         }
 
-        if (jsonData.zone3 !== undefined) {
-            zone3 = jsonData.zone3;
+        if (jsonData.MOIS3 !== undefined) {
+            zone3 = jsonData.MOIS3;
             d_zone3.refresh(zone3);
         }
 
-        if (jsonData.zone4 !== undefined) {
-            zone4 = jsonData.zone4;
+        if (jsonData.MOIS4 !== undefined) {
+            zone4 = jsonData.MOIS4;
             d_zone4.refresh(zone4);
         }
+
+        // temperature
+        if (jsonData.TEMP1 !== undefined) {
+            tempGenerator.refresh(jsonData.TEMP1);
+        }
+        if (jsonData.TEMP2 !== undefined) {
+            tempBat1.refresh(jsonData.TEMP2);
+        }
+        if (jsonData.TEMP3 !== undefined) {
+            tempBat2.refresh(jsonData.TEMP3);
+        }
+
+        if (jsonData.RPM !== undefined) {
+            rpmGenerator.refresh(jsonData.RPM);
+        }
         console.log(`Received Message: ${message.toString()} On topic: ${topic}`);
+        
     });
     
     
@@ -659,4 +629,5 @@
     tooltip.style.display = 'none';
     }
 </script>
+
 {% endblock  %}

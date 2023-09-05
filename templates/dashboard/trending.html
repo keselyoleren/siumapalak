@@ -1,0 +1,211 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Trending</h1>
+    </div>
+
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">I AC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="iac"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">I DC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="iac"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">V AC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="vac"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">V DC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="vdc"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">P AC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="pac"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">P DC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="pdc"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">E AC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="eac"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div
+                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <canvas id="edc"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    
+{% endblock  %}
+{% block js %}
+
+<script>
+    var ctx = document.getElementById("iac");
+    const input = "{{ questions }}"
+    const scores_string = "{{ scores }}"
+    var surveyCategories = JSON.parse('[' + input.replace(/&#x27;/g, '"') + ']')[0];
+    var surveyScores = JSON.parse('[' + scores_string.replace(/&#x27;/g, '"') + ']')[0];
+    
+    var ctx = document.getElementById('survey_chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar', // Use the 'horizontalBar' chart type
+        data: {
+            labels: surveyCategories,
+            datasets: [{
+                label: 'Survey Scores',
+                data: surveyScores,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)', // Bar color
+                borderColor: 'rgba(54, 162, 235, 1)', // Border color
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            layout: {
+              padding: {
+                left: 10,
+                right: 25,
+                top: 25,
+                bottom: 0
+              }
+            },
+            scales: {
+              xAxes: [{
+                time: {
+                  unit: 'scores'
+                },
+                gridLines: {
+                  display: false,
+                  drawBorder: false
+                },
+                ticks: {
+                  maxTicksLimit: 100
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  maxTicksLimit: 20,
+                  padding: 10,
+                  
+                },
+                gridLines: {
+                  color: "rgb(234, 236, 244)",
+                  zeroLineColor: "rgb(234, 236, 244)",
+                  drawBorder: false,
+                }
+              }],
+            },
+            legend: {
+              display: false
+            },
+            tooltips: {
+              backgroundColor: "rgb(255,255,255)",
+              bodyFontColor: "#000000",
+              titleMarginBottom: 10,
+              titleFontColor: '#6e707e',
+              titleFontSize: 14,
+              borderColor: '#dddfeb',
+              borderWidth: 1,
+              xPadding: 15,
+              yPadding: 15,
+              displayColors: true,
+              intersect: false,
+              mode: 'index',
+            }
+          }
+       
+    });
+</script>
+
+{% endblock  %}

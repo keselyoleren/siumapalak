@@ -5,4 +5,5 @@ from django.views.generic import TemplateView
 class DashboardView(TemplateView):
     template_name = "dashboard/index.html"
     
-    
+class TrendingView(TemplateView):
+    template_name = "dashboard/trending.html"
