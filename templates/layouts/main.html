@@ -143,8 +143,8 @@
         };
     
         const client = mqtt.connect(brokerUrl, options);
-        var pl1 = 'data/KMI/BALI/SIMORLM1';
-        var lm2 = 'data/KMI/BALI/SIMORLM2'
+        var LM1 = 'data/KMI/BALI/SIMORLM1';
+        var LM2 = 'data/KMI/BALI/SIMORLM2';
     
         client.on('error', (err) => {
             console.log('Connection error: ', err);
@@ -157,8 +157,8 @@
     
         client.on('connect', () => {
             console.log('Client connected');
-            client.subscribe(pl1, { qos: 2 })
-            client.subscribe(lm2, { qos: 2 })
+            client.subscribe(LM1, { qos: 2 })
+            client.subscribe(LM2, { qos: 2 })
         });
     </script>
 

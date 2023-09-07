@@ -1,3 +1,4 @@
+from pipes import Template
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
@@ -7,3 +8,6 @@ class DashboardView(TemplateView):
     
 class TrendingView(TemplateView):
     template_name = "dashboard/trending.html"
+
+class PerformenceView(TemplateView):
+    template_name = "dashboard/performence.html"

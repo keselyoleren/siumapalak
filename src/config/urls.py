@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from data.views import DashboardView, TrendingView
+from data.views import DashboardView, PerformenceView, TrendingView
 
 from manage_user.views.login import UserLoginView
 
@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("dashboard", DashboardView.as_view(), name="dashboard"),
     path("trending", TrendingView.as_view(), name="trending"),
+    path("performance", PerformenceView.as_view(), name="performance"),
     # path("auth/", include([
     #     path("login/", UserLoginView.as_view(), name="login"),
     # ])),

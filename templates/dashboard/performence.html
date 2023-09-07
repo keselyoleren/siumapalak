@@ -1,0 +1,651 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Performance</h1>
+  </div>
+
+  <div class="row">
+    <!-- Area Chart -->
+    <div class="col-md-12">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h4 class="m-0 font-weight-bold text-primary">Data</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <ul class="list-group">
+            <div class="row">
+              <div class="col-md-6">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  V AC
+                  <span id="vac" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  I AC
+                  <span id="iac" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  P AC
+                  <span id="pac" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  E AC
+                  <span id="eac" class="badge badge-primary badge-pill">0</span>
+                </li>
+              </div>
+              <div class="col-md-6">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  V DC
+                  <span id="vdc" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  I DC
+                  <span id="idc" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  P DC
+                  <span id="pdc" class="badge badge-primary badge-pill">0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  E DC
+                  <span id="edc" class="badge badge-primary badge-pill">0</span>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">General</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-md-8">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Rpm Generator</div>
+                  <div class="">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div  style="position: absolute; top: 0px; left: 40px;">
+                                <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 180px; width: 350px;">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div id="rpm_generator" class="gauge"></div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-md-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"></div>
+                            <div id="battery">
+                                <div id="charge"></div>
+                                <div id="charge-level"></div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="waveStrength-3">
+                                        <center><h5>sw 1</h5></center>
+                                        <div id="height" class="wv4 wave" >
+                                            <div id="medium" class="wv4 wave">
+                                                <div id="normal" class="wv2 wave">
+                                                    <div id="low" class="wv1 wave">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="waveStrength-3">
+                                        <center><h5>sw 2</h5></center>
+                                        <div id="height2" class="wv4 wave" >
+                                            <div id="medium2" class="wv4 wave">
+                                                <div id="normal2" class="wv2 wave">
+                                                    <div id="low2" class="wv1 wave">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% comment %} <div class="col-md-4">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Wifi</div>
+                  <div class="wifi-signal">
+                    <div class="wifi loading"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Control</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 1</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 2</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 3</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Gate</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="gate" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Carging</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="carging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Content Row -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Zone</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 1</div>
+                  <div id="zone1" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Zone 2</div>
+                  <div id="zone2" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Zone 3</div>
+                  <div id="zone3" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Zone 4</div>
+                  <div id="zone4" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Temperatur</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-md-3">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Generator</div>
+                  <div id="temp_generator" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-md-3">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Batrey 1</div>
+                  <div id="temp_bat_1" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-md-3">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Battrey 2</div>
+                  <div id="temp_bat_2" class="gauge"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Room</div>
+                    <div id="room_temp" class="gauge"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block js %}
+  <script>
+    const chargeLevel = document.getElementById('charge-level')
+    const charge = document.getElementById('charge')
+    const chargingTimeRef = document.getElementById('charging-time')
+    
+    let batteryLevel = `${parseInt(40)}%`
+    charge.style.width = batteryLevel
+    chargeLevel.textContent = batteryLevel
+    
+    var zone1 = 0
+    var zone2 = 0
+    var zone3 = 0
+    var zone4 = 0
+    
+    const npmGenerator = (id, value) =>
+      new JustGage({
+        id,
+        value,
+        min: 0,
+        max: 100,
+        symbol: ' RPM',
+        donut: true,
+        pointer: true,
+        gaugeWidthScale: 0.6,
+        pointerOptions: {
+          toplength: 10,
+          bottomlength: 10,
+          bottomwidth: 8,
+          color: '#000'
+        },
+        customSectors: [
+          {
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          },
+          {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }
+        ],
+        counter: true
+      })
+    
+    // Define zone gauges
+    const createZoneGauge = (id, value) =>
+      new JustGage({
+        id,
+        pointer: true,
+        symbol: ' %',
+        value,
+        min: 0,
+        max: 100,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true,
+        customSectors: [
+          {
+            color: '#ff0000',
+            lo: 50,
+            hi: 100
+          },
+          {
+            color: '#00ff00',
+            lo: 0,
+            hi: 50
+          }
+        ],
+        counter: true
+      })
+    
+    // Define temperature gauges
+    const createTempGauge = (id, symbol, value) =>
+      new JustGage({
+        id,
+        symbol,
+        value,
+        pointer: true,
+        min: 0,
+        max: 100,
+        gaugeWidthScale: 0.9,
+        counter: true,
+        formatNumber: true
+      })
+    
+    // rpm Generator
+    const rpmGenerator = npmGenerator('rpm_generator', 0)
+    
+    const d_zone1 = createZoneGauge('zone1', 0)
+    const d_zone2 = createZoneGauge('zone2', 0)
+    const d_zone3 = createZoneGauge('zone3', 0)
+    const d_zone4 = createZoneGauge('zone4', 0)
+    
+    // temperature
+    const tempGenerator = createTempGauge('temp_generator', ' C', 0)
+    const tempBat1 = createTempGauge('temp_bat_1', ' C', 0)
+    const tempBat2 = createTempGauge('temp_bat_2', ' C', 0)
+    const room_temp = createTempGauge('room_temp', ' C', 0)
+
+    const height = document.getElementById('height')
+    const height2 = document.getElementById('height2')
+    const medium = document.getElementById('medium')
+    const medium2 = document.getElementById('medium2')
+    const normal = document.getElementById('normal')
+    const normal2 = document.getElementById('normal2')
+    const low = document.getElementById('low')
+    const low2 = document.getElementById('low2')
+
+    
+    client.on('message', (topic, message, packet) => {
+      const jsonData = JSON.parse(message.toString())
+      // SW 
+        if (jsonData.SW !== undefined) {
+            if (jsonData.SW >= -30) {
+                height.className = 'ww3 wave'
+                medium.className = 'ww3 wave'
+                normal.className = 'ww2 wave'
+                low.className = 'ww1 wave'
+
+                height2.className = 'ww3 wave'
+                medium2.className = 'ww3 wave'
+                normal2.className = 'ww2 wave'
+                low2.className = 'ww1 wave'
+            } 
+            if (jsonData.SW >= -67) {
+                height.className = 'ww4 wave'
+                medium.className = 'ww4 wave'
+                normal.className = 'ww2 wave'
+                low.className = 'ww1 wave'
+
+                height2.className = 'ww4 wave'
+                medium2.className = 'ww4 wave'
+                normal2.className = 'ww2 wave'
+                low2.className = 'ww1 wave'
+            } 
+            if (jsonData.SW >= -70) {
+                height.className = 'ww4 wave'
+                medium.className = 'ww4 wave'
+                normal.className = 'ww2 wave'
+                low.className = 'ww1 wave'
+
+                height2.className = 'ww4 wave'
+                medium2.className = 'ww4 wave'
+                normal2.className = 'ww2 wave'
+                low2.className = 'ww1 wave'
+            } 
+            if (jsonData.SW >= -80) {
+                height.className = 'ww4 wave'
+                medium.className = 'ww4 wave'
+                normal.className = 'ww4 wave'
+                low.className = 'ww1 wave'
+
+                height2.className = 'ww4 wave'
+                medium2.className = 'ww4 wave'
+                normal2.className = 'ww4 wave'
+                low2.className = 'ww1 wave'
+            } 
+            //document.getElementById('SW').innerHTML = jsonData.SW
+        }
+    
+      // update data
+      if (jsonData.IDC !== undefined) {
+        document.getElementById('idc').innerHTML = jsonData.IDC
+      }
+    
+      if (jsonData.PDC !== undefined) {
+        document.getElementById('pdc').innerHTML = jsonData.PDC
+      }
+    
+      if (jsonData.EDC !== undefined) {
+        document.getElementById('edc').innerHTML = jsonData.EDC
+      }
+    
+      if (jsonData.VAC !== undefined) {
+        document.getElementById('vac').innerHTML = jsonData.VAC
+      }
+    
+      if (jsonData.IAC !== undefined) {
+        document.getElementById('iac').innerHTML = jsonData.IAC
+      }
+    
+      if (jsonData.PAC !== undefined) {
+        document.getElementById('pac').innerHTML = jsonData.PAC
+      }
+    
+      if (jsonData.EAC !== undefined) {
+        document.getElementById('eac').innerHTML = jsonData.EAC
+      }
+    
+      if (jsonData.VDC !== undefined) {
+        document.getElementById('vdc').innerHTML = jsonData.VDC
+      }
+    
+      if (jsonData.EDC !== undefined) {
+        document.getElementById('edc').innerHTML = jsonData.EDC
+      }
+    
+      // Update zone values based on received JSON data
+      if (jsonData.MOIS1 !== undefined) {
+        zone1 = jsonData.MOIS1
+        d_zone1.refresh(zone1)
+      }
+    
+      if (jsonData.MOIS2 !== undefined) {
+        zone2 = jsonData.MOIS2
+        d_zone2.refresh(zone2)
+      }
+    
+      if (jsonData.MOIS3 !== undefined) {
+        zone3 = jsonData.MOIS3
+        d_zone3.refresh(zone3)
+      }
+    
+      if (jsonData.MOIS4 !== undefined) {
+        zone4 = jsonData.MOIS4
+        d_zone4.refresh(zone4)
+      }
+    
+      // temperature
+      if (jsonData.TEMP1 !== undefined) {
+        tempGenerator.refresh(jsonData.TEMP1)
+      }
+      if (jsonData.TEMP2 !== undefined) {
+        tempBat1.refresh(jsonData.TEMP2)
+      }
+      if (jsonData.TEMP3 !== undefined) {
+        tempBat2.refresh(jsonData.TEMP3)
+      }
+
+      if (jsonData.TEMP !== undefined) {
+        room_temp.refresh(jsonData.TEMP)
+      }
+    
+      if (jsonData.RPM !== undefined) {
+        const img = document.getElementById('img_generator')
+        console.log(jsonData.RPM)
+        if (jsonData.RPM > 0) {
+          img.src = '/static/img/generator.gif'
+        } else {
+          img.src = '/static/img/generator.png'
+        }
+        rpmGenerator.refresh(jsonData.RPM)
+      }
+      console.log(`Received Message: ${message.toString()} On topic: ${topic}`)
+    })
+  </script>
+
+{% endblock %}

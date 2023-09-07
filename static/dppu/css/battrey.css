@@ -5,7 +5,7 @@
     font-family: "Roboto Mono", monospace;
   }
   
-  #battery {
+  /* #battery {
     box-sizing: content-box;
     height: 7.8em;
     width: 17.5em;
@@ -15,8 +15,19 @@
     position: relative;
     display: grid;
     place-items: center;
-  }
-  #battery:before {
+  } */
+  #battery {
+    box-sizing: content-box;
+    height: 2.8em;
+    width: 8.5em;
+    border: 0.6em solid green;
+    margin: auto;
+    border-radius: -0.4em;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+  /* #battery:before {
     position: absolute;
     content: "";
     height: 5em;
@@ -27,18 +38,42 @@
     bottom: 0;
     right: -1.6em;
     border-radius: 0 0.3em 0.3em 0;
-  }
-  #charge {
+  } */
+
+  #battery:before {
+    position: absolute;
+    content: "";
+    height: 2em;
+    width: 1.1em;
+    background-color: green;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: -1.6em;
+    border-radius: 4 0.3em 0.3em 0;
+}
+  /* #charge {
     position: absolute;
     height: 6.5em;
     width: 16.25em;
     background-color: #246aed;
     top: 0.6em;
     left: 0.6em;
-  }
+  } */
+
+  #charge {
+    position: absolute;
+    height: 1.5em;
+    width: 20.25em;
+    background-color:green;
+    top: 0.6em;
+    left: 0.6em;
+}
+
   #charge-level {
     position: absolute;
     font-size: 3em;
+    color: black;
     font-weight: 500;
   }
   #charging-time {
