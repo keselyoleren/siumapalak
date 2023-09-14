@@ -146,6 +146,8 @@
         var LM1 = 'data/KMI/BALI/SIMORLM1';
         var LM2 = 'data/KMI/BALI/SIMORLM2';
         var LM3 = 'data/KMI/BALI/SIMORLM3';
+        var LORAMASTER2 = 'LORAMASTER2/output'
+        //client.publish(topicLampu, '1', { qos: 0, retain: false })
     
         client.on('error', (err) => {
             console.log('Connection error: ', err);
@@ -153,7 +155,7 @@
         });
     
         client.on('reconnect', () => {
-        console.log('Reconnecting...');
+            console.log('Reconnecting...');
         });
     
         client.on('connect', () => {

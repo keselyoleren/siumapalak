@@ -262,10 +262,10 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-6">
-                      <h4>Carging</h4>
+                      <h4>Charging</h4>
                     </div>
                     <div class="col-sm-6">
-                      <input type="checkbox" id="carging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
                 </div>
@@ -610,7 +610,6 @@
     }
 
     if (jsonData.SW3 !== undefined) {
-      console.log(jsonData.SW3, "sw 3")
       if (jsonData.SW3 >= -30) {
           height3.className = 'ww3 wave'
           medium3.className = 'ww3 wave'
@@ -697,9 +696,7 @@
       }
     
       // temperature
-      console.log(jsonData.TEMP1, 'tem 1')
       if (jsonData.TEMP1 !== undefined) {
-        console.log(jsonData.TEMP1, 'tem 1')
         tempGenerator.refresh(jsonData.TEMP1)
       }
       if (jsonData.TEMP2 !== undefined) {
@@ -726,4 +723,62 @@
     })
   </script>
 
+  <script>
+    const chargingCheckbox = $("#charging");
+    chargingCheckbox.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (chargingCheckbox.prop("checked")) {
+        client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
+        console.log('Charging is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
+        console.log('Charging is OFF');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
+    const pompa1 = $("#pompa1");
+    pompa1.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa1.prop("checked")) {
+        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+        console.log('Pompa 1 is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+        console.log('Pompa 1 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
+    const pompa2 = $("#pompa2");
+    pompa2.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa2.prop("checked")) {
+        client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
+    const pompa3 = $("#pompa3");
+    pompa3.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa3.prop("checked")) {
+        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+  </script>
+  
 {% endblock %}
