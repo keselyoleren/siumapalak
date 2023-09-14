@@ -108,7 +108,7 @@
                             <br>
                             <br>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="waveStrength-3">
                                         <center><h5>sw 1</h5></center>
                                         <div id="height" class="wv4 wave" >
@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="waveStrength-3">
                                         <center><h5>sw 2</h5></center>
                                         <div id="height2" class="wv4 wave" >
@@ -134,6 +134,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-4">
+                                  <div class="waveStrength-3">
+                                      <center><h5>sw 3</h5></center>
+                                      <div id="height3" class="wv4 wave" >
+                                          <div id="medium3" class="wv4 wave">
+                                              <div id="normal3" class="wv2 wave">
+                                                  <div id="low3" class="wv1 wave">
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -501,65 +514,129 @@
     const room_temp = createTempGauge('room_temp', ' C', 0)
 
     const height = document.getElementById('height')
-    const height2 = document.getElementById('height2')
     const medium = document.getElementById('medium')
-    const medium2 = document.getElementById('medium2')
     const normal = document.getElementById('normal')
-    const normal2 = document.getElementById('normal2')
     const low = document.getElementById('low')
+    
+
+    const height2 = document.getElementById('height2')
+    const medium2 = document.getElementById('medium2')
+    const normal2 = document.getElementById('normal2')
     const low2 = document.getElementById('low2')
+
+    const height3 = document.getElementById('height3')
+    const medium3 = document.getElementById('medium3')
+    const normal3 = document.getElementById('normal3')
+    const low3 = document.getElementById('low3')
 
     
     client.on('message', (topic, message, packet) => {
       const jsonData = JSON.parse(message.toString())
       // SW 
-        if (jsonData.SW !== undefined) {
-            if (jsonData.SW >= -30) {
-                height.className = 'ww3 wave'
-                medium.className = 'ww3 wave'
-                normal.className = 'ww2 wave'
-                low.className = 'ww1 wave'
+      if (jsonData.SW1 !== undefined) {
+          if (jsonData.SW1 >= -30) {
+              height.className = 'ww3 wave'
+              medium.className = 'ww3 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
 
-                height2.className = 'ww3 wave'
-                medium2.className = 'ww3 wave'
-                normal2.className = 'ww2 wave'
-                low2.className = 'ww1 wave'
-            } 
-            if (jsonData.SW >= -67) {
-                height.className = 'ww4 wave'
-                medium.className = 'ww4 wave'
-                normal.className = 'ww2 wave'
-                low.className = 'ww1 wave'
+              height2.className = 'ww3 wave'
+              medium2.className = 'ww3 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -67) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
 
-                height2.className = 'ww4 wave'
-                medium2.className = 'ww4 wave'
-                normal2.className = 'ww2 wave'
-                low2.className = 'ww1 wave'
-            } 
-            if (jsonData.SW >= -70) {
-                height.className = 'ww4 wave'
-                medium.className = 'ww4 wave'
-                normal.className = 'ww2 wave'
-                low.className = 'ww1 wave'
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -70) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
 
-                height2.className = 'ww4 wave'
-                medium2.className = 'ww4 wave'
-                normal2.className = 'ww2 wave'
-                low2.className = 'ww1 wave'
-            } 
-            if (jsonData.SW >= -80) {
-                height.className = 'ww4 wave'
-                medium.className = 'ww4 wave'
-                normal.className = 'ww4 wave'
-                low.className = 'ww1 wave'
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -80) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww4 wave'
+              low.className = 'ww1 wave'
 
-                height2.className = 'ww4 wave'
-                medium2.className = 'ww4 wave'
-                normal2.className = 'ww4 wave'
-                low2.className = 'ww1 wave'
-            } 
-            //document.getElementById('SW').innerHTML = jsonData.SW
-        }
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww4 wave'
+              low2.className = 'ww1 wave'
+          } 
+          //document.getElementById('SW').innerHTML = jsonData.SW
+      }
+
+      if (jsonData.SW2 !== undefined) {
+        if (jsonData.SW2 >= -30) {
+            height2.className = 'ww3 wave'
+            medium2.className = 'ww3 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
+        } 
+        if (jsonData.SW2 >= -67) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
+        } 
+        if (jsonData.SW2 >= -70) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
+        } 
+        if (jsonData.SW2 >= -80) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww4 wave'
+            low2.className = 'ww1 wave'
+        } 
+        //document.getElementById('SW').innerHTML = jsonData.SW
+    }
+
+    if (jsonData.SW3 !== undefined) {
+      console.log(jsonData.SW3, "sw 3")
+      if (jsonData.SW3 >= -30) {
+          height3.className = 'ww3 wave'
+          medium3.className = 'ww3 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
+      } 
+      if (jsonData.SW3 >= -67) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
+      } 
+      if (jsonData.SW3 >= -70) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
+      } 
+      if (jsonData.SW3 >= -80) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww4 wave'
+          low3.className = 'ww1 wave'
+      } 
+      //document.getElementById('SW').innerHTML = jsonData.SW
+  }
     
       // update data
       if (jsonData.IDC !== undefined) {
@@ -620,7 +697,9 @@
       }
     
       // temperature
+      console.log(jsonData.TEMP1, 'tem 1')
       if (jsonData.TEMP1 !== undefined) {
+        console.log(jsonData.TEMP1, 'tem 1')
         tempGenerator.refresh(jsonData.TEMP1)
       }
       if (jsonData.TEMP2 !== undefined) {
@@ -636,7 +715,7 @@
     
       if (jsonData.RPM !== undefined) {
         const img = document.getElementById('img_generator')
-        console.log(jsonData.RPM)
+        
         if (jsonData.RPM > 0) {
           img.src = '/static/img/generator.gif'
         } else {
@@ -644,7 +723,6 @@
         }
         rpmGenerator.refresh(jsonData.RPM)
       }
-      console.log(`Received Message: ${message.toString()} On topic: ${topic}`)
     })
   </script>
 

@@ -145,6 +145,7 @@
         const client = mqtt.connect(brokerUrl, options);
         var LM1 = 'data/KMI/BALI/SIMORLM1';
         var LM2 = 'data/KMI/BALI/SIMORLM2';
+        var LM3 = 'data/KMI/BALI/SIMORLM3';
     
         client.on('error', (err) => {
             console.log('Connection error: ', err);
@@ -159,6 +160,7 @@
             console.log('Client connected');
             client.subscribe(LM1, { qos: 2 })
             client.subscribe(LM2, { qos: 2 })
+            client.subscribe(LM3, { qos: 2 })
         });
     </script>
 
