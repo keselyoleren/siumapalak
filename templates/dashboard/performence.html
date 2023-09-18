@@ -550,225 +550,201 @@
     const normal3 = document.getElementById('normal3')
     const low3 = document.getElementById('low3')
 
-    
-    client.on('message', (topic, message, packet) => {
-      const jsonData = JSON.parse(message.toString())
-      // SW 
+    mqtt_socket.onmessage = function (e) {
+      const jsonData = JSON.parse(e.data);
+      console.log(jsonData.RPM)
       if (jsonData.SW1 !== undefined) {
-          if (jsonData.SW1 >= -30) {
-              height.className = 'ww3 wave'
-              medium.className = 'ww3 wave'
-              normal.className = 'ww2 wave'
-              low.className = 'ww1 wave'
-
-              height2.className = 'ww3 wave'
-              medium2.className = 'ww3 wave'
-              normal2.className = 'ww2 wave'
-              low2.className = 'ww1 wave'
-          } 
-          if (jsonData.SW1 >= -67) {
-              height.className = 'ww4 wave'
-              medium.className = 'ww4 wave'
-              normal.className = 'ww2 wave'
-              low.className = 'ww1 wave'
-
-              height2.className = 'ww4 wave'
-              medium2.className = 'ww4 wave'
-              normal2.className = 'ww2 wave'
-              low2.className = 'ww1 wave'
-          } 
-          if (jsonData.SW1 >= -70) {
-              height.className = 'ww4 wave'
-              medium.className = 'ww4 wave'
-              normal.className = 'ww2 wave'
-              low.className = 'ww1 wave'
-
-              height2.className = 'ww4 wave'
-              medium2.className = 'ww4 wave'
-              normal2.className = 'ww2 wave'
-              low2.className = 'ww1 wave'
-          } 
-          if (jsonData.SW1 >= -80) {
-              height.className = 'ww4 wave'
-              medium.className = 'ww4 wave'
-              normal.className = 'ww4 wave'
-              low.className = 'ww1 wave'
-
-              height2.className = 'ww4 wave'
-              medium2.className = 'ww4 wave'
-              normal2.className = 'ww4 wave'
-              low2.className = 'ww1 wave'
-          } 
-          //document.getElementById('SW').innerHTML = jsonData.SW
-      }
-
-      if (jsonData.SW2 !== undefined) {
-        if (jsonData.SW2 >= -30) {
-            height2.className = 'ww3 wave'
-            medium2.className = 'ww3 wave'
-            normal2.className = 'ww2 wave'
-            low2.className = 'ww1 wave'
+        if (jsonData.SW1 >= -30) {
+            height.className = 'ww3 wave'
+            medium.className = 'ww3 wave'
+            normal.className = 'ww2 wave'
+            low.className = 'ww1 wave'
+            
         } 
-        if (jsonData.SW2 >= -67) {
-            height2.className = 'ww4 wave'
-            medium2.className = 'ww4 wave'
-            normal2.className = 'ww2 wave'
-            low2.className = 'ww1 wave'
+        if (jsonData.SW1 >= -67) {
+            height.className = 'ww4 wave'
+            medium.className = 'ww4 wave'
+            normal.className = 'ww2 wave'
+            low.className = 'ww1 wave'
+
         } 
-        if (jsonData.SW2 >= -70) {
-            height2.className = 'ww4 wave'
-            medium2.className = 'ww4 wave'
-            normal2.className = 'ww2 wave'
-            low2.className = 'ww1 wave'
+        if (jsonData.SW1 >= -70) {
+            height.className = 'ww4 wave'
+            medium.className = 'ww4 wave'
+            normal.className = 'ww2 wave'
+            low.className = 'ww1 wave'
+
         } 
-        if (jsonData.SW2 >= -80) {
-            height2.className = 'ww4 wave'
-            medium2.className = 'ww4 wave'
-            normal2.className = 'ww4 wave'
-            low2.className = 'ww1 wave'
+        if (jsonData.SW1 >= -80) {
+            height.className = 'ww4 wave'
+            medium.className = 'ww4 wave'
+            normal.className = 'ww4 wave'
+            low.className = 'ww1 wave'
         } 
         //document.getElementById('SW').innerHTML = jsonData.SW
     }
 
-    if (jsonData.SW3 !== undefined) {
-      if (jsonData.SW3 >= -30) {
-          height3.className = 'ww3 wave'
-          medium3.className = 'ww3 wave'
-          normal3.className = 'ww2 wave'
-          low3.className = 'ww1 wave'
+    if (jsonData.SW2 !== undefined) {
+      if (jsonData.SW2 >= -30) {
+          height2.className = 'ww3 wave'
+          medium2.className = 'ww3 wave'
+          normal2.className = 'ww2 wave'
+          low2.className = 'ww1 wave'
       } 
-      if (jsonData.SW3 >= -67) {
-          height3.className = 'ww4 wave'
-          medium3.className = 'ww4 wave'
-          normal3.className = 'ww2 wave'
-          low3.className = 'ww1 wave'
+      if (jsonData.SW2 >= -67) {
+          height2.className = 'ww4 wave'
+          medium2.className = 'ww4 wave'
+          normal2.className = 'ww2 wave'
+          low2.className = 'ww1 wave'
       } 
-      if (jsonData.SW3 >= -70) {
-          height3.className = 'ww4 wave'
-          medium3.className = 'ww4 wave'
-          normal3.className = 'ww2 wave'
-          low3.className = 'ww1 wave'
+      if (jsonData.SW2 >= -70) {
+          height2.className = 'ww4 wave'
+          medium2.className = 'ww4 wave'
+          normal2.className = 'ww2 wave'
+          low2.className = 'ww1 wave'
       } 
-      if (jsonData.SW3 >= -80) {
-          height3.className = 'ww4 wave'
-          medium3.className = 'ww4 wave'
-          normal3.className = 'ww4 wave'
-          low3.className = 'ww1 wave'
+      if (jsonData.SW2 >= -80) {
+          height2.className = 'ww4 wave'
+          medium2.className = 'ww4 wave'
+          normal2.className = 'ww4 wave'
+          low2.className = 'ww1 wave'
       } 
       //document.getElementById('SW').innerHTML = jsonData.SW
-  }
-    
-      // update data
-      if (jsonData.IDC !== undefined) {
-        document.getElementById('idc').innerHTML = jsonData.IDC
-      }
-    
-      if (jsonData.PDC !== undefined) {
-        document.getElementById('pdc').innerHTML = jsonData.PDC
-      }
-    
-      if (jsonData.EDC !== undefined) {
-        document.getElementById('edc').innerHTML = jsonData.EDC
-      }
-    
-      if (jsonData.VAC !== undefined) {
-        document.getElementById('vac').innerHTML = jsonData.VAC
-      }
-    
-      if (jsonData.IAC !== undefined) {
-        document.getElementById('iac').innerHTML = jsonData.IAC
-      }
-    
-      if (jsonData.PAC !== undefined) {
-        document.getElementById('pac').innerHTML = jsonData.PAC
-      }
-    
-      if (jsonData.EAC !== undefined) {
-        document.getElementById('eac').innerHTML = jsonData.EAC
-      }
-    
-      if (jsonData.VDC !== undefined) {
-        document.getElementById('vdc').innerHTML = jsonData.VDC
-      }
-    
-      if (jsonData.EDC !== undefined) {
-        document.getElementById('edc').innerHTML = jsonData.EDC
-      }
-    
-      // Update zone values based on received JSON data
-      if (jsonData.MOIS1 !== undefined) {
-        zone1 = jsonData.MOIS1
-        d_zone1.refresh(zone1)
-      }
-    
-      if (jsonData.MOIS2 !== undefined) {
-        zone2 = jsonData.MOIS2
-        d_zone2.refresh(zone2)
-      }
-    
-      if (jsonData.MOIS3 !== undefined) {
-        zone3 = jsonData.MOIS3
-        d_zone3.refresh(zone3)
-      }
-    
-      if (jsonData.MOIS4 !== undefined) {
-        zone4 = jsonData.MOIS4
-        d_zone4.refresh(zone4)
-      }
-    
-      // temperature
-      if (jsonData.TEMP1 !== undefined) {
-        tempGenerator.refresh(jsonData.TEMP1)
-      }
-      if (jsonData.TEMP2 !== undefined) {
-        tempBat1.refresh(jsonData.TEMP2)
-      }
-      if (jsonData.TEMP3 !== undefined) {
-        tempBat2.refresh(jsonData.TEMP3)
-      }
+    }
 
-      if (jsonData.TEMP !== undefined) {
-        room_temp.refresh(jsonData.TEMP)
-      }
-    
-      if (jsonData.RPM !== undefined) {
-        const img = document.getElementById('img_generator')
-        
-        if (jsonData.RPM > 0) {
-          img.src = '/static/img/generator.gif'
-        } else {
-          img.src = '/static/img/generator.png'
-        }
-        rpmGenerator.refresh(jsonData.RPM)
-      }
+    if (jsonData.SW3 !== undefined) {
+          if (jsonData.SW3 >= -30) {
+              height3.className = 'ww3 wave'
+              medium3.className = 'ww3 wave'
+              normal3.className = 'ww2 wave'
+              low3.className = 'ww1 wave'
+          } 
+          if (jsonData.SW3 >= -67) {
+              height3.className = 'ww4 wave'
+              medium3.className = 'ww4 wave'
+              normal3.className = 'ww2 wave'
+              low3.className = 'ww1 wave'
+          } 
+          if (jsonData.SW3 >= -70) {
+              height3.className = 'ww4 wave'
+              medium3.className = 'ww4 wave'
+              normal3.className = 'ww2 wave'
+              low3.className = 'ww1 wave'
+          } 
+          if (jsonData.SW3 >= -80) {
+              height3.className = 'ww4 wave'
+              medium3.className = 'ww4 wave'
+              normal3.className = 'ww4 wave'
+              low3.className = 'ww1 wave'
+          } 
+          //document.getElementById('SW').innerHTML = jsonData.SW
+    }
+  
+    // update data
+    if (jsonData.IDC !== undefined) {
+      document.getElementById('idc').innerHTML = jsonData.IDC
+    }
+  
+    if (jsonData.PDC !== undefined) {
+      document.getElementById('pdc').innerHTML = jsonData.PDC
+    }
+  
+    if (jsonData.EDC !== undefined) {
+      document.getElementById('edc').innerHTML = jsonData.EDC
+    }
+  
+    if (jsonData.VAC !== undefined) {
+      document.getElementById('vac').innerHTML = jsonData.VAC
+    }
+  
+    if (jsonData.IAC !== undefined) {
+      document.getElementById('iac').innerHTML = jsonData.IAC
+    }
+  
+    if (jsonData.PAC !== undefined) {
+      document.getElementById('pac').innerHTML = jsonData.PAC
+    }
+  
+    if (jsonData.EAC !== undefined) {
+      document.getElementById('eac').innerHTML = jsonData.EAC
+    }
+  
+    if (jsonData.VDC !== undefined) {
+      document.getElementById('vdc').innerHTML = jsonData.VDC
+    }
+  
+    if (jsonData.EDC !== undefined) {
+      document.getElementById('edc').innerHTML = jsonData.EDC
+    }
+  
+    // Update zone values based on received JSON data
+    if (jsonData.MOIS1 !== undefined) {
+      zone1 = jsonData.MOIS1
+      d_zone1.refresh(zone1)
+    }
+  
+    if (jsonData.MOIS2 !== undefined) {
+      zone2 = jsonData.MOIS2
+      d_zone2.refresh(zone2)
+    }
+  
+    if (jsonData.MOIS3 !== undefined) {
+      zone3 = jsonData.MOIS3
+      d_zone3.refresh(zone3)
+    }
+  
+    if (jsonData.MOIS4 !== undefined) {
+      zone4 = jsonData.MOIS4
+      d_zone4.refresh(zone4)
+    }
+  
+    // temperature
+    if (jsonData.TEMP1 !== undefined) {
+      tempGenerator.refresh(jsonData.TEMP1)
+    }
+    if (jsonData.TEMP2 !== undefined) {
+      tempBat1.refresh(jsonData.TEMP2)
+    }
+    if (jsonData.TEMP3 !== undefined) {
+      tempBat2.refresh(jsonData.TEMP3)
+    }
+
+    if (jsonData.TEMP !== undefined) {
+      room_temp.refresh(jsonData.TEMP)
+    }
+  
+    if (jsonData.RPM !== undefined) {
+      const img = document.getElementById('img_generator')
       
-      if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
-        var gateButton = document.getElementById('gate');
-        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
+      if (jsonData.RPM > 0) {
+        img.src = '/static/img/generator.gif'
       } else {
-        var gateButton = document.getElementById('gate');
-        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+        img.src = '/static/img/generator.png'
       }
-      // if (jsonData.PINTU !== 'undefined') {
-      //   if (jsonData.PINTU == 1) {
-      //     $('#gate').bootstrapToggle('on', true);
-      //   }
-      // }
-    })
+      rpmGenerator.refresh(jsonData.RPM)
+    }
+    
+    if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
+      var gateButton = document.getElementById('gate');
+      gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+      gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
+    } else {
+      var gateButton = document.getElementById('gate');
+      gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+      gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+    }
+    };
   </script>
 
   <script>
     const chargingCheckbox = $("#charging");
     chargingCheckbox.on("change", function() {
-      // Check if the checkbox is checked or unchecked
       if (chargingCheckbox.prop("checked")) {
-        client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:1}))
         console.log('Charging is ON');
-        // You can perform other actions here when it's checked
+      
       } else {
-        client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:"off"}))
         console.log('Charging is OFF');
         // You can perform other actions here when it's unchecked
       }
@@ -778,11 +754,13 @@
     pompa1.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa1.prop("checked")) {
-        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:11}))
+        //client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:12}))
+        //client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -792,11 +770,13 @@
     pompa2.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa2.prop("checked")) {
-        client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:21}))
+        //client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
+        //client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:20}))
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -806,11 +786,13 @@
     pompa3.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa3.prop("checked")) {
-        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+        //client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:31}))
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
+        mqtt_socket.send(JSON.stringify({message:30}))
+        //client.publish(LORAMASTER2, '30', { qos: 30, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's unchecked
       }

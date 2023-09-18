@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 DJANGO_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,8 +84,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+ASGI_APPLICATION = 'config.routing.application'
 
-
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            # "hosts": [('127.0.0.1', 6379)],
+            "hosts": [config('REDIS_HOST', "redis://:sOmE_sEcUrE_pAsS@192.168.1.22:6379/0")],
+        },
+    },
+}
+REDIS_HOST = config('REDIS_HOST', "redis://:sOmE_sEcUrE_pAsS@192.168.1.22:6379/0")
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

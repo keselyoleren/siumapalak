@@ -135,35 +135,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
     <script>
-        const brokerUrl = 'ws://mqtt.ruanglab.com:8083/mqtt'; // Replace with your broker's URL
-        const options = {
-            username: 'ruanglab',
-            password: 'ruanglab@yk'
+        var ws = 'ws://';
+        if (location.protocol === 'https:') {
+            ws = 'wss://'
+        }
+
+        var mqtt_socket = new WebSocket(ws + window.location.host + encodeURI('/ws/mqtt'));
+        mqtt_socket.onopen = (event) => {
+            console.log('WebSocket connection opened:', event);
         };
-    
-        const client = mqtt.connect(brokerUrl, options);
-        var LM1 = 'data/KMI/BALI/SIMORLM1';
-        var LM2 = 'data/KMI/BALI/SIMORLM2';
-        var LM3 = 'data/KMI/BALI/SIMORLM3';
-        var LORAMASTER2 = 'LORAMASTER2/output'
-        //client.publish(topicLampu, '1', { qos: 0, retain: false })
-    
-        client.on('error', (err) => {
-            console.log('Connection error: ', err);
-            client.end();
-        });
-    
-        client.on('reconnect', () => {
-            console.log('Reconnecting...');
-        });
-    
-        client.on('connect', () => {
-            console.log('Client connected');
-            client.subscribe(LM1, { qos: 2 })
-            client.subscribe(LM2, { qos: 2 })
-            client.subscribe(LM3, { qos: 2 })
-        });
     </script>
 
     {% if messages %}
