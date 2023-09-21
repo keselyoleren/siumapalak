@@ -120,24 +120,26 @@
       <div class="row">
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-md-8">
-          <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card border-left-default shadow h-100 py-2">
             <div class="card-header">
               <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Rpm Generator</h4>
             </div>
             <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div  style="position: absolute; top: 0px; left: 40px;">
-                                <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 180px; width: 350px;">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div id="rpm_generator" class="gauge"></div>
-                        </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div id="rpm_generator" class="gauge"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 150px; width: 225px;">
                       </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -746,7 +748,7 @@
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
-      } else {
+      } else if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 0) {
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
