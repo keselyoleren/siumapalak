@@ -1,3 +1,4 @@
+
 {% extends 'layouts/main.html' %}
 <style>
   button {
@@ -119,28 +120,30 @@
     <div class="card-body">
       <div class="row">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-8">
-          <div class="card border-left-default shadow h-100 py-2">
+        <div class="col-md-8 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-header">
               <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Rpm Generator</h4>
             </div>
             <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                      <div id="rpm_generator" class="gauge"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="table-responsive">
-                        <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 150px; width: 225px;">
+              <div class="row no-gutters align-items-center">
+                <div class="col-xl-6 col-md-6 col-xs-12 mb-4">
+                  <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="width: 100%;">
+                  {% comment %} <div class="">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div  style="position: absolute; top: 0px; left: 40px;">
+                                <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 180px; width: 350px;">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div id="rpm_generator" class="gauge"></div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                  </div> {% endcomment %}
+                </div>
+                <div class="col-xl-6 col-md-6 col-xs-12 mb-4">
+                  <div id="rpm_generator" class="gauge" style="width: 100%; margin: 0 auto;"></div>
                 </div>
               </div>
             </div>
@@ -154,51 +157,61 @@
                   <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Kapasitas Baterai. Sinyal Wifi Gateway</h4>
                 </div>
                 <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div id="battery">
-                                <div id="charge"></div>
-                                <div id="charge-level"></div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div >
+                              <div >
+                                <div id="battery">
+                                    <div id="charge"></div>
+                                    <div id="charge-level"></div>
+                                </div>
+                              </div>
                             </div>
                             <br><br>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="waveStrength-3">
-                                        <center><h5>sw 1</h5></center>
-                                        <div id="height" class="wv4 wave" >
-                                            <div id="medium" class="wv4 wave">
-                                                <div id="normal" class="wv2 wave">
-                                                    <div id="low" class="wv1 wave">
+                                        <center>
+                                            <h5>sw 1</h5>
+                                            <div id="height" class="wv4 wave" style="margin: 0 auto;">
+                                                <div id="medium" class="wv4 wave">
+                                                    <div id="normal" class="wv2 wave">
+                                                        <div id="low" class="wv1 wave">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </center>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="waveStrength-3">
-                                        <center><h5>sw 2</h5></center>
-                                        <div id="height2" class="wv4 wave" >
-                                            <div id="medium2" class="wv4 wave">
-                                                <div id="normal2" class="wv2 wave">
-                                                    <div id="low2" class="wv1 wave">
+                                        <center>
+                                            <h5>sw 2</h5>
+                                            <div id="height2" class="wv4 wave" style="margin: 0 auto;">
+                                                <div id="medium2" class="wv4 wave">
+                                                    <div id="normal2" class="wv2 wave">
+                                                        <div id="low2" class="wv1 wave">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </center>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                   <div class="waveStrength-3">
-                                      <center><h5>sw 3</h5></center>
-                                      <div id="height3" class="wv4 wave" >
-                                          <div id="medium3" class="wv4 wave">
-                                              <div id="normal3" class="wv2 wave">
-                                                  <div id="low3" class="wv1 wave">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
+                                      <center>
+                                        <h5>sw 3</h5>
+                                        <div id="height3" class="wv4 wave" style="margin: 0 auto;">
+                                            <div id="medium3" class="wv4 wave">
+                                                <div id="normal3" class="wv2 wave">
+                                                    <div id="low3" class="wv1 wave">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </center>
                                   </div>
                               </div>
                             </div>
@@ -213,7 +226,7 @@
   </div>
 
   
-  <div class="col-md-12">
+  {% comment %} <div class="col-md-12"> {% endcomment %}
     <div class="card shadow mb-4">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         <h4 class="m-0 font-weight-bold text-primary">Control</h4>
@@ -221,7 +234,7 @@
   
       <div class="card-body">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -230,7 +243,7 @@
                       <div class="col-sm-6">
                         <h4>Charging</h4>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" style="text-align: right;">
                         <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                       </div>
                     </div>
@@ -239,7 +252,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -248,7 +261,7 @@
                       <div class="col-sm-6">
                         <h4>Pompa 1</h4>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" style="text-align: right;">
                         <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                       </div>
                     </div>
@@ -257,7 +270,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -266,7 +279,7 @@
                       <div class="col-sm-6">
                         <h4>Pompa 2</h4>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" style="text-align: right;">
                         <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                       </div>
                     </div>
@@ -275,7 +288,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-12 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -284,7 +297,7 @@
                       <div class="col-sm-6">
                         <h4>Pompa 3</h4>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" style="text-align: right;">
                         <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                       </div>
                     </div>
@@ -299,7 +312,7 @@
   
       </div>
     </div>
-  </div>
+  {% comment %} </div> {% endcomment %}
   
 
   
@@ -317,7 +330,7 @@
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 1</div>
                   <div id="zone1" class="gauge"></div>
                 </div>
@@ -331,7 +344,7 @@
           <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Zone 2</div>
                   <div id="zone2" class="gauge"></div>
                 </div>
@@ -345,7 +358,7 @@
           <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
+                <div class="col">
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Zone 3</div>
                   <div id="zone3" class="gauge"></div>
                 </div>
@@ -379,7 +392,7 @@
     <div class="card-body">
       <div class="row">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -393,7 +406,7 @@
         </div>
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
           <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -407,7 +420,7 @@
         </div>
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
           <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
               <div class="row no-gutters align-items-center">
@@ -419,7 +432,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-4">
             <div class="card border-left-info shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
