@@ -18,4 +18,4 @@ class UserLoginView(LoginView):
     form_class = LoginForm
 
     def get_success_url(self) -> str:
-        return "http://www.siumapalak.com/ui/"
+        return "/dashboard"
