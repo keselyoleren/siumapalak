@@ -11,3 +11,11 @@ class TrendingView(TemplateView):
 
 class PerformenceView(TemplateView):
     template_name = "dashboard/performence.html"
+
+
+class HomeView(TemplateView):
+    template_name = "home.html"
+
+
+class SchemaVIew(TemplateView):
+    template_name = "home/schema.html"
