@@ -19,3 +19,4 @@ class UserLoginView(LoginView):
 
     def get_success_url(self) -> str:
         return "/dashboard"
+
