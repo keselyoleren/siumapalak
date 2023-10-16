@@ -22,7 +22,7 @@ from data.views import DashboardView, HomeView, PerformenceView, SchemaVIew, Tre
 from manage_user.views.login import UserLoginView
 
 urlpatterns = [
-    # path("", HomeView.as_view(), name="home"),
+    path("home", HomeView.as_view(), name="home"),
     path("", UserLoginView.as_view(), name="login"),
     path('admin/', admin.site.urls),
     path("dashboard", DashboardView.as_view(), name="dashboard"),
