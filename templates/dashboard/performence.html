@@ -21,96 +21,6 @@
     <h1 class="h3 mb-0 text-gray-800">Performance</h1>
   </div>
 
-  <div class="row">
-    <!-- Area Chart -->
-    <div class="col-md-8">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Data</h4>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <ul class="list-group">
-            <div class="row">
-              <div class="col-md-6">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  V DC
-                  <span id="vdc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  I DC
-                  <span id="idc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  P DC
-                  <span id="pdc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  E DC
-                  <span id="edc" class="badge badge-primary badge-pill">0</span>
-                </li>
-              </div>
-              <div class="col-md-6">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  V AC
-                  <span id="vac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  I AC
-                  <span id="iac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  P AC
-                  <span id="pac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  E AC
-                  <span id="eac" class="badge badge-primary badge-pill">0</span>
-                </li>
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Gate</h4>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="col-xl-12 col-md-12 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <button class="btn btn-danger" id="gate">CLOSE</button>
-                        </div>
-                        <div class="col-auto">
-                          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M320 32c0-9.9-4.5-19.2-12.3-25.2S289.8-1.4 280.2 1l-179.9 45C79 51.3 64 70.5 64 92.5V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H96 288h32V480 32zM256 256c0 17.7-10.7 32-24 32s-24-14.3-24-32s10.7-32 24-32s24 14.3 24 32zm96-128h96V480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H512V128c0-35.3-28.7-64-64-64H352v64z"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-          {% comment %} <div class="col mr-2">
-            <div class="row">
-              <div class="col-sm-6">
-                <h4>Gate</h4>
-              </div>
-              <div class="col-sm-6">
-                <input type="checkbox"  id="gate" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-              </div>
-            </div>
-          </div> {% endcomment %}
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">General</h4>
@@ -119,21 +29,18 @@
     <div class="card-body">
       <div class="row">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card border-left-default shadow h-100 py-2">
-            <div class="card-header">
-              <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Rpm Generator</h4>
-            </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                       <div id="rpm_generator" class="gauge"></div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                       <div class="table-responsive">
@@ -142,172 +49,238 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-header">
-                  <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Kapasitas Baterai. Sinyal Wifi Gateway</h4>
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Level Air</div>
+                      <div id="level_air" class="gauge"></div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div id="battery">
-                                <div id="charge"></div>
-                                <div id="charge-level"></div>
-                            </div>
-                            <br><br>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="waveStrength-3">
-                                        <center><h5>sw 1</h5></center>
-                                        <div id="height" class="wv4 wave" >
-                                            <div id="medium" class="wv4 wave">
-                                                <div id="normal" class="wv2 wave">
-                                                    <div id="low" class="wv1 wave">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="waveStrength-3">
-                                        <center><h5>sw 2</h5></center>
-                                        <div id="height2" class="wv4 wave" >
-                                            <div id="medium2" class="wv4 wave">
-                                                <div id="normal2" class="wv2 wave">
-                                                    <div id="low2" class="wv1 wave">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <div class="waveStrength-3">
-                                      <center><h5>sw 3</h5></center>
-                                      <div id="height3" class="wv4 wave" >
-                                          <div id="medium3" class="wv4 wave">
-                                              <div id="normal3" class="wv2 wave">
-                                                  <div id="low3" class="wv1 wave">
-                                                  </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div id="battery">
+                          <div id="charge"></div>
+                          <div id="charge-level"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4">
+                              <div class="waveStrength-3">
+                                  <center><h5>sw 1</h5></center>
+                                  <div id="height" class="wv4 wave" >
+                                      <div id="medium" class="wv4 wave">
+                                          <div id="normal" class="wv2 wave">
+                                              <div id="low" class="wv1 wave">
                                               </div>
                                           </div>
                                       </div>
                                   </div>
                               </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="waveStrength-3">
+                                  <center><h5>sw 2</h5></center>
+                                  <div id="height2" class="wv4 wave" >
+                                      <div id="medium2" class="wv4 wave">
+                                          <div id="normal2" class="wv2 wave">
+                                              <div id="low2" class="wv1 wave">
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="waveStrength-3">
+                                <center><h5>sw 3</h5></center>
+                                <div id="height3" class="wv4 wave" >
+                                    <div id="medium3" class="wv4 wave">
+                                        <div id="normal3" class="wv2 wave">
+                                            <div id="low3" class="wv1 wave">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <div class="col-md-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Gate</div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <button class="btn btn-danger" id="gate">CLOSE</button>
+                        </div>
+                        <div class="col-auto">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M320 32c0-9.9-4.5-19.2-12.3-25.2S289.8-1.4 280.2 1l-179.9 45C79 51.3 64 70.5 64 92.5V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H96 288h32V480 32zM256 256c0 17.7-10.7 32-24 32s-24-14.3-24-32s10.7-32 24-32s24 14.3 24 32zm96-128h96V480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H512V128c0-35.3-28.7-64-64-64H352v64z"/></svg>
+                      </div>
+                    </div>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
 
+  <br>
   
-  <div class="col-md-12">
-    <div class="card shadow mb-4">
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h4 class="m-0 font-weight-bold text-primary">Control</h4>
-      </div>
-  
-      <div class="card-body">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Data</h4>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <ul class="list-group">
         <div class="row">
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Charging</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V DC
+              <span id="vdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I DC
+              <span id="idc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P DC
+              <span id="pdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E DC
+              <span id="edc" class="badge badge-primary badge-pill">0</span>
+            </li>
           </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 1</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 2</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 3</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V AC
+              <span id="vac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I AC
+              <span id="iac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P AC
+              <span id="pac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E AC
+              <span id="eac" class="badge badge-primary badge-pill">0</span>
+            </li>
           </div>
         </div>
-  
-      </div>
+      </ul>
     </div>
   </div>
   
-
   
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Control</h4>
+    </div>
 
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Charging</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 1</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 2</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 3</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+        </div>
+      </div>
+
+    </div>
+  </div>
   <!-- Content Row -->
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Zone</h4>
+      <h4 class="m-0 font-weight-bold text-primary">Soil Moisture</h4>
     </div>
 
     <div class="card-body">
@@ -507,6 +480,8 @@
         ],
         counter: true
       })
+
+    
     
     // Define temperature gauges
     const createTempGauge = (id, symbol, value) =>
@@ -535,6 +510,7 @@
     const tempBat1 = createTempGauge('temp_bat_1', ' C', 0)
     const tempBat2 = createTempGauge('temp_bat_2', ' C', 0)
     const room_temp = createTempGauge('room_temp', ' C', 0)
+    const level_air = createTempGauge('level_air', ' CM', 0)
 
     const height = document.getElementById('height')
     const medium = document.getElementById('medium')
