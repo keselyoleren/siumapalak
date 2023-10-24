@@ -28,11 +28,11 @@
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">I DC</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <canvas id="iac"></canvas>
+                    <canvas id="eac"></canvas>
                 </div>
             </div>
         </div>
@@ -110,4 +110,72 @@
     });
     
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('edc').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data EDC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.EDC !== undefined) {
+                    data = jsonData.EDC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
 {% endblock  %}
