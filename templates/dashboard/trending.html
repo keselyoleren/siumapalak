@@ -15,11 +15,11 @@
                 <!-- Card Header - Dropdown -->
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">I AC</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">E AC</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <canvas id="iac"></canvas>
+                    <canvas id="eac"></canvas>
                 </div>
             </div>
         </div>
@@ -38,92 +38,6 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">V AC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="vac"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">V DC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="vdc"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">P AC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="pac"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">P DC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="pdc"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">E AC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="eac"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="edc"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     
 
     
@@ -131,81 +45,69 @@
 {% block js %}
 
 <script>
-    var ctx = document.getElementById("iac");
-    const input = "{{ questions }}"
-    const scores_string = "{{ scores }}"
-    var surveyCategories = JSON.parse('[' + input.replace(/&#x27;/g, '"') + ']')[0];
-    var surveyScores = JSON.parse('[' + scores_string.replace(/&#x27;/g, '"') + ']')[0];
-    
-    var ctx = document.getElementById('survey_chart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'horizontalBar', // Use the 'horizontalBar' chart type
-        data: {
-            labels: surveyCategories,
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('eac').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
             datasets: [{
-                label: 'Survey Scores',
-                data: surveyScores,
-                backgroundColor: 'rgba(54, 162, 235, 0.7)', // Bar color
-                borderColor: 'rgba(54, 162, 235, 1)', // Border color
-                borderWidth: 1,
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            layout: {
-              padding: {
-                left: 10,
-                right: 25,
-                top: 25,
-                bottom: 0
-              }
-            },
+                label: 'Data EAC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
             scales: {
-              xAxes: [{
-                time: {
-                  unit: 'scores'
-                },
-                gridLines: {
-                  display: false,
-                  drawBorder: false
-                },
-                ticks: {
-                  maxTicksLimit: 100
-                }
-              }],
-              yAxes: [{
-                ticks: {
-                  maxTicksLimit: 20,
-                  padding: 10,
-                  
-                },
-                gridLines: {
-                  color: "rgb(234, 236, 244)",
-                  zeroLineColor: "rgb(234, 236, 244)",
-                  drawBorder: false,
-                }
-              }],
-            },
-            legend: {
-              display: false
-            },
-            tooltips: {
-              backgroundColor: "rgb(255,255,255)",
-              bodyFontColor: "#000000",
-              titleMarginBottom: 10,
-              titleFontColor: '#6e707e',
-              titleFontSize: 14,
-              borderColor: '#dddfeb',
-              borderWidth: 1,
-              xPadding: 15,
-              yPadding: 15,
-              displayColors: true,
-              intersect: false,
-              mode: 'index',
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
-          }
-       
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.EAC !== undefined) {
+                    data = jsonData.EAC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
     });
+    
 </script>
-
 {% endblock  %}
