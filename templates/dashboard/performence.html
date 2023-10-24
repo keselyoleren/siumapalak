@@ -433,9 +433,6 @@
     const charge = document.getElementById('charge')
     const chargingTimeRef = document.getElementById('charging-time')
     
-    let batteryLevel = `${parseInt(40)}%`
-    charge.style.width = batteryLevel
-    chargeLevel.textContent = batteryLevel
     
     var zone1 = 0
     var zone2 = 0
@@ -546,10 +543,29 @@
     const medium3 = document.getElementById('medium3')
     const normal3 = document.getElementById('normal3')
     const low3 = document.getElementById('low3')
-
+    
+    
+    let batteryLevel = `${parseInt(0)}%`
+    charge.style.width = batteryLevel
+    chargeLevel.textContent = batteryLevel
     
     client.on('message', (topic, message, packet) => {
       const jsonData = JSON.parse(message.toString())
+      
+      //battery
+      if (jsonData.VDC !== undefined) {
+        console.log(jsonData.VDC, "VDC")
+        if (jsonData.VDC >= 40.0){
+          batteryLevel = `${parseInt(100)}%`
+          charge.style.width = batteryLevel
+          chargeLevel.textContent = batteryLevel
+        } else if(jsonData.VDC <= 40.0){
+          batteryLevel = `${parseInt(0)}%`
+          charge.style.width = batteryLevel
+          chargeLevel.textContent = batteryLevel
+        }
+      }
+      
       // SW 
       if (jsonData.SW1 !== undefined) {
           if (jsonData.SW1 >= -30) {
