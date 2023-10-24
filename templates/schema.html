@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Schema | Siuma</title>
+    {% comment %} <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style type="text/css">
+        body { background-color: #f7f7f7; font-family: 'Roboto'; }
+.container { margin: 150px auto; max-width: 960px; }
+        .window {
+            font-weight: bold;
+            cursor: pointer;
+            {% comment %} border:1px solid #346789; {% endcomment %}
+            box-shadow: 2px 2px 10px #aaa;
+            -o-box-shadow: 2px 2px 10px #aaa;
+            -webkit-box-shadow: 2px 2px 10px #aaa;
+            -moz-box-shadow: 2px 2px 10px #aaa;
+            -moz-border-radius:0.5em;
+            border-radius:0.5em;
+            /*
+            opacity:0.8;
+            filter:alpha(opacity=80);
+            */
+            width: 10em; height: auto;
+            padding: 0.5em 0em;
+            text-align:center;
+            z-index:20; position:absolute;
+            background-color:#eeeeef;
+            color:black;
+            font-family:helvetica;
+            font-size:0.9em;
+            word-wrap:break-word;
+        }
+
+        .window:hover {
+            box-shadow: 2px 2px 10px #444;
+            -o-box-shadow: 2px 2px 10px #444;
+            -webkit-box-shadow: 2px 2px 10px #444;
+            -moz-box-shadow: 2px 2px 10px #444;
+            /*
+            opacity:0.6;
+            filter:alpha(opacity=60);
+            */
+        }
+
+        /*
+        .window > div {
+            margin-top: 19%;
+            margin-bottom: 19%;
+        }
+        */
+
+        .hidden {
+            display: none;
+        }
+
+        .collapser {
+            cursor: pointer;
+            border:1px dotted gray;
+            z-index:21;
+        }
+
+        .errorWindow {
+            border: 2px solid red;
+        }
+
+        #treemain {
+            height: 680px;
+            width: 100%;
+            position: relative;
+            {% comment %} overflow: auto; {% endcomment %}
+        }
+
+    </style>
+
+{% block content %}
+</head>
+<body class="antialiased border-top-wide border-primary d-flex flex-column">
+    <div class="container-fluid">
+        <!-- For demo purpose -->
+        <div class="row bg-success pb-4">
+            <div class="col-lg-12 mx-auto">
+                <div class="container-lg">
+                    <div class="p-3 shadow-sm rounded banner">
+                        <img src="{% static 'img/logosiuma.png'%}" height="90" width="225" alt="Logo Siuma">
+                        <h1 class="display-3">Skema Operasi</h1>
+                        <h3>Alur skema operasi <strong>SIUMA</strong>.</h3>
+                        <div class="py-2 text-right"><a href="{% url 'home' %}" class="btn btn-dark px-5 py-3 text-uppercase hover-shadow">Back Home</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End -->
+        <div class="row pb-3 mb-3">
+            <div class="col-md-12">
+                <div class="container-lg">
+                    <div class="p-3">
+                        <h3 class="display-5 mb-4 fw-bold">Diagram Skema SIUMA</h3>
+                        <hr></hr>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="container-lg">
+                    <div id="jquery-script-menu">
+                        {% comment %} <div class="jquery-script-center"> {% endcomment %}
+
+                        <div id="treemain">
+
+                            <div id="node_0" class="window hidden"
+                                data-id="0"
+                                data-parent=""
+                                data-first-child="1"
+                                data-next-sibling="">
+                                <img src="{% static 'img/icon-generator.svg'%}" class="w-100" alt="Icon generator">
+                            </div>
+
+                            <div id="node_1" class="window hidden"
+                                data-id="1"
+                                data-parent="0"
+                                data-first-child="2"
+                                data-next-sibling="">
+                                <img src="{% static 'img/icon-meteran.svg'%}" class="w-100" alt="Icon meteran">
+                            </div>
+
+                            <div id="node_2" class="window hidden"
+                                data-id="2"
+                                data-parent="1"
+                                data-first-child="4"
+                                data-next-sibling="3">
+                                <img src="{% static 'img/icon-battray.svg'%}" class="w-100" alt="Icon battery">
+                            </div>
+
+                            <div id="node_3" class="window hidden"
+                                data-id="3"
+                                data-parent="1"
+                                data-first-child=""
+                                data-next-sibling="">
+                                <img src="{% static 'img/icon-battray.svg'%}" class="w-100" alt="Icon battery">
+                            </div>
+
+                            <div id="node_4" class="window hidden"
+                                data-id="4"
+                                data-parent="2"
+                                data-first-child="6"
+                                data-next-sibling="5">
+                                <img src="{% static 'img/icon-lamp.svg'%}" class="w-100" alt="Icon Lamp">
+                            </div>
+
+                            <div id="node_5" class="window hidden"
+                                data-id="5"
+                                data-parent="2"
+                                data-first-child=""
+                                data-next-sibling="">
+                                <img src="{% static 'img/icon-soilmoisture.svg'%}" class="w-100" alt="Icon soilmoisture">
+                            </div>
+
+                            <div id="node_6" class="window hidden"
+                                data-id="6"
+                                data-parent="4"
+                                data-first-child=""
+                                data-next-sibling="7">
+                                <img src="{% static 'img/icon-waterlevel.svg'%}" class="w-25" alt="Icon waterlevel">
+                                <img src="{% static 'img/icon-waterpump.svg'%}" class="w-25" alt="Icon waterpump">
+                                <img src="{% static 'img/icon-signal.svg'%}" class="w-25" alt="Icon signal">
+                            </div>
+
+                            <div id="node_7" class="window hidden"
+                                data-id="7"
+                                data-parent="4"
+                                data-first-child=""
+                                data-next-sibling="8">
+                                <img src="{% static 'img/icon-waterlevel.svg'%}" class="w-25" alt="Icon waterlevel">
+                                <img src="{% static 'img/icon-waterpump.svg'%}" class="w-25" alt="Icon waterpump">
+                                <img src="{% static 'img/icon-signal.svg'%}" class="w-25" alt="Icon signal">
+                            </div>
+
+                            <div id="node_8" class="window hidden"
+                                data-id="8"
+                                data-parent="4"
+                                data-first-child=""
+                                data-next-sibling="9">
+                                <img src="{% static 'img/icon-waterlevel.svg'%}" class="w-25" alt="Icon waterlevel">
+                                <img src="{% static 'img/icon-waterpump.svg'%}" class="w-25" alt="Icon waterpump">
+                                <img src="{% static 'img/icon-signal.svg'%}" class="w-25" alt="Icon signal">
+                            </div>
+
+                            <div id="node_9" class="window hidden"
+                                data-id="9"
+                                data-parent="4"
+                                data-first-child=""
+                                data-next-sibling="">
+                                <img src="{% static 'img/icon-waterlevel.svg'%}" class="w-25" alt="Icon waterlevel">
+                                <img src="{% static 'img/icon-waterpump.svg'%}" class="w-25" alt="Icon waterpump">
+                                <img src="{% static 'img/icon-signal.svg'%}" class="w-25" alt="Icon signal">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Gallery item -->
+            <div class="mb-4">
+                <div class="col-md-12">
+                    <div class="container-lg">
+                        <hr class="border-primary-subtle mb-4">
+                        <span>Supported By</span>
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
+                                <img src="{% static 'img/uma_logo.png'%}" height="90" width="225" alt="Logo Siuma Palak">
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
+                                <img src="{% static 'img/logo_pertamina.png'%}" height="90" width="225" alt="Logo Pertamina">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/1.7.10/jsPlumb.min.js" integrity="sha512-A1gTsaWUck7mkEu6D8/938PKlkVS79TkgqAloQbGU4bhOPUBS9JVknN5x++J3eRNO8g6D/T3kqhHBd4KkqRNxg==" crossorigin="anonymous"></script>
+    {% comment %} <script type="text/javascript" src="../jsplumb-tree.js"></script> {% endcomment %}
+    <script src="{% static 'dppu/js/jsplumb-tree.js'%}"></script>
+
+    <script type="text/javascript">
+        // -- init -- //
+        jsPlumb.ready(function() {
+
+            // connection lines style
+            var connectorPaintStyle = {
+                lineWidth:3,
+                strokeStyle:"#4F81BE",
+                joinstyle:"round"
+            };
+
+            var pdef = {
+                // disable dragging
+                DragOptions: null,
+                // the tree container
+                Container : "treemain"
+            };
+            var plumb = jsPlumb.getInstance(pdef);
+
+            // all sizes are in pixels
+            var opts = {
+                prefix: 'node_',
+                // left margin of the root node
+                baseLeft: 24,
+                // top margin of the root node
+                baseTop: 24,
+                // node width
+                nodeWidth: 100,
+                // horizontal margin between nodes
+                hSpace: 36,
+                // vertical margin between nodes
+                vSpace: 10,
+                imgPlus: '/static/img/tree_expand.png',
+                imgMinus: '/static/img/tree_collapse.png',
+                // queste non sono tutte in pixel
+                sourceAnchor: [ 1, 0.5, 1, 0, 10, 0 ],
+                targetAnchor: "LeftMiddle",
+                sourceEndpoint: {
+                    endpoint:["Image", {url: "/static/img/tree_collapse.png"}],
+                    cssClass:"collapser",
+                    isSource:true,
+                    connector:[ "Flowchart", { stub:[40, 60], gap:[10, 0], cornerRadius:5, alwaysRespectStubs:false } ],
+                    connectorStyle:connectorPaintStyle,
+                    enabled: false,
+                    maxConnections:-1,
+                    dragOptions:null
+                },
+                targetEndpoint: {
+                    endpoint:"Blank",
+                    maxConnections:-1,
+                    dropOptions:null,
+                    enabled: false,
+                    isTarget:true
+                },
+                connectFunc: function(tree, node) {
+                    var cid = node.data('id');
+                    console.log('Connecting node ' + cid);
+                }
+            };
+            var tree = jQuery.jsPlumbTree(plumb, opts);
+            tree.init();
+            window.treemain = tree;
+        });
+
+        function positioningBlockBug() {
+            var oldNode = window.treemain.nodeById(2);
+            //var newNode = $('#node_2_new');
+            var newNode = $('    <div id="node_2" class="window hidden"\n' +
+                '         data-id="2"\n' +
+                '         data-parent="0"\n' +
+                '         data-first-child="6"\n' +
+                '         data-next-sibling="3">\n' +
+                '        Node 2 NEW\n' +
+                '    </div>\n');
+            if (oldNode) {
+                // butta il nodo nel container
+                oldNode.replaceWith(newNode);
+                // rimostra il nodo
+                newNode.id = 'node_2';
+                newNode.show();
+                // aggiorna l'albero
+                window.treemain.update();
+            }
+
+        }
+
+    </script>
+    
+{% endblock %}
+</body>
+</html>
