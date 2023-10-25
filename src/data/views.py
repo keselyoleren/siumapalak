@@ -17,5 +17,8 @@ class HomeView(TemplateView):
     template_name = "home.html"
 
 
-class SchemaVIew(TemplateView):
-    template_name = "home/schema.html"
+class SchemaView(TemplateView):
+    template_name = "schema.html"
+
+class KeteranganView(TemplateView):
+    template_name = "dashboard/keterangan.html"

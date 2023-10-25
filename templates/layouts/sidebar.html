@@ -1,8 +1,10 @@
 {% load static %}
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-text">Siumapalak</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboard' %}">
+        <div class="sidebar-brand-text">
+            <img src="{% static 'img/logosiuma.png'%}" alt="Logo Siuma" class="w-100">
+        </div>
     </a>
     
     <!-- Divider -->
@@ -27,6 +29,18 @@
         <a class="nav-link" href="{% url 'trending' %}">
             <i class="fas fa-fw fa-poll"></i>
             <span>Trending</span></a>
+    </li>
+
+    {% comment %} <li class="nav-item">
+        <a class="nav-link" href="{% url 'schema' %}">
+            <i class="fas fa-fw fa-compass"></i>
+            <span>Skema Operasi</span></a>
+    </li> {% endcomment %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'keterangan' %}">
+            <i class="fas fa-fw fa-info"></i>
+            <span>Keterangan</span></a>
     </li>
     
     <hr class="sidebar-divider">

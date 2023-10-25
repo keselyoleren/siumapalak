@@ -12,6 +12,7 @@
     <meta name="author" content="">
     
     <title>Siumapalak</title>
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}"/>
 
     {% block css %}{% endblock %}
 
@@ -176,11 +177,11 @@
         </script>
     {% endif %}
     {% block js %} {% endblock  %}
-    <script>
+    {% comment %} <script>
         $(document).ready(function() {
             $('#datatable').DataTable();
         });
-    </script>
+    </script> {% endcomment %}
 </body>
 
 </html>
