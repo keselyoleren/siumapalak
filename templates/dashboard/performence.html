@@ -820,25 +820,25 @@
       // Check if the checkbox is checked or unchecked
       if (pompa3.prop("checked")) {
         client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
+        console.log('Pompa 3 is ON');
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
+        console.log('Pompa 3 is ON');
         // You can perform other actions here when it's unchecked
       }
     });
 
-    const pompa3 = $("#pompa4");
-    pompa3.on("change", function() {
+    const pompa4 = $("#pompa4");
+    pompa4.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa3.prop("checked")) {
         client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
+        console.log('Pompa 4 is ON');
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
+        console.log('Pompa 4 is ON');
         // You can perform other actions here when it's unchecked
       }
     });
