@@ -53,7 +53,10 @@
                   <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                       <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Level Air</div>
-                      <div id="level_air" class="gauge"></div>
+                      <img src="/static/img/icon-soilmoisture.svg" class="w-100" alt="Icon soilmoisture" style="height: 150px; width: 225px;">
+                      <div class="col mr-2">
+                        <button class="btn btn-default" id="level_tinggi_air"></button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -763,6 +766,15 @@
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+      }
+      if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 1) {
+        var gateButton = document.getElementById('level_tinggi_air');
+        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+        gateButton.innerHTML = 'AMAN'; // Replace 'Open' with the desired text
+      } else if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
+        var gateButton = document.getElementById('level_tinggi_air');
+        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+        gateButton.innerHTML = 'TIDAK AMAN'; // Replace 'Open' with the desired text
       }
       // if (jsonData.PINTU !== 'undefined') {
       //   if (jsonData.PINTU == 1) {

@@ -14,7 +14,7 @@ class AccessMixin:
     Abstract CBV mixin that gives access mixins the same customizable
     functionality.
     """
-    login_url = "/auth/login/"
+    login_url = "/auth/login"
     login_user_url = '/auth/login/'
     permission_denied_message = 'Hayoo mau ngapain.. awas lo.. kena uu ITE..!!'
     raise_exception = False
