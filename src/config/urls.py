@@ -19,20 +19,20 @@ from django.conf.urls.static import static
 from django.conf import settings
 from data.views import DashboardView, HomeView, PerformenceView, SchemaView, TrendingView, KeteranganView
 
-from manage_user.views.login import UserLoginView
+from manage_user.views.login import UserLoginView, UserLogoutView
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
-    path("login", UserLoginView.as_view(), name="login"),
+    path('auth/', include([
+        path("login", UserLoginView.as_view(), name="login"),
+        path("logout", UserLogoutView.as_view(), name="logout"),
+    ])),
     path('admin/', admin.site.urls),
     path("dashboard", DashboardView.as_view(), name="dashboard"),
     path("trending", TrendingView.as_view(), name="trending"),
     path("performance", PerformenceView.as_view(), name="performance"),
     path("schema", SchemaView.as_view(), name="schema"),
     path("keterangan", KeteranganView.as_view(), name="keterangan"),
-    # path("auth/", include([
-    #     path("login/", UserLoginView.as_view(), name="login"),
-    # ])),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

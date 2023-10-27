@@ -28,7 +28,11 @@
                             <h1 class="display-3">Selamat Datang di <strong>SIUMA</strong></h1>
                             <h3>Suplai Energi Manajemen Irigasi Umapalak.</h3>
                             <p class="lead">Dibawah ini adalah layanan dari SIUMA.</p>
+                            {% if request.user.is_authenticated %}
+                            {% else %}
                             <div class="py-2 text-right"><a href="{% url 'login' %}" class="btn btn-dark px-5 py-3 text-uppercase hover-shadow">Login</a></div>
+                            {% endif %}
+                            
                         </div>
                     </div>
                 </div>
