@@ -877,11 +877,11 @@
     esd.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (esd.prop("checked")) {
-        client.publish(LORAMASTER2, '51', { qos: 0, retain: false })
+        client.publish(LORAMASTER3, '51', { qos: 0, retain: false })
         console.log('ESD is ON');
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '50', { qos: 0, retain: false })
+        client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
         console.log('ESD is OFF');
         // You can perform other actions here when it's unchecked
       }
