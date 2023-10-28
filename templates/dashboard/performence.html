@@ -209,6 +209,24 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-6">
+                      <h4>ESD</h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <input type="checkbox" id="esd" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
                       <h4>Charging</h4>
                     </div>
                     <div class="col-sm-6">
@@ -844,13 +862,27 @@
     const pompa4 = $("#pompa4");
     pompa4.on("change", function() {
       // Check if the checkbox is checked or unchecked
-      if (pompa3.prop("checked")) {
+      if (pompa4.prop("checked")) {
         client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
         console.log('Pompa 4 is ON');
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
         console.log('Pompa 4 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
+    const esd = $("#esd");
+    esd.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (esd.prop("checked")) {
+        client.publish(LORAMASTER2, '51', { qos: 0, retain: false })
+        console.log('ESD is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '50', { qos: 0, retain: false })
+        console.log('ESD is OFF');
         // You can perform other actions here when it's unchecked
       }
     });
