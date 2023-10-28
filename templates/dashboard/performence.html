@@ -449,6 +449,95 @@
   </div>
 {% endblock %}
 {% block js %}
+
+<script>
+    
+  const chargingCheckbox = $("#charging");
+  chargingCheckbox.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (chargingCheckbox.prop("checked")) {
+      client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
+      console.log('Charging is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
+      console.log('Charging is OFF');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+  const pompa1 = $("#pompa1");
+  pompa1.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (pompa1.prop("checked")) {
+      client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+      console.log('Pompa 1 is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+      console.log('Pompa 1 is ON');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+  const pompa2 = $("#pompa2");
+  pompa2.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (pompa2.prop("checked")) {
+      client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
+      console.log('Pompa 2 is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
+      console.log('Pompa 2 is ON');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+  const pompa3 = $("#pompa3");
+  pompa3.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (pompa3.prop("checked")) {
+      client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+      console.log('Pompa 3 is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
+      console.log('Pompa 3 is ON');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+  const pompa4 = $("#pompa4");
+  pompa4.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (pompa4.prop("checked")) {
+      client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
+      console.log('Pompa 4 is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
+      console.log('Pompa 4 is ON');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+  const esd = $("#esd");
+  esd.on("change", function() {
+    // Check if the checkbox is checked or unchecked
+    if (esd.prop("checked")) {
+      client.publish(LORAMASTER3, '51', { qos: 0, retain: false })
+      console.log('ESD is ON');
+      // You can perform other actions here when it's checked
+    } else {
+      client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
+      console.log('ESD is OFF');
+      // You can perform other actions here when it's unchecked
+    }
+  });
+
+
+</script>
   <script>
     const chargeLevel = document.getElementById('charge-level')
     const charge = document.getElementById('charge')
@@ -794,6 +883,34 @@
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'TIDAK AMAN'; // Replace 'Open' with the desired text
       }
+      
+      // status pomp1
+      if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+        pompa1.bootstrapToggle('on', true);
+      } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+        pompa1.bootstrapToggle('off', true);
+      }
+
+      if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
+        pompa2.bootstrapToggle('on', true);
+      } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
+        pompa2.bootstrapToggle('off', true);
+      }
+
+      if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+        pompa3.bootstrapToggle('on', true);
+      } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+        pompa3.bootstrapToggle('off', true);
+      }
+
+      if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
+        pompa4.bootstrapToggle('on', true);
+      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 0) {
+        pompa4.bootstrapToggle('off', true);
+      }
+
+      
+      
       // if (jsonData.PINTU !== 'undefined') {
       //   if (jsonData.PINTU == 1) {
       //     $('#gate').bootstrapToggle('on', true);
@@ -802,92 +919,5 @@
     })
   </script>
 
-  <script>
-    const chargingCheckbox = $("#charging");
-    chargingCheckbox.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (chargingCheckbox.prop("checked")) {
-        client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
-        console.log('Charging is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
-        console.log('Charging is OFF');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-    const pompa1 = $("#pompa1");
-    pompa1.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (pompa1.prop("checked")) {
-        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
-        console.log('Pompa 1 is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
-        console.log('Pompa 1 is ON');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-    const pompa2 = $("#pompa2");
-    pompa2.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (pompa2.prop("checked")) {
-        client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
-        console.log('Pompa 2 is ON');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-    const pompa3 = $("#pompa3");
-    pompa3.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (pompa3.prop("checked")) {
-        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
-        console.log('Pompa 3 is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
-        console.log('Pompa 3 is ON');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-    const pompa4 = $("#pompa4");
-    pompa4.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (pompa4.prop("checked")) {
-        client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
-        console.log('Pompa 4 is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
-        console.log('Pompa 4 is ON');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-    const esd = $("#esd");
-    esd.on("change", function() {
-      // Check if the checkbox is checked or unchecked
-      if (esd.prop("checked")) {
-        client.publish(LORAMASTER3, '51', { qos: 0, retain: false })
-        console.log('ESD is ON');
-        // You can perform other actions here when it's checked
-      } else {
-        client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
-        console.log('ESD is OFF');
-        // You can perform other actions here when it's unchecked
-      }
-    });
-
-
-  </script>
   
 {% endblock %}
