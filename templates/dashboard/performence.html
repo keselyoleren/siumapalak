@@ -52,11 +52,14 @@
                 <div class="col-md-4">
                   <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Level Air</div>
-                      <img src="/static/img/icon-soilmoisture.svg" class="w-100" alt="Icon soilmoisture" style="height: 150px; width: 225px;">
-                      <div class="col mr-2">
-                        <button class="btn btn-default" id="level_tinggi_air"></button>
-                      </div>
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Sensor Banjir</div>
+                        <br>
+                        <img src="/static/img/level_air_aman.png" id="img_level_air" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-default" id="level_tinggi_air"></button>
+                        </div>
+                      </center>
                     </div>
                   </div>
                 </div>
@@ -121,16 +124,15 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Gate</div>
-                      <div class="row no-gutters align-items-center">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Pintu</div>
+                        <img src="/static/img/pintu_tutup.png" id="st_pintu" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
                         <div class="col mr-2">
-                          <button class="btn btn-danger" id="gate">CLOSE</button>
+                          <button class="btn btn-default" id="gate"></button>
                         </div>
-                        <div class="col-auto">
-                          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M320 32c0-9.9-4.5-19.2-12.3-25.2S289.8-1.4 280.2 1l-179.9 45C79 51.3 64 70.5 64 92.5V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H96 288h32V480 32zM256 256c0 17.7-10.7 32-24 32s-24-14.3-24-32s10.7-32 24-32s24 14.3 24 32zm96-128h96V480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H512V128c0-35.3-28.7-64-64-64H352v64z"/></svg>
-                      </div>
+                      </center>
                     </div>
                   </div>
               </div>
@@ -208,10 +210,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>ESD</h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
                       <input type="checkbox" id="esd" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
@@ -226,10 +233,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>Charging</h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/cas_off.png" id="img_cas" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
                       <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
@@ -244,11 +256,16 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>Pompa 1</h4>
                     </div>
-                    <div class="col-sm-6">
-                      <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <input style="" type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
                 </div>
@@ -262,10 +279,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>Pompa 2</h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
                       <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
@@ -280,10 +302,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>Pompa 3</h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
                       <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
@@ -298,10 +325,15 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <h4>Pompa 4</h4>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa4" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
                       <input type="checkbox" id="pompa4" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
@@ -467,6 +499,7 @@
   });
 
   const pompa1 = $("#pompa1");
+  
   pompa1.on("change", function() {
     // Check if the checkbox is checked or unchecked
     if (pompa1.prop("checked")) {
@@ -481,6 +514,7 @@
   });
 
   const pompa2 = $("#pompa2");
+
   pompa2.on("change", function() {
     // Check if the checkbox is checked or unchecked
     if (pompa2.prop("checked")) {
@@ -632,10 +666,10 @@
     const d_zone4 = createZoneGauge('zone4', 0)
     
     // temperature
-    const tempGenerator = createTempGauge('temp_generator', ' C', 0)
-    const tempBat1 = createTempGauge('temp_bat_1', ' C', 0)
-    const tempBat2 = createTempGauge('temp_bat_2', ' C', 0)
-    const room_temp = createTempGauge('room_temp', ' C', 0)
+    const tempGenerator = createTempGauge('temp_generator', '°C', 0)
+    const tempBat1 = createTempGauge('temp_bat_1', '°C', 0)
+    const tempBat2 = createTempGauge('temp_bat_2', '°C', 0)
+    const room_temp = createTempGauge('room_temp', '°C', 0)
     const level_air = createTempGauge('level_air', ' CM', 0)
 
     const height = document.getElementById('height')
@@ -865,48 +899,79 @@
         rpmGenerator.refresh(jsonData.RPM)
       }
       
+      var st_pintu = document.getElementById('st_pintu');
       if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
+        st_pintu.src = '/static/img/pintu_buka.png'
       } else if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 0) {
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+        st_pintu.src = '/static/img/pintu_tutup.png'
       }
+      
+      console.log('level', jsonData.Lvl)
       if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 1) {
         var gateButton = document.getElementById('level_tinggi_air');
         gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'AMAN'; // Replace 'Open' with the desired text
-      } else if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
+        img_level_air.src = '/static/img/level_air_aman.png'
+      } else if (typeof typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
         var gateButton = document.getElementById('level_tinggi_air');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'TIDAK AMAN'; // Replace 'Open' with the desired text
+        img_level_air.src = '/static/img/level_air_tidak_aman.png'
       }
       
       // status pomp1
       if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
         pompa1.bootstrapToggle('on', true);
+        img_pompa1.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+        img_pompa1.src = '/static/img/pompa_off.png'
         pompa1.bootstrapToggle('off', true);
       }
 
       if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
         pompa2.bootstrapToggle('on', true);
+        img_pompa2.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
         pompa2.bootstrapToggle('off', true);
+        img_pompa2.src = '/static/img/pompa_off.png'
       }
 
       if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
         pompa3.bootstrapToggle('on', true);
+        img_pompa3.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
         pompa3.bootstrapToggle('off', true);
+        img_pompa3.src = '/static/img/pompa_off.png'
       }
 
       if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
         pompa4.bootstrapToggle('on', true);
+        img_pompa4.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 0) {
         pompa4.bootstrapToggle('off', true);
+        img_pompa4.src = '/static/img/pompa_off.png'
+      }
+
+      if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 1) {
+        esd.bootstrapToggle('on', true);
+        img_esd.src = '/static/img/esd_on.png'
+      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.ESD == 0) {
+        esd.bootstrapToggle('off', true);
+        img_esd.src = '/static/img/esd_off.png'
+      }
+
+      if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 1) {
+        chargingCheckbox.bootstrapToggle('on', true);
+        img_cas.src = '/static/img/cas_on.png'
+      } else if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 0) {
+        chargingCheckbox.bootstrapToggle('off', true);
+        img_cas.src = '/static/img/cas_off.png'
       }
 
       
