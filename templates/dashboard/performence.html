@@ -36,16 +36,23 @@
                 <div class="col-md-4">
                   <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
-                      <div id="rpm_generator" class="gauge"></div>
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">RPM</div>
+                        <div id="rpm_generator" class="gauge"></div>
+                      </center>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
-                      <div class="table-responsive">
-                        <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 150px; width: 225px;">
-                      </div>
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
+                        <img src="/static/img/kincir_on.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-primary" id="data_pm_generator"></button>
+                        </div>
+                      </center>
                     </div>
                   </div>
                 </div>
@@ -890,11 +897,13 @@
     
       if (jsonData.RPM !== undefined) {
         const img = document.getElementById('img_generator')
-        
-        if (jsonData.RPM > 0) {
-          img.src = '/static/img/generator.gif'
+        var data_pm_generator = document.getElementById('data_pm_generator')        
+        if (jsonData.RPM < 0) {
+          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
+          img.src = '/static/img/kincir_off.png'
         } else {
-          img.src = '/static/img/generator.png'
+          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
+          img.src = '/static/img/kincir_on.png'
         }
         rpmGenerator.refresh(jsonData.RPM)
       }
