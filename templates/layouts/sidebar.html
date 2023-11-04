@@ -2,9 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboard' %}">
-        <div class="sidebar-brand-text">
-            <img src="{% static 'img/logosiuma.png'%}" alt="Logo Siuma" class="w-100">
-        </div>
+        <div class="sidebar-brand-text mx-3">{{ request.user.username }}</div>
     </a>
     
     <!-- Divider -->
@@ -65,9 +63,7 @@
 
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
-        <img class="sidebar-card-illustration mb-2" src="{% static 'img/logo_pertamina.png' %}" width="175" alt="...">
-        <img class="sidebar-card-illustration mb-2" src="{% static 'img/uma_logo.png' %}" width="175" alt="...">
-        
+        <img src="{% static 'img/logosiuma.png'%}" alt="Logo Siuma" class="w-100">
     </div>
 
 </ul>
