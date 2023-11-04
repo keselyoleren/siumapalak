@@ -34,23 +34,26 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-4">
-                  <div class="card border-left-primary shadow h-100 py-2">
+                  <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                       <center>
-                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">RPM</div>
-                        <div id="rpm_generator" class="gauge"></div>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
+                        <img src="/static/img/kincir_on.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-primary" id="rpm_kincir">0 RPM</button>
+                        </div>
                       </center>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                       <center>
-                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
-                        <img src="/static/img/kincir_on.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GENERATOR</div>
+                        <img src="/static/img/cas_off.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
                         <div class="col mr-2">
-                          <button class="btn btn-primary" id="data_pm_generator"></button>
+                          <button class="btn btn-primary" id="data_pm_generator">0 RPM</button>
                         </div>
                       </center>
                     </div>
@@ -76,6 +79,10 @@
                 <div class="col-md-4">
                   <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kapasitas BATERAI</div>
+                      </center>
+                      <br>
                       <div id="battery">
                           <div id="charge"></div>
                           <div id="charge-level"></div>
@@ -86,10 +93,13 @@
                 <div class="col-md-4">
                   <div class="card border-left-success shadow h-100 py-2">
                       <div class="card-body">
+                        <center>
+                          <div class="text-xl font-weight-bold text-info text-uppercase mb-1">SINYAL WIFI</div>
+                          <br>
+                        </center>
                         <div class="row">
                           <div class="col-md-4">
                               <div class="waveStrength-3">
-                                  <center><h5>sw 1</h5></center>
                                   <div id="height" class="wv4 wave" >
                                       <div id="medium" class="wv4 wave">
                                           <div id="normal" class="wv2 wave">
@@ -98,11 +108,11 @@
                                           </div>
                                       </div>
                                   </div>
+                                  <center><h5>GW 1</h5></center>
                               </div>
                           </div>
                           <div class="col-md-4">
                               <div class="waveStrength-3">
-                                  <center><h5>sw 2</h5></center>
                                   <div id="height2" class="wv4 wave" >
                                       <div id="medium2" class="wv4 wave">
                                           <div id="normal2" class="wv2 wave">
@@ -111,11 +121,11 @@
                                           </div>
                                       </div>
                                   </div>
+                                  <center><h5>GW 2</h5></center>
                               </div>
                           </div>
                           <div class="col-md-4">
                             <div class="waveStrength-3">
-                                <center><h5>sw 3</h5></center>
                                 <div id="height3" class="wv4 wave" >
                                     <div id="medium3" class="wv4 wave">
                                         <div id="normal3" class="wv2 wave">
@@ -124,6 +134,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <center><h5>GW 3</h5></center>
                             </div>
                         </div>
                       </div>
@@ -134,7 +145,7 @@
                   <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                       <center>
-                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Pintu</div>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">PINTU RUMAH TEKNOLOGI</div>
                         <img src="/static/img/pintu_tutup.png" id="st_pintu" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
                         <div class="col mr-2">
                           <button class="btn btn-default" id="gate"></button>
@@ -156,7 +167,7 @@
   <div class="card shadow mb-4">
     <!-- Card Header - Dropdown -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Data</h4>
+      <h4 class="m-0 font-weight-bold text-primary"> Data Input PLTMH & PLTS</h4>
     </div>
     <!-- Card Body -->
     <div class="card-body">
@@ -182,6 +193,38 @@
           </div>
           <div class="col-md-6">
             <li class="list-group-item d-flex justify-content-between align-items-center">
+              V DC
+              <span id="vdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I DC
+              <span id="idc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P DC
+              <span id="pdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E DC
+              <span id="edc" class="badge badge-primary badge-pill">0</span>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Data Output</h4>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <ul class="list-group">
+        <div class="row">
+          <div class="col-md-12">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
               V AC
               <span id="vac" class="badge badge-primary badge-pill">0</span>
             </li>
@@ -203,7 +246,7 @@
     </div>
   </div>
   
-  
+  {% if request.user.is_superuser %}
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">Control</h4>
@@ -356,6 +399,143 @@
 
     </div>
   </div>
+  {% else %}
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Control</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>ESD</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Charging</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/cas_off.png" id="img_cas" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 1</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 2</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 3</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 4</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa4" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+    </div>
+  </div>
+
+  {% endif %}
+  
+  
   <!-- Content Row -->
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -450,7 +630,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Batrey 1</div>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">BATERAI 1</div>
                   <div id="temp_bat_1" class="gauge"></div>
                 </div>
               </div>
@@ -464,7 +644,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Baterai</div>
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">BATERAI 2</div>
                   <div id="temp_bat_2" class="gauge"></div>
                 </div>
               </div>
@@ -665,7 +845,7 @@
       })
     
     // rpm Generator
-    const rpmGenerator = npmGenerator('rpm_generator', 0)
+    {% comment %} const rpmGenerator = npmGenerator('rpm_generator', 0) {% endcomment %}
     
     const d_zone1 = createZoneGauge('zone1', 0)
     const d_zone2 = createZoneGauge('zone2', 0)
@@ -705,7 +885,6 @@
       
       //battery
       if (jsonData.VDC !== undefined) {
-        console.log(jsonData.VDC, "VDC")
         if (jsonData.VDC >= 40.0){
           batteryLevel = `${parseInt(100)}%`
           charge.style.width = batteryLevel
@@ -896,32 +1075,37 @@
       }
     
       if (jsonData.RPM !== undefined) {
-        const img = document.getElementById('img_generator')
+        const img = document.getElementById('img_kincir')
         var data_pm_generator = document.getElementById('data_pm_generator')        
+        var rpm_kincir = document.getElementById('rpm_kincir')
         if (jsonData.RPM < 0) {
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           img.src = '/static/img/kincir_off.png'
+          img_generator.src = '/static/img/cas_off.png'
         } else {
+          var hasil_bagi_data_kincir = jsonData.RPM / 14
+          rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           img.src = '/static/img/kincir_on.png'
+          img_generator.src = '/static/img/cas_on.png'
         }
-        rpmGenerator.refresh(jsonData.RPM)
+        //rpmGenerator.refresh(jsonData.RPM)
       }
+
       
       var st_pintu = document.getElementById('st_pintu');
       if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
+        gateButton.innerHTML = 'TERBUKA'; // Replace 'Open' with the desired text
         st_pintu.src = '/static/img/pintu_buka.png'
       } else if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 0) {
         var gateButton = document.getElementById('gate');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+        gateButton.innerHTML = 'TERTUTUP'; // Replace 'Open' with the desired text
         st_pintu.src = '/static/img/pintu_tutup.png'
       }
       
-      console.log('level', jsonData.Lvl)
       if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 1) {
         var gateButton = document.getElementById('level_tinggi_air');
         gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
@@ -930,7 +1114,7 @@
       } else if (typeof typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
         var gateButton = document.getElementById('level_tinggi_air');
         gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'TIDAK AMAN'; // Replace 'Open' with the desired text
+        gateButton.innerHTML = 'BAHAYA BANJIR'; // Replace 'Open' with the desired text
         img_level_air.src = '/static/img/level_air_tidak_aman.png'
       }
       
@@ -967,10 +1151,10 @@
         img_pompa4.src = '/static/img/pompa_off.png'
       }
 
-      if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 1) {
+      if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 0) {
         esd.bootstrapToggle('on', true);
         img_esd.src = '/static/img/esd_on.png'
-      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.ESD == 0) {
+      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.ESD == 1) {
         esd.bootstrapToggle('off', true);
         img_esd.src = '/static/img/esd_off.png'
       }

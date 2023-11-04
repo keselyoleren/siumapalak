@@ -2,47 +2,410 @@
 {% load static %}
 
 {% block content %}
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Trending</h1>
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Trending</h1>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Input PLTMH</h4>
     </div>
 
-
-    <!-- Content Row -->
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">V DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="vdc"></canvas>
+                    </div>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="edc"></canvas>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">I DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="idc"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">E AC</h6>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">P DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="pdc"></canvas>
+                    </div>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <canvas id="eac"></canvas>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="edc"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Input PLTS</h4>
+    </div>
 
-    
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">V DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id=""></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">I DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id=""></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">P DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id=""></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">E DC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id=""></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Output</h4>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">V AC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="vac"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">I AC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="iac"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">P AC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="pac"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">E AC</h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="eac"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock  %}
 {% block js %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('vdc').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data V DC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.VDC !== undefined) {
+                    data = jsonData.VDC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('idc').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data I DC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.IDC !== undefined) {
+                    data = jsonData.IDC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('pdc').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data P DC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.PDC !== undefined) {
+                    data = jsonData.PDC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -52,7 +415,7 @@
         var data = {
             labels: [],
             datasets: [{
-                label: 'Data EAC',
+                label: 'Data E AC',
                 data: [],
                 borderColor: 'rgba(75, 192, 192, 1)',
                 fill: false,
@@ -177,5 +540,207 @@
     });
     
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('vac').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data V AC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.VAC !== undefined) {
+                    data = jsonData.VAC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('iac').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data I AC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.IAC !== undefined) {
+                    data = jsonData.IAC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('pac').getContext('2d');
+        
+        // Initialize the data and options for the chart
+        var data = {
+            labels: [],
+            datasets: [{
+                label: 'Data P AC',
+                data: [],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false,
+            }],
+        };
+        
+        var options = {
+            scales: {
+                x: [{
+                    type: 'linear',
+                    position: 'bottom',
+                }],
+                y: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+        
+        // Create a line chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        
+        // Function to add random data points
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets[0].data.push(data);
+            // Remove the oldest data point if there are too many
+            if (chart.data.labels.length > 10) {
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+            chart.update();
+        }
+        
+        // Function to generate random data and update the chart
+        function updateChart() {
+            var label = new Date().toLocaleTimeString();
+            //var data = Math.random() * 100; // Example random data
+            client.on('message', (topic, message, packet) => {
+                const jsonData = JSON.parse(message.toString())
+                if (jsonData.PAC !== undefined) {
+                    data = jsonData.PAC
+                }
+            })
+            addData(chart, label, data);
+        }
+        
+        // Update the chart every second
+        setInterval(updateChart, 2000);
+    });
+    
+</script>
+
 
 {% endblock  %}
