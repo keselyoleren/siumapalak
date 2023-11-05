@@ -886,6 +886,7 @@
         wr_esd_loading.style.display = "block";
         // You can perform other actions here when it's checked
       } else {
+        
         client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
         console.log('ESD is OFF');
         // You can perform other actions here when it's unchecked
@@ -1213,41 +1214,61 @@
       
       // status pomp1
       if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+        wr_pompa1.style.display = "block";
+        wr_pompa1_loading.style.display = "none";
         pompa1.bootstrapToggle('on', true);
         img_pompa1.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+        wr_pompa1.style.display = "block";
+        wr_pompa1_loading.style.display = "none";
         img_pompa1.src = '/static/img/pompa_off.png'
         pompa1.bootstrapToggle('off', true);
       }
 
       if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
+        wr_pompa2.style.display = "block";
+        wr_pompa2_loading.style.display = "none";
         pompa2.bootstrapToggle('on', true);
         img_pompa2.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
+        wr_pompa2.style.display = "block";
+        wr_pompa2_loading.style.display = "none";
         pompa2.bootstrapToggle('off', true);
         img_pompa2.src = '/static/img/pompa_off.png'
       }
 
       if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+        wr_pompa3.style.display = "block";
+        wr_pompa3_loading.style.display = "none";
         pompa3.bootstrapToggle('on', true);
         img_pompa3.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+        wr_pompa3.style.display = "block";
+        wr_pompa3_loading.style.display = "none";
         pompa3.bootstrapToggle('off', true);
         img_pompa3.src = '/static/img/pompa_off.png'
       }
 
       if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
+        wr_pompa4.style.display = "block";
+        wr_pompa4_loading.style.display = "none";
         pompa4.bootstrapToggle('on', true);
         img_pompa4.src = '/static/img/pompa_on.png'
       } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 0) {
+        wr_pompa4.style.display = "block";
+        wr_pompa4_loading.style.display = "none";
         pompa4.bootstrapToggle('off', true);
         img_pompa4.src = '/static/img/pompa_off.png'
       }
 
       if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 0) {
+        wr_esd.style.display = "block";
+        wr_esd_loading.style.display = "none";
         esd.bootstrapToggle('on', true);
         img_esd.src = '/static/img/esd_on.png'
-      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.ESD == 1) {
+      } else if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 1) {
+        wr_esd.style.display = "block";
+        wr_esd_loading.style.display = "none";
         esd.bootstrapToggle('off', true);
         img_esd.src = '/static/img/esd_off.png'
       }
