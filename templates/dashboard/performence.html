@@ -264,9 +264,6 @@
                       <h4>Auto </h4>
                     </div>
                     <div class="col-sm-5">
-                      <center>
-                        {% comment %} <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;"> {% endcomment %}
-                      </center>
                     </div>
                     <div class="col-sm-2 text-right">
                       <input type="checkbox" id="auto_on_off" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
@@ -469,9 +466,9 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-6">
-                      <h4>ESD</h4>
+                      <h4>Auto </h4>
                     </div>
-                    <div class="col-sm-6 text-right">
+                    <div class="col-sm-6">
                       <center>
                         <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
                       </center>
@@ -489,11 +486,11 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-6">
-                      <h4>Charging</h4>
+                      <h4>ESD</h4>
                     </div>
                     <div class="col-sm-6 text-right">
                       <center>
-                        <img src="/static/img/cas_off.png" id="img_cas" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
                       </center>
                     </div>
                   </div>
@@ -502,6 +499,7 @@
             </div>
           </div>
         </div>
+        
         <div class="col-md-12">
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -620,7 +618,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Zone 2</div>
-                  <div id="zone2" class="gauge"></div>
+                  <div id="zone3" class="gauge"></div>
                 </div>
               </div>
             </div>
@@ -634,7 +632,7 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Zone 3</div>
-                  <div id="zone3" class="gauge"></div>
+                  <div id="zone2" class="gauge"></div>
                 </div>
               </div>
             </div>
@@ -910,13 +908,13 @@
     pompa1.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa1.prop("checked")) {
-        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         wr_pompa1.style.display = "none";
         wr_pompa1_loading.style.display = "block";
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -941,13 +939,13 @@
     pompa3.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa3.prop("checked")) {
-        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
         console.log('Pompa 3 is ON');
         wr_pompa3.style.display = "none";
         wr_pompa3_loading.style.display = "block";
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
         console.log('Pompa 3 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -1254,13 +1252,13 @@
         img_esd.src = '/static/img/esd_off.png'
       }
 
-      if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 1) {
-        chargingCheckbox.bootstrapToggle('on', true);
-        img_cas.src = '/static/img/cas_on.png'
-      } else if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 0) {
-        chargingCheckbox.bootstrapToggle('off', true);
-        img_cas.src = '/static/img/cas_off.png'
-      }
+      // if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 1) {
+      //   chargingCheckbox.bootstrapToggle('on', true);
+      //   img_cas.src = '/static/img/cas_on.png'
+      // } else if (typeof jsonData.CHARGE !== 'undefined' && jsonData.CHARGE == 0) {
+      //   chargingCheckbox.bootstrapToggle('off', true);
+      //   img_cas.src = '/static/img/cas_off.png'
+      // }
 
       
       
