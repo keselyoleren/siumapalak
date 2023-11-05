@@ -38,7 +38,7 @@
                     <div class="card-body">
                       <center>
                         <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
-                        <img src="/static/img/kincir_on.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
+                        <img src="/static/img/kincir_off.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
                         <div class="col mr-2">
                           <button class="btn btn-primary" id="rpm_kincir">0 RPM</button>
                         </div>
@@ -51,7 +51,7 @@
                     <div class="card-body">
                       <center>
                         <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GENERATOR</div>
-                        <img src="/static/img/cas_off.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 250px; width: px;">
+                        <img src="/static/img/cas_off.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
                         <div class="col mr-2">
                           <button class="btn btn-primary" id="data_pm_generator">0 RPM</button>
                         </div>
@@ -261,15 +261,15 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-5">
-                      <h4>ESD</h4>
+                      <h4>Auto </h4>
                     </div>
                     <div class="col-sm-5">
                       <center>
-                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                        {% comment %} <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;"> {% endcomment %}
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input type="checkbox" id="esd" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <input type="checkbox" id="auto_on_off" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     </div>
                   </div>
                 </div>
@@ -284,6 +284,35 @@
                 <div class="col mr-2">
                   <div class="row">
                     <div class="col-sm-5">
+                      <h4>ESD</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_esd">
+                        <input  type="checkbox" id="esd" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_esd_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% comment %} <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
                       <h4>Charging</h4>
                     </div>
                     <div class="col-sm-5">
@@ -292,14 +321,20 @@
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <div id="wr_cas">
+                        <input  type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_cas_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
+
         <div class="col-md-12">
           <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -315,7 +350,12 @@
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input style="" type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <div id="wr_pompa1">
+                        <input  type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa1_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -338,7 +378,12 @@
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <div id="wr_pompa2">
+                        <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa2_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -361,7 +406,12 @@
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <div id="wr_pompa3">
+                        <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa3_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -384,7 +434,12 @@
                       </center>
                     </div>
                     <div class="col-sm-2 text-right">
-                      <input type="checkbox" id="pompa4" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      <div id="wr_pompa4">
+                        <input type="checkbox" id="pompa4" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa4_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -670,96 +725,12 @@
 {% block js %}
 
 <script>
-    
-  const chargingCheckbox = $("#charging");
-  chargingCheckbox.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (chargingCheckbox.prop("checked")) {
-      client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
-      console.log('Charging is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
-      console.log('Charging is OFF');
-      // You can perform other actions here when it's unchecked
-    }
-  });
-
-  const pompa1 = $("#pompa1");
-  
-  pompa1.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (pompa1.prop("checked")) {
-      client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
-      console.log('Pompa 1 is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
-      console.log('Pompa 1 is ON');
-      // You can perform other actions here when it's unchecked
-    }
-  });
-
-  const pompa2 = $("#pompa2");
-
-  pompa2.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (pompa2.prop("checked")) {
-      client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
-      console.log('Pompa 2 is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
-      console.log('Pompa 2 is ON');
-      // You can perform other actions here when it's unchecked
-    }
-  });
-
-  const pompa3 = $("#pompa3");
-  pompa3.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (pompa3.prop("checked")) {
-      client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
-      console.log('Pompa 3 is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
-      console.log('Pompa 3 is ON');
-      // You can perform other actions here when it's unchecked
-    }
-  });
-
-  const pompa4 = $("#pompa4");
-  pompa4.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (pompa4.prop("checked")) {
-      client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
-      console.log('Pompa 4 is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
-      console.log('Pompa 4 is ON');
-      // You can perform other actions here when it's unchecked
-    }
-  });
-
-  const esd = $("#esd");
-  esd.on("change", function() {
-    // Check if the checkbox is checked or unchecked
-    if (esd.prop("checked")) {
-      client.publish(LORAMASTER3, '51', { qos: 0, retain: false })
-      console.log('ESD is ON');
-      // You can perform other actions here when it's checked
-    } else {
-      client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
-      console.log('ESD is OFF');
-      // You can perform other actions here when it's unchecked
-    }
-  });
+ 
 
 
 </script>
-  <script>
+
+<script>
     const chargeLevel = document.getElementById('charge-level')
     const charge = document.getElementById('charge')
     const chargingTimeRef = document.getElementById('charging-time')
@@ -874,6 +845,130 @@
     const medium3 = document.getElementById('medium3')
     const normal3 = document.getElementById('normal3')
     const low3 = document.getElementById('low3')
+    
+    
+    const esd = $("#esd");
+    const auto_on_off = $("#auto_on_off");
+    const pompa1 = $("#pompa1");
+    const pompa2 = $("#pompa2");
+    const pompa3 = $("#pompa3");
+    const pompa4 = $("#pompa4");
+    
+    const wr_esd = document.getElementById("wr_esd");
+    const wr_pompa1 = document.getElementById("wr_pompa1");
+    const wr_pompa2 = document.getElementById("wr_pompa2");
+    const wr_pompa3 = document.getElementById("wr_pompa3");
+    const wr_pompa4 = document.getElementById("wr_pompa4");
+    
+    const wr_esd_loading = document.getElementById("wr_esd_loading");
+    const wr_pompa1_loading = document.getElementById("wr_pompa1_loading");
+    const wr_pompa2_loading = document.getElementById("wr_pompa2_loading");
+    const wr_pompa3_loading = document.getElementById("wr_pompa3_loading");
+    const wr_pompa4_loading = document.getElementById("wr_pompa4_loading");
+
+    auto_on_off.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (auto_on_off.prop("checked")) {
+        client.publish(LORAMASTER2, '1000', { qos: 0, retain: false })
+        console.log('auto_on_off is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '2000', { qos: 0, retain: false })
+        console.log('auto_on_off is OFF');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+    
+    esd.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (esd.prop("checked")) {
+        client.publish(LORAMASTER3, '51', { qos: 0, retain: false })
+        console.log('ESD is ON');
+        wr_esd.style.display = "none";
+        wr_esd_loading.style.display = "block";
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER3, '50', { qos: 0, retain: false })
+        console.log('ESD is OFF');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+    
+    {% comment %} chargingCheckbox.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (chargingCheckbox.prop("checked")) {
+        client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
+        console.log('Charging is ON');
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
+        console.log('Charging is OFF');
+        // You can perform other actions here when it's unchecked
+      }
+    }); {% endcomment %}
+
+    pompa1.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa1.prop("checked")) {
+        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+        console.log('Pompa 1 is ON');
+        wr_pompa1.style.display = "none";
+        wr_pompa1_loading.style.display = "block";
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+        console.log('Pompa 1 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
+    pompa2.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa2.prop("checked")) {
+        client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        wr_pompa2.style.display = "none";
+        wr_pompa2_loading.style.display = "block";
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
+        console.log('Pompa 2 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+  
+    
+    pompa3.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa3.prop("checked")) {
+        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
+        console.log('Pompa 3 is ON');
+        wr_pompa3.style.display = "none";
+        wr_pompa3_loading.style.display = "block";
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
+        console.log('Pompa 3 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+  
+    
+    pompa4.on("change", function() {
+      // Check if the checkbox is checked or unchecked
+      if (pompa4.prop("checked")) {
+        client.publish(LORAMASTER2, '41', { qos: 0, retain: false })
+        console.log('Pompa 4 is ON');
+        wr_pompa4.style.display = "none";
+        wr_pompa4_loading.style.display = "block";
+        // You can perform other actions here when it's checked
+      } else {
+        client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
+        console.log('Pompa 4 is ON');
+        // You can perform other actions here when it's unchecked
+      }
+    });
+
     
     
     let batteryLevel = `${parseInt(0)}%`
@@ -1086,7 +1181,7 @@
           var hasil_bagi_data_kincir = jsonData.RPM / 14
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
-          img.src = '/static/img/kincir_on.png'
+          img.src = '/static/img/kincir_on.gif'
           img_generator.src = '/static/img/cas_on.png'
         }
         //rpmGenerator.refresh(jsonData.RPM)
@@ -1107,14 +1202,14 @@
       }
       
       if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 1) {
-        var gateButton = document.getElementById('level_tinggi_air');
-        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'AMAN'; // Replace 'Open' with the desired text
+        var gateButtonlvl = document.getElementById('level_tinggi_air');
+        gateButtonlvl.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+        gateButtonlvl.innerHTML = 'AMAN'; // Replace 'Open' with the desired text
         img_level_air.src = '/static/img/level_air_aman.png'
       } else if (typeof typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
-        var gateButton = document.getElementById('level_tinggi_air');
-        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
-        gateButton.innerHTML = 'BAHAYA BANJIR'; // Replace 'Open' with the desired text
+        var gateButtonlvl = document.getElementById('level_tinggi_air');
+        gateButtonlvl.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+        gateButtonlvl.innerHTML = 'BAHAYA BANJIR'; // Replace 'Open' with the desired text
         img_level_air.src = '/static/img/level_air_tidak_aman.png'
       }
       
