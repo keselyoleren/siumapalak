@@ -38,7 +38,7 @@
                     <div class="card-body">
                       <center>
                         <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
-                        <img src="/static/img/kincir_on.gif" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <img src="/static/img/kincir_off.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
                         <div class="col mr-2">
                           <button class="btn btn-primary" id="rpm_kincir">0 RPM</button>
                         </div>
@@ -175,38 +175,44 @@
         <div class="row">
           <div class="col-md-6">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              V DC
+              <strong><b>DC PLTMH</b></strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V 
               <span id="vdc" class="badge badge-primary badge-pill">0</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              I DC
+              I 
               <span id="idc" class="badge badge-primary badge-pill">0</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              P DC
+              P 
               <span id="pdc" class="badge badge-primary badge-pill">0</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              E DC
+              E 
               <span id="edc" class="badge badge-primary badge-pill">0</span>
             </li>
           </div>
           <div class="col-md-6">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              V DC
-              <span id="vdc" class="badge badge-primary badge-pill">0</span>
+              <strong><b>DC PLTS</b></strong>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              I DC
-              <span id="idc" class="badge badge-primary badge-pill">0</span>
+              V 
+              <span id="vdc" class="badge badge-primary badge-pill">0 V</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              P DC
-              <span id="pdc" class="badge badge-primary badge-pill">0</span>
+              I 
+              <span id="idc" class="badge badge-primary badge-pill">0 A</span>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              E DC
-              <span id="edc" class="badge badge-primary badge-pill">0</span>
+              P 
+              <span id="pdc" class="badge badge-primary badge-pill">0 W</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E 
+              <span id="edc" class="badge badge-primary badge-pill">0 Wh</span>
             </li>
           </div>
         </div>
@@ -1092,39 +1098,39 @@
     
       // update data
       if (jsonData.IDC !== undefined) {
-        document.getElementById('idc').innerHTML = jsonData.IDC
+        document.getElementById('idc').innerHTML = jsonData.IDC + ' A'
       }
     
       if (jsonData.PDC !== undefined) {
-        document.getElementById('pdc').innerHTML = jsonData.PDC
+        document.getElementById('pdc').innerHTML = jsonData.PDC + ' W'
       }
     
       if (jsonData.EDC !== undefined) {
-        document.getElementById('edc').innerHTML = jsonData.EDC
+        if (jsonData.EDC > 10000) {
+          document.getElementById('edc').innerHTML = jsonData.EDC + ' kWh'
+        } else {
+          document.getElementById('edc').innerHTML = jsonData.EDC + ' Wh'
+        }
       }
     
       if (jsonData.VAC !== undefined) {
-        document.getElementById('vac').innerHTML = jsonData.VAC
+        document.getElementById('vac').innerHTML = jsonData.VAC  + ' V'
       }
     
       if (jsonData.IAC !== undefined) {
-        document.getElementById('iac').innerHTML = jsonData.IAC
+        document.getElementById('iac').innerHTML = jsonData.IAC + ' A'
       }
     
       if (jsonData.PAC !== undefined) {
-        document.getElementById('pac').innerHTML = jsonData.PAC
+        document.getElementById('pac').innerHTML = jsonData.PAC + ' W'
       }
     
       if (jsonData.EAC !== undefined) {
-        document.getElementById('eac').innerHTML = jsonData.EAC
+        document.getElementById('eac').innerHTML = jsonData.EAC + ' Wh'
       }
     
       if (jsonData.VDC !== undefined) {
-        document.getElementById('vdc').innerHTML = jsonData.VDC
-      }
-    
-      if (jsonData.EDC !== undefined) {
-        document.getElementById('edc').innerHTML = jsonData.EDC
+        document.getElementById('vdc').innerHTML = jsonData.VDC + ' V'
       }
     
       // Update zone values based on received JSON data
@@ -1174,9 +1180,14 @@
         } else {
           var hasil_bagi_data_kincir = jsonData.RPM / 14
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
+          if (jsonData.RPM > 0){
+            if (batteryLevel > 100 ){
+              img_generator.src = '/static/img/cas_off.png'
+            }
+          }
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           img.src = '/static/img/kincir_on.gif'
-          img_generator.src = '/static/img/cas_on.png'
+          
         }
         //rpmGenerator.refresh(jsonData.RPM)
       }
