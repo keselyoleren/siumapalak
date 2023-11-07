@@ -1,0 +1,141 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>List Feature | Siumapalak</title>
+        <!-- CSS files -->
+        <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-flags.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-payments.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/tabler-vendors.min.css'%}" rel="stylesheet"/>
+        <link href="{% static 'tabler/css/demo.min.css'%}" rel="stylesheet"/>
+    </head>
+    
+    <body class="antialiased border-top-wide border-primary d-flex flex-column">
+        {% comment %} listfeature {% endcomment %}
+        <div class="container-fluid">
+            <div class="px-lg-5">
+
+                <!-- For demo purpose -->
+                <div class="row py-4">
+                    <div class="bg-success col-lg-12 mx-auto">
+                        <div class="p-3 shadow-sm rounded banner">
+                            <img src="{% static 'img/logosiuma.png'%}" height="90" width="225" alt="Logo Siuma">
+                            <h1 class="display-3">Selamat Datang di <strong>SIUMA</strong></h1>
+                            <h3>Suplai Energi Manajemen Irigasi Umapalak.</h3>
+                            <p class="lead">Dibawah ini adalah layanan dari SIUMA.</p>
+                            {% if request.user.is_authenticated %}
+                            {% else %}
+                            <div class="py-2 text-right"><a href="{% url 'login' %}" class="btn btn-dark px-5 py-3 text-uppercase hover-shadow">Login</a></div>
+                            {% endif %}
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- End -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="display-5 mb-4 fw-bold">List Fitur SIUMA</h3>
+                        <hr></hr>
+                    </div>
+                    <!-- Gallery item -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        <a href="{% url 'dashboard' %}">
+                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
+                                <img src="https://images.unsplash.com/photo-1516546453174-5e1098a4b4af?auto=format&fit=crop&q=80&w=2991&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
+                                <div class="p-4 hover-zoom">
+                                    <h5> <a href="{% url 'dashboard' %}" class="text-dark">Peta Sawah</a></h5>
+                                    <p class="small text-muted mb-0" style="min-height: 80px;">lokasi petak sawah terinstall device(pompa dan sensor) terpasang</p>
+                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        <a href="{% url 'performance' %}">
+                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
+                                <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=3387&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
+                                <div class="p-4 hover-zoom">
+                                    <h5> <a href="{% url 'performance' %}" class="text-dark">Performance</a></h5>
+                                    <p class="small text-muted mb-0" style="min-height: 80px;">Semua data teknis dan parameter PLTMH yang terpantau dilapangan </p>
+                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        <a href="{% url 'trending' %}">
+                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
+                                <img src="https://images.unsplash.com/photo-1573140493109-4d9a48ed6242?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
+                                <div class="p-4 hover-zoom">
+                                    <h5> <a href="{% url 'trending' %}" class="text-dark">Trending</a></h5>
+                                    <p class="small text-muted mb-0" style="min-height: 80px;">Data kWh Input dan kWh Output</p>
+                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End -->
+
+                    <!-- Gallery item -->
+                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
+                        <a href="{% url 'keterangan' %}">
+                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
+                                <img src="https://images.unsplash.com/photo-1581092163144-b7ae3c00adbc?auto=format&fit=crop&q=80&w=3387&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
+                                <div class="p-4 hover-zoom">
+                                    <h5> <a href="{% url 'dashboard' %}" class="text-dark">Keterangan</a></h5>
+                                    <p class="small text-muted mb-0" style="min-height: 80px;">Penjelasan tentang SIUMA</p>
+                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
+                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End -->
+                    
+                </div>
+                <div class="row">
+                    <!-- Gallery item -->
+                    <div class="mb-4">
+                        <hr class="border-primary-subtle mb-4">
+                        <span>Supported By</span>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
+                        <img src="{% static 'img/uma_logo.png'%}" height="90" width="225" alt="Logo Siuma Palak">
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
+                        <img src="{% static 'img/logo_pertamina.png'%}" height="90" width="225" alt="Logo Pertamina">
+                    </div>
+                </div>
+            </div>
+
+    <script src="{% static 'tabler/js/tabler.min.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </body>
+</html>

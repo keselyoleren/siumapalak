@@ -5,7 +5,7 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <title>List Feature | Siumapalak</title>
+        <title>Login | Siumapalak</title>
         <!-- CSS files -->
         <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
         <link href="{% static 'tabler/css/tabler.min.css'%}" rel="stylesheet"/>
@@ -13,129 +13,124 @@
         <link href="{% static 'tabler/css/tabler-payments.min.css'%}" rel="stylesheet"/>
         <link href="{% static 'tabler/css/tabler-vendors.min.css'%}" rel="stylesheet"/>
         <link href="{% static 'tabler/css/demo.min.css'%}" rel="stylesheet"/>
-    </head>
-    
-    <body class="antialiased border-top-wide border-primary d-flex flex-column">
-        {% comment %} listfeature {% endcomment %}
-        <div class="container-fluid">
-            <div class="px-lg-5">
-
-                <!-- For demo purpose -->
-                <div class="row py-4">
-                    <div class="bg-success col-lg-12 mx-auto">
-                        <div class="p-3 shadow-sm rounded banner">
-                            <img src="{% static 'img/logosiuma.png'%}" height="90" width="225" alt="Logo Siuma">
-                            <h1 class="display-3">Selamat Datang di <strong>SIUMA</strong></h1>
-                            <h3>Suplai Energi Manajemen Irigasi Umapalak.</h3>
-                            <p class="lead">Dibawah ini adalah layanan dari SIUMA.</p>
-                            {% if request.user.is_authenticated %}
-                            {% else %}
-                            <div class="py-2 text-right"><a href="{% url 'login' %}" class="btn btn-dark px-5 py-3 text-uppercase hover-shadow">Login</a></div>
-                            {% endif %}
-                            
+  </head>
+  
+  <body class="antialiased border-top-wide border-primary d-flex flex-column">
+    {% comment %} <div class="page page-center">
+        <div class="container-tight py-4">
+            <form class="card card-md" method="POST" id="login">
+                {% csrf_token %}
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Login Siumapalak</h2>
+                    {{ form }}
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary w-100">Sign in</button>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center text-muted mt-3">
+                <a href="#" tabindex="-1">  Register </a> |
+                <a href="#" tabindex="-1">  Reset Password </a>
+            </div>
+        </div>
+        <div class="text-center mb-2">
+            <a href="."><img src="{% static 'img/logo_pertamina.png'%}" height="90" width="225"  alt=""></a>
+            <a href="."><img src="{% static 'img/uma_logo.png'%}" height="90" width="225" alt=""></a>
+        </div>
+    </div> {% endcomment %}
+    <!-- Login 9 - Bootstrap Brain Component -->
+    <section class="bg-light bg-gradient py-3 py-md-5 py-xl-8">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+                <div class="col-12 col-md-6 col-xl-7">
+                    <div class="d-flex justify-content-center text-bg-primary">
+                        <div class="col-12 col-xl-9">
+                            <img src="{% static 'img/maskotsiuma.png'%}" width="225" alt="Logo Siuma">
+                            <hr class="border-primary-subtle mb-4">
+                            <h2 class="display-4  mb-4">Suplai Energi Manajemen Irigasi Umapalak</h2>
+                            <span class="lead mb-5">Program kemandirian energi hijau terintegrasi sistem irigasi.</span>
+                            <div class="text-endx">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-grip-horizontal" viewBox="0 0 16 16">
+                                <path d="M2 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- End -->
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="display-5 mb-4 fw-bold">List Fitur SIUMA</h3>
-                        <hr></hr>
-                    </div>
-                    <!-- Gallery item -->
-                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                        <a href="{% url 'dashboard' %}">
-                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
-                                <img src="https://images.unsplash.com/photo-1516546453174-5e1098a4b4af?auto=format&fit=crop&q=80&w=2991&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
-                                <div class="p-4 hover-zoom">
-                                    <h5> <a href="{% url 'dashboard' %}" class="text-dark">Peta Sawah</a></h5>
-                                    <p class="small text-muted mb-0" style="min-height: 80px;">lokasi petak sawah terinstall device(pompa dan sensor) terpasang</p>
-                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-                                    </div> {% endcomment %}
+                <div class="col-12 col-md-6 col-xl-5">
+                    <div class="card border-0 rounded-4 shadow">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+                        <div class="row">
+                            <div class="col-12">
+                            <div class="mb-4">
+                                <h3 class="display-6">Sign in</h3>
+                                {% comment %} <p>Don't have an account? <a href="#!">Sign up</a></p> {% endcomment %}
+                            </div>
+                            </div>
+                        </div>
+                        <form method="POST" id="login">
+                            {% csrf_token %}
+                            <div class="row gy-3 overflow-hidden">
+                            {% comment %} <div class="col-12">
+                                <div class="form-floating mb-3">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                                <label for="email" class="form-label">Email</label>
+                                </div>
+                            </div> {% endcomment %}
+                            <div class="col-12">
+                                {% comment %} <div class="form-floating mb-3"> {% endcomment %}
+                                    {% comment %} <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                                    <label for="password" class="form-label">Password</label> {% endcomment %}
+                                    {{ form }}
+                                {% comment %} </div> {% endcomment %}
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" name="remember_me" id="remember_me">
+                                <label class="form-check-label text-secondary" for="remember_me">
+                                    Keep me logged in
+                                </label>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Gallery item -->
-                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                        <a href="{% url 'performance' %}">
-                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
-                                <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=3387&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
-                                <div class="p-4 hover-zoom">
-                                    <h5> <a href="{% url 'performance' %}" class="text-dark">Performance</a></h5>
-                                    <p class="small text-muted mb-0" style="min-height: 80px;">Semua data teknis dan parameter PLTMH yang terpantau dilapangan </p>
-                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-                                    </div> {% endcomment %}
+                            <div class="col-12">
+                                <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg" type="submit">Log in now</button>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Gallery item -->
-                    
-                    <!-- End -->
-
-                    <!-- Gallery item -->
-                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                        <a href="{% url 'trending' %}">
-                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
-                                <img src="https://images.unsplash.com/photo-1573140493109-4d9a48ed6242?auto=format&fit=crop&q=80&w=2832&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
-                                <div class="p-4 hover-zoom">
-                                    <h5> <a href="{% url 'trending' %}" class="text-dark">Trending</a></h5>
-                                    <p class="small text-muted mb-0" style="min-height: 80px;">Data kWh Input dan kWh Output</p>
-                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-                                    </div> {% endcomment %}
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row mt-4">
+                                    <p>Don't have an account? <a href="#!">Sign up</a></p>
+                                    <a href="#!">Forgot password</a>
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Gallery item -->
-                    <div class="col-xl-2 col-lg-4 col-md-6 mb-4">
-                        <a href="{% url 'keterangan' %}">
-                            <div class="bg-white rounded shadow-sm hover-shadow hover-zoom">
-                                <img src="https://images.unsplash.com/photo-1581092163144-b7ae3c00adbc?auto=format&fit=crop&q=80&w=3387&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="img-fluid card-img-top hover-zoom">
-                                <div class="p-4 hover-zoom">
-                                    <h5> <a href="{% url 'dashboard' %}" class="text-dark">Keterangan</a></h5>
-                                    <p class="small text-muted mb-0" style="min-height: 80px;">Penjelasan tentang SIUMA</p>
-                                    {% comment %} <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                        <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">JPG</span></p>
-                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal">New</div>
-                                    </div> {% endcomment %}
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                            <p class="mt-4 mb-4">Powered By</p>
+                            <div class="d-flex gap-2 gap-sm-3 justify-content-centerX">
+                                <a href="#!" class="">
+                                    <img src="{% static 'img/uma_logo.png'%}" height="auto" width="225" alt="Logo Siuma Palak">
+                                </a>
+                                <a href="#!" class="">
+                                    <img src="{% static 'img/logo_pertamina.png'%}" height="auto" width="225" alt="Logo Pertamina">
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <!-- End -->
-                    
-                </div>
-                <div class="row">
-                    <!-- Gallery item -->
-                    <div class="mb-4">
-                        <hr class="border-primary-subtle mb-4">
-                        <span>Supported By</span>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
-                        <img src="{% static 'img/uma_logo.png'%}" height="90" width="225" alt="Logo Siuma Palak">
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 mb-4">
-                        <img src="{% static 'img/logo_pertamina.png'%}" height="90" width="225" alt="Logo Pertamina">
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </section>
+    {% comment %} end section auth {% endcomment %}
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    
     <script src="{% static 'tabler/js/tabler.min.js'%}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    </body>
+</body>
 </html>
