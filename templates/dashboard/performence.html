@@ -985,7 +985,12 @@
       
       //battery
       if (jsonData.VDC !== undefined) {
-        var volt = ((jsonData.VDC - 48) / (52 - 48)) * 100;
+        var volt = ((jsonData.VDC - 47.5) / (50.1 - 47.5)) * 100;
+        if (volt > 100 ){
+          batteryLevel = `${parseInt(100)}%`
+          charge.style.width = batteryLevel
+          chargeLevel.textContent = batteryLevel  
+        }
         batteryLevel = `${parseInt(volt)}%`
         charge.style.width = batteryLevel
         chargeLevel.textContent = batteryLevel
