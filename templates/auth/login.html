@@ -45,10 +45,10 @@
                 <div class="col-12 col-md-6 col-xl-7">
                     <div class="d-flex justify-content-center text-bg-primary">
                         <div class="col-12 col-xl-9">
-                            <img src="{% static 'img/logosiuma.png'%}" height="90" width="225" alt="Logo Siuma">
+                            <img src="{% static 'img/maskotsiuma.png'%}" width="225" alt="Logo Siuma">
                             <hr class="border-primary-subtle mb-4">
-                            <h2 class="h1 mb-4">Suplai Energi Manajemen Irigasi Umapalak</h2>
-                            <p class="lead mb-5">Program kemandirian energi hijau terintegrasi sistem irigasi.</p>
+                            <h2 class="display-4  mb-4">Suplai Energi Manajemen Irigasi Umapalak</h2>
+                            <span class="lead mb-5">Program kemandirian energi hijau terintegrasi sistem irigasi.</span>
                             <div class="text-endx">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-grip-horizontal" viewBox="0 0 16 16">
                                 <path d="M2 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm3 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
@@ -63,8 +63,8 @@
                         <div class="row">
                             <div class="col-12">
                             <div class="mb-4">
-                                <h3>Sign in</h3>
-                                <p>Don't have an account? <a href="#!">Sign up</a></p>
+                                <h3 class="display-6">Sign in</h3>
+                                {% comment %} <p>Don't have an account? <a href="#!">Sign up</a></p> {% endcomment %}
                             </div>
                             </div>
                         </div>
@@ -101,9 +101,10 @@
                         </form>
                         <div class="row">
                             <div class="col-12">
-                            <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end mt-4">
-                                <a href="#!">Forgot password</a>
-                            </div>
+                                <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row mt-4">
+                                    <p>Don't have an account? <a href="#!">Sign up</a></p>
+                                    <a href="#!">Forgot password</a>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -111,10 +112,10 @@
                             <p class="mt-4 mb-4">Powered By</p>
                             <div class="d-flex gap-2 gap-sm-3 justify-content-centerX">
                                 <a href="#!" class="">
-                                    <img src="{% static 'img/uma_logo.png'%}" height="90" width="225" alt="Logo Siuma Palak">
+                                    <img src="{% static 'img/uma_logo.png'%}" height="auto" width="225" alt="Logo Siuma Palak">
                                 </a>
                                 <a href="#!" class="">
-                                    <img src="{% static 'img/logo_pertamina.png'%}" height="90" width="225" alt="Logo Pertamina">
+                                    <img src="{% static 'img/logo_pertamina.png'%}" height="auto" width="225" alt="Logo Pertamina">
                                 </a>
                             </div>
                             </div>

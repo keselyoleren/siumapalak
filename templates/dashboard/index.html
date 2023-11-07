@@ -16,55 +16,83 @@
         <div style="position: relative;">
           <img src="{% static 'img/peta_sawah.jpg' %}" alt="background Image" style="height: 410px; width: 900px;">
       
-          <!--    <img src="https://drive.google.com/uc?id=1pM8hKATNW427_so7WJLo7rHTXtpN0Ghc" alt="Logo" style="position: absolute; top: 1px; left: 780px; width: 200px; height: 100px; z-index: 1;"> 
+          <!--    <img src="https://drive.google.com/uc?id=1pM8hKATNW427_so7WJLo7rHTXtpN0Ghc" alt="Logo" style="position: absolute; top: 1px; left: 780px; width: 200px; height: 100px; z-index: 1;"> -->
       
           <!-- Sensor 1 -->
           <div id="circle1"
-              style="position: absolute; top: 137px; left: 650px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
-              data-payload="{{msg.payload5}}" onmouseover="showData('Sensor 1')" onmouseout="hideData()"></div>
+              style="position: absolute; top: 90px; left: 665px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              data-payload="{{msg.payload5}}" onmouseover="showData('Sensor 1')" onmouseout="hideData()">
+                <img src="/static/img/sensor.png" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <p class="badge bg-warning" id="Z01">Z01</p>
+            </div>
       
           <!-- sensor 2 -->
           <div id="circle2"
-              style="position: absolute; top: 130px; left: 670px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
-              data-payload="{{msg.payload6}}" onmouseover="showData('Sensor 2')" onmouseout="hideData()"></div>
+              style="position: absolute; top:60px; left: 710px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              data-payload="{{msg.payload6}}" onmouseover="showData('Sensor 2')" onmouseout="hideData()">
+              <img src="/static/img/sensor.png" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <p class="badge bg-warning" id="Z02">Z02</p>
+            </div>
       
           <!-- Sensor 3 -->
           <div id="circle3"
-              style="position: absolute; top: 146px; left: 700px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
-              data-payload="{{msg.payload7}}" onmouseover="showData('Sensor 3')" onmouseout="hideData()"></div>
+              style="position: absolute; top: 110px; left: 700px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              data-payload="{{msg.payload7}}" onmouseover="showData('Sensor 3')" onmouseout="hideData()">
+              <img src="/static/img/sensor.png" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <p class="badge bg-warning" id="Z03">Z03</p>
+            </div>
       
           <!-- Sensor 4 -->
           <div id="circle4"
-              style="position: absolute; top: 140px; left: 730px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
-              data-payload="{{msg.payload8}}" onmouseover="showData('Sensor 4')" onmouseout="hideData()"></div>
+              style="position: absolute; top: 150px; left: 788px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              data-payload="{{msg.payload8}}" onmouseover="showData('Sensor 4')" onmouseout="hideData()">
+              <img src="/static/img/sensor.png" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <p class="badge bg-warning" id="Z04">Z04</p>
+            </div>
       
           <!-- Pump1 -->
           <div id="square1"
-              style="position: absolute; top: 30px; left: 650px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 14px; left: 650px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload2}}" onmouseover="showSquareData('Square 1')"
               onmouseout="hideSquareData('Square 1')">
-              <img src="/static/img/pompa_off.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style="position: absolute; top: 30px; height: 30px; width: px;">
+              <img src="/static/img/p1.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <p class="badge bg-warning" id="p01">P01</p>
             </div>
       
           <!-- Pump2 -->
           <div id="square2"
-              style="position: absolute; top: 60px; left: 720px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 38px; left: 740px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload3}}" onmouseover="showSquareData('Square 2')"
               onmouseout="hideSquareData('Square 2')">
+              <img src="/static/img/p2.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <p class="badge bg-warning" id="p02">P02</p>
           </div>
-      
+
           <!-- Pump3 -->
           <div id="square3"
+              style="position: absolute; top: 120px; left: 750px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              data-payload="{{msg.payload1}}" onmouseover="showdoorData('door')" onmouseout="hidedoorData('door')">
+              <img src="/static/img/p1.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <p class="badge bg-warning" id="p03">P03</p>
+            </div>
+      
+          <!-- Pump4 -->
+          <div id="square4"
               style="position: absolute; top: 245px; left: 560px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload4}}" onmouseover="showSquareData('Square 3')"
               onmouseout="hideSquareData('Square 3')">
+              <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 25px;">
+              <p class="badge bg-warning" id="p04">P04</p>
           </div>
+
+          <!-- Pipa1 -->
+          {% comment %} <div id="pipa1"
+              style="position: absolute; top: 30px; left: 200px; cursor: pointer; text-align: center; line-height: 20px;"
+              data-payload="" onmouseover=""
+              onmouseout="">
+              <img src="/static/img/pipa1.gif" id="img_pipa1" class="w-70" alt="Icon pipa" style=" height: auto; width: 600px;">
+            </div> {% endcomment %}
       
-          <!-- Door -->
-          <div id="door"
-              style="position: absolute; top: 120px; left: 750px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
-              data-payload="{{msg.payload1}}" onmouseover="showdoorData('door')" onmouseout="hidedoorData('door')">
-          </div>
       </div>
       
       <div id="tooltip"
@@ -144,9 +172,9 @@
     function showData(circle) {
         const payloadValue = circle.getAttribute('data-payload');
         const intValue = parseInt(payloadValue);
-        tooltip.innerHTML = `<strong>Sensor</strong>: ${intValue}`;
-        tooltip.style.top = (event.clientY + 10) + 'px';
-        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.innerHTML = `<strong class="tooltip-detail-sensor">Sensor</strong>: ${intValue}`;
+        tooltip.style.top = (event.clientY - 110) + 'px';
+        tooltip.style.left = (event.clientX - 250) + 'px';
         tooltip.style.display = 'block';
     }
 
@@ -156,9 +184,9 @@
 
     function showSquareData(square) {
         const payloadValue = square.getAttribute('data-payload');
-        tooltip.innerHTML = `<strong>Condition</strong>: ${payloadValue}`;
-        tooltip.style.top = (event.clientY + 10) + 'px';
-        tooltip.style.left = (event.clientX + 10) + 'px';
+        tooltip.innerHTML = `<strong class="tooltip-detail-pompa">Condition</strong>: ${payloadValue}`;
+        tooltip.style.top = (event.clientY - 110) + 'px';
+        tooltip.style.left = (event.clientX - 250) + 'px';
         tooltip.style.display = 'block';
     }
 
