@@ -916,7 +916,7 @@
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
-        console.log('Pompa 1 is ON');
+        console.log('Pompa 1 is OFF');
         // You can perform other actions here when it's unchecked
       }
     });
@@ -947,7 +947,7 @@
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
-        console.log('Pompa 3 is ON');
+        console.log('Pompa 3 is OFF');
         // You can perform other actions here when it's unchecked
       }
     });
@@ -963,7 +963,7 @@
         // You can perform other actions here when it's checked
       } else {
         client.publish(LORAMASTER2, '40', { qos: 0, retain: false })
-        console.log('Pompa 4 is ON');
+        console.log('Pompa 4 is OFF');
         // You can perform other actions here when it's unchecked
       }
     });
@@ -979,15 +979,10 @@
       
       //battery
       if (jsonData.VDC !== undefined) {
-        if (jsonData.VDC >= 40.0){
-          batteryLevel = `${parseInt(100)}%`
-          charge.style.width = batteryLevel
-          chargeLevel.textContent = batteryLevel
-        } else if(jsonData.VDC <= 40.0){
-          batteryLevel = `${parseInt(0)}%`
-          charge.style.width = batteryLevel
-          chargeLevel.textContent = batteryLevel
-        }
+        var volt = ((jsonData.VDC - 48) / (52 - 48)) * 100;
+        batteryLevel = `${parseInt(volt)}%`
+        charge.style.width = batteryLevel
+        chargeLevel.textContent = batteryLevel
       }
       
       // SW 
@@ -1190,12 +1185,12 @@
       var st_pintu = document.getElementById('st_pintu');
       if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
         var gateButton = document.getElementById('gate');
-        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'TERBUKA'; // Replace 'Open' with the desired text
         st_pintu.src = '/static/img/pintu_buka.png'
       } else if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 0) {
         var gateButton = document.getElementById('gate');
-        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
         gateButton.innerHTML = 'TERTUTUP'; // Replace 'Open' with the desired text
         st_pintu.src = '/static/img/pintu_tutup.png'
       }
@@ -1213,12 +1208,12 @@
       }
       
       // status pomp1
-      if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+      if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
         wr_pompa1.style.display = "block";
         wr_pompa1_loading.style.display = "none";
         pompa1.bootstrapToggle('on', true);
         img_pompa1.src = '/static/img/pompa_on.png'
-      } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+      } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
         wr_pompa1.style.display = "block";
         wr_pompa1_loading.style.display = "none";
         img_pompa1.src = '/static/img/pompa_off.png'
@@ -1237,12 +1232,12 @@
         img_pompa2.src = '/static/img/pompa_off.png'
       }
 
-      if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+      if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
         wr_pompa3.style.display = "block";
         wr_pompa3_loading.style.display = "none";
         pompa3.bootstrapToggle('on', true);
         img_pompa3.src = '/static/img/pompa_on.png'
-      } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+      } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
         wr_pompa3.style.display = "block";
         wr_pompa3_loading.style.display = "none";
         pompa3.bootstrapToggle('off', true);
