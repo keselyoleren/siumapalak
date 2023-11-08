@@ -986,14 +986,14 @@
       //battery
       if (jsonData.VDC !== undefined) {
         var volt = ((jsonData.VDC - 47.5) / (50.1 - 47.5)) * 100;
+        batteryLevel = `${parseInt(volt)}%`
+        charge.style.width = batteryLevel
+        chargeLevel.textContent = batteryLevel
         if (volt > 100 ){
           batteryLevel = `${parseInt(100)}%`
           charge.style.width = batteryLevel
           chargeLevel.textContent = batteryLevel  
         }
-        batteryLevel = `${parseInt(volt)}%`
-        charge.style.width = batteryLevel
-        chargeLevel.textContent = batteryLevel
       }
       
       // SW 
@@ -1178,20 +1178,23 @@
         const img = document.getElementById('img_kincir')
         var data_pm_generator = document.getElementById('data_pm_generator')        
         var rpm_kincir = document.getElementById('rpm_kincir')
+        if (jsonData.RPM > 0) {
+          img.src = '/static/img/kincir_on.gif'
+        } 
+        
         if (jsonData.RPM < 0) {
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           img.src = '/static/img/kincir_off.png'
           img_generator.src = '/static/img/cas_off.png'
         } else {
           var hasil_bagi_data_kincir = jsonData.RPM / 14
+          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           if (jsonData.RPM > 0){
             if (batteryLevel > 100 ){
               img_generator.src = '/static/img/cas_off.png'
             }
           }
-          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
-          img.src = '/static/img/kincir_on.gif'
         }
       }
 
