@@ -22,7 +22,7 @@
           <div id="circle1"
               style="position: absolute; top: 70px; left: 665px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
               data-payload="{{msg.payload5}}" onmouseover="showData('Sensor 1')" onmouseout="hideData()">
-                <img src="/static/img/sensor.png" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+                <img src="/static/img/sensor.png" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z01">Z01</p>
             </div>
       
@@ -30,7 +30,7 @@
           <div id="circle2"
               style="position: absolute; top:60px; left: 710px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
               data-payload="{{msg.payload6}}" onmouseover="showData('Sensor 2')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <img src="/static/img/sensor.png" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z02">Z02</p>
             </div>
       
@@ -38,7 +38,7 @@
           <div id="circle3"
               style="position: absolute; top: 104px; left: 700px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer; z-index: 1;"
               data-payload="{{msg.payload7}}" onmouseover="showData('Sensor 3')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <img src="/static/img/sensor.png" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z03">Z03</p>
             </div>
       
@@ -46,13 +46,13 @@
           <div id="circle4"
               style="position: absolute; top: 150px; left: 788px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
               data-payload="{{msg.payload8}}" onmouseover="showData('Sensor 4')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
+              <img src="/static/img/sensor.png" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z04">Z04</p>
             </div>
       
           <!-- Pump1 -->
           <div id="square1"
-              style="position: absolute; top: 14px; left: 656px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 14px; left: 656px; width: 10px; height: 10px;  cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload2}}" onmouseover="showSquareData('Square 1')"
               onmouseout="hideSquareData('Square 1')">
               <img src="/static/img/p1.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
@@ -81,7 +81,7 @@
               style="position: absolute; top: 206px; left: 650px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload4}}" onmouseover="showSquareData('Square 3')"
               onmouseout="hideSquareData('Square 3')">
-              <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 25px;">
+              <img src="/static/img/pompa_off.png" id="img_pompa4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 25px;">
               <p class="badge bg-warning" id="p04">P04</p>
           </div>
 
@@ -98,7 +98,7 @@
             style="position: absolute; top: 57px; left: 762px; cursor: pointer; text-align: center; line-height: 20px;"
             data-payload="" onmouseover=""
             onmouseout="">
-            <img src="/static/img/pipa2.gif" id="img_pipa2" class="w-70" alt="Icon pipa" style=" height: auto; width: 51px;">
+            <img src="/static/img/pipa2.png" id="img_pipa2" class="w-70" alt="Icon pipa" style=" height: auto; width: 51px;">
         </div> 
 
          <!-- Pipa3 -->
@@ -106,7 +106,7 @@
             style="position: absolute; top: 93px; left: 694px; cursor: pointer; text-align: center; line-height: 20px; z-index: 0;"
             data-payload="" onmouseover=""
             onmouseout="">
-            <img src="/static/img/pipa3.gif" id="img_pipa3" class="w-70" alt="Icon pipa" style=" height: auto; width: 112px;">
+            <img src="/static/img/pipa3.png" id="img_pipa3" class="w-70" alt="Icon pipa" style=" height: auto; width: 112px;">
         </div> 
 
             <!-- Pipa4 -->
@@ -114,7 +114,7 @@
             style="position: absolute; top: 174px; left: 652px; cursor: pointer; text-align: center; line-height: 20px;"
             data-payload="" onmouseover=""
             onmouseout="">
-            <img src="/static/img/pipa4.gif" id="img_pipa4" class="w-70" alt="Icon pipa" style=" height: auto; width: 51px;">
+            <img src="/static/img/pipa4.png" id="img_pipa4" class="w-70" alt="Icon pipa" style=" height: auto; width: 51px;">
         </div> 
       
       </div>
@@ -128,6 +128,45 @@
 
 {% endblock %}
 {% block js %}
+
+<script>
+  client.on('message', (topic, message, packet) => {
+    const jsonData = JSON.parse(message.toString())
+
+    
+    if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+      img_pompa1.src = '/static/img/p1_on.png'
+      
+    } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+      img_pompa1.src = '/static/img/p1.png'
+    }
+
+    if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
+      img_pompa2.src = '/static/img/p2_on.png'
+      img_pipa2.src = '/static/img/pipa2.gif'
+    } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
+      img_pompa2.src = '/static/img/p2.png'
+      img_pipa2.src = '/static/img/pipa2.png'
+    }
+
+    if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+      img_pompa3.src = '/static/img/p1_on.png'
+      img_pipa3.src = '/static/img/pipa3.gif'
+    } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+      img_pompa3.src = '/static/img/p1.png'
+      img_pipa3.src = '/static/img/pipa3.png'
+    }
+
+    if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
+      img_pompa4.src = '/static/img/pompa_on.png'
+      img_pipa4.src = '/static/img/pipa4.gif'
+    } else if (typeof jsonData.POMPA4 == 'undefined' && jsonData.POMPA4 == 0) {
+      img_pompa4.src = '/static/img/pompa_off.png'
+      img_pipa4.src = '/static/img/pipa4.png'
+    }
+
+  })
+</script>
   
   <script>
     const circles = document.querySelectorAll('[id^="circle"]');
