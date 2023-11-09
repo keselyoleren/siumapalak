@@ -139,11 +139,11 @@
     var pompa4 = document.getElementById("square4");
     
     
-    if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+    if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
       pompa1.setAttribute("data-payload", 'Pompa 1 ON');
       img_pompa1.src = '/static/img/p1_on.png'
       
-    } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+    } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
       img_pompa1.src = '/static/img/p1.png'
     }
 
@@ -156,11 +156,11 @@
       img_pipa2.src = '/static/img/pipa2.png'
     }
 
-    if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+    if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
       pompa3.setAttribute("data-payload", 'Pompa 3 ON');
       img_pompa3.src = '/static/img/p1_on.png'
       img_pipa3.src = '/static/img/pipa3.gif'
-    } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+    } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
       img_pompa3.src = '/static/img/p1.png'
       img_pipa3.src = '/static/img/pipa3.png'
     }
