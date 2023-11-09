@@ -20,7 +20,7 @@
       
           <!-- Sensor 1 -->
           <div id="circle1"
-              style="position: absolute; top: 70px; left: 665px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              style="position: absolute; top: 70px; left: 669px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
               data-payload="" onmouseover="showData('Sensor 1')" onmouseout="hideData()">
                 <img src="/static/img/sensor.png" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z01">Z01</p>
@@ -44,7 +44,7 @@
       
           <!-- Sensor 4 -->
           <div id="circle4"
-              style="position: absolute; top: 150px; left: 788px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
+              style="position: absolute; top: 152px; left: 784px; width: 10px; height: 10px; background-color: orange; border-radius: 50%; cursor: pointer;"
               data-payload="" onmouseover="showData('Sensor 4')" onmouseout="hideData()">
               <img src="/static/img/sensor.png" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
               <p class="badge bg-warning" id="Z04">Z04</p>
@@ -52,7 +52,7 @@
       
           <!-- Pump1 -->
           <div id="square1"
-              style="position: absolute; top: 14px; left: 656px; width: 10px; height: 10px;  cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 16px; left: 656px; width: 10px; height: 10px;  cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload2}}" onmouseover="showSquareData('Square 1')"
               onmouseout="hideSquareData('Square 1')">
               <img src="/static/img/p1.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
@@ -61,7 +61,7 @@
       
           <!-- Pump2 -->
           <div id="square2"
-              style="position: absolute; top: 45px; left: 736px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 45px; left: 736px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px; z-index: 1;"
               data-payload="{{msg.payload3}}" onmouseover="showSquareData('Square 2')"
               onmouseout="hideSquareData('Square 2')">
               <img src="/static/img/p2.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
@@ -70,7 +70,7 @@
 
           <!-- Pump3 -->
           <div id="square3"
-              style="position: absolute; top: 108px; left: 804px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 106px; left: 796px; width: 10px; height: 10px; background-color: orange; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload1}}" onmouseover="showdoorData('door')" onmouseout="hidedoorData('door')">
               <img src="/static/img/p1.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
               <p class="badge bg-warning" id="p03">P03</p>
@@ -95,15 +95,15 @@
 
             <!-- Pipa2 -->
           <div id="pipa2"
-            style="position: absolute; top: 57px; left: 762px; cursor: pointer; text-align: center; line-height: 20px;"
+            style="position: absolute; top: 58px; left: 762px; cursor: pointer; text-align: center; line-height: 20px;"
             data-payload="" onmouseover=""
             onmouseout="">
-            <img src="/static/img/pipa2.png" id="img_pipa2" class="w-70" alt="Icon pipa" style=" height: auto; width: 51px;">
+            <img src="/static/img/pipa2.png" id="img_pipa2" class="w-70" alt="Icon pipa" style=" height: auto; width: 40px; z-index: 0;">
         </div> 
 
          <!-- Pipa3 -->
          <div id="pipa3"
-            style="position: absolute; top: 93px; left: 694px; cursor: pointer; text-align: center; line-height: 20px; z-index: 0;"
+            style="position: absolute; top: 95px; left: 694px; cursor: pointer; text-align: center; line-height: 20px; z-index: 0;"
             data-payload="" onmouseover=""
             onmouseout="">
             <img src="/static/img/pipa3.png" id="img_pipa3" class="w-70" alt="Icon pipa" style=" height: auto; width: 112px;">
