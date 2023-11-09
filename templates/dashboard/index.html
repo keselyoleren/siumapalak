@@ -133,8 +133,14 @@
   client.on('message', (topic, message, packet) => {
     const jsonData = JSON.parse(message.toString())
 
+    var pompa1 = document.getElementById("square1");
+    var pompa2 = document.getElementById("square2");
+    var pompa3 = document.getElementById("square3");
+    var pompa4 = document.getElementById("square4");
+    
     
     if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+      pompa1.setAttribute("data-payload", 'Pompa 1 ON');
       img_pompa1.src = '/static/img/p1_on.png'
       
     } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
@@ -142,6 +148,7 @@
     }
 
     if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
+      pompa2.setAttribute("data-payload", 'Pompa 2 ON');
       img_pompa2.src = '/static/img/p2_on.png'
       img_pipa2.src = '/static/img/pipa2.gif'
     } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
@@ -150,6 +157,7 @@
     }
 
     if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+      pompa3.setAttribute("data-payload", 'Pompa 3 ON');
       img_pompa3.src = '/static/img/p1_on.png'
       img_pipa3.src = '/static/img/pipa3.gif'
     } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
@@ -158,6 +166,7 @@
     }
 
     if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
+      pompa4.setAttribute("data-payload", 'Pompa 4 ON');
       img_pompa4.src = '/static/img/pompa_on.png'
       img_pipa4.src = '/static/img/pipa4.gif'
     } else if (typeof jsonData.POMPA4 == 'undefined' && jsonData.POMPA4 == 0) {
@@ -247,7 +256,8 @@
 
     function showSquareData(square) {
         const payloadValue = square.getAttribute('data-payload');
-        tooltip.innerHTML = `<strong class="tooltip-detail-pompa">Condition</strong>: ${payloadValue}`;
+        console.log(payloadValue)
+        tooltip.innerHTML = `<strong class="tooltip-detail-pompa">Status </strong>: ${payloadValue}`;
         tooltip.style.top = (event.clientY - 110) + 'px';
         tooltip.style.left = (event.clientX - 250) + 'px';
         tooltip.style.display = 'block';
