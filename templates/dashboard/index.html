@@ -22,7 +22,7 @@
           <div id="circle1"
               style="position: absolute; top: 70px; left: 669px; width: 10px; height: 10px; border-radius: 50%; cursor: pointer;"
               data-payload="" onmouseover="showData('Sensor 1')" onmouseout="hideData()">
-                <img src="/static/img/sensor.png" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
+                <img src="/static/img/sensor.gif" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
               <p class="badge bg-warning" id="Z01">Z01</p>
             </div>
       
@@ -30,7 +30,7 @@
           <div id="circle2"
               style="position: absolute; top:60px; left: 710px; width: 10px; height: 10px; border-radius: 50%; cursor: pointer;"
               data-payload="" onmouseover="showData('Sensor 2')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
+              <img src="/static/img/sensor.gif" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
               <p class="badge bg-warning" id="Z02">Z02</p>
             </div>
       
@@ -38,7 +38,7 @@
           <div id="circle3"
               style="position: absolute; top: 104px; left: 700px; width: 10px; height: 10px; border-radius: 50%; cursor: pointer; z-index: 1;"
               data-payload="" onmouseover="showData('Sensor 3')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
+              <img src="/static/img/sensor.gif" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
               <p class="badge bg-warning" id="Z03">Z03</p>
             </div>
       
@@ -46,33 +46,33 @@
           <div id="circle4"
               style="position: absolute; top: 152px; left: 784px; width: 10px; height: 10px; border-radius: 50%; cursor: pointer;"
               data-payload="" onmouseover="showData('Sensor 4')" onmouseout="hideData()">
-              <img src="/static/img/sensor.png" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 20px">
+              <img src="/static/img/sensor.gif" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px">
               <p class="badge bg-warning" id="Z04">Z04</p>
             </div>
       
           <!-- Pump1 -->
           <div id="square1"
-              style="position: absolute; top: 16px; left: 656px; width: 10px; height: 10px;  cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 11px; left: 654px; width: 10px; height: 10px;  cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload2}}" onmouseover="showSquareData('Square 1')"
               onmouseout="hideSquareData('Square 1')">
-              <img src="/static/img/p1.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <img src="/static/img/p1.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 36px;">
               <p class="badge bg-warning" id="p01">P01</p>
             </div>
       
           <!-- Pump2 -->
           <div id="square2"
-              style="position: absolute; top: 45px; left: 736px; width: 10px; height: 10px; cursor: pointer; text-align: center; line-height: 20px; z-index: 1;"
+              style="position: absolute; top: 42px; left: 735px; width: 10px; height: 10px; cursor: pointer; text-align: center; line-height: 20px; z-index: 1;"
               data-payload="{{msg.payload3}}" onmouseover="showSquareData('Square 2')"
               onmouseout="hideSquareData('Square 2')">
-              <img src="/static/img/p2.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <img src="/static/img/p2.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 36px;">
               <p class="badge bg-warning" id="p02">P02</p>
           </div>
 
           <!-- Pump3 -->
           <div id="square3"
-              style="position: absolute; top: 106px; left: 796px; width: 10px; height: 10px; cursor: pointer; text-align: center; line-height: 20px;"
+              style="position: absolute; top: 102px; left: 794px; width: 10px; height: 10px; cursor: pointer; text-align: center; line-height: 20px;"
               data-payload="{{msg.payload1}}" onmouseover="showdoorData('door')" onmouseout="hidedoorData('door')">
-              <img src="/static/img/p1.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 30px;">
+              <img src="/static/img/p1.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style=" height: auto; width: 36px;">
               <p class="badge bg-warning" id="p03">P03</p>
             </div>
       
@@ -149,7 +149,7 @@
       img_sensor1.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS1 !== 'undefined' && jsonData.MOIS1 < 25) {
       soil1.setAttribute('data-payload', "Kering")
-      img_sensor1.src = '/static/img/sensor.png'
+      img_sensor1.src = '/static/img/sensor.gif'
     }
 
     if (typeof jsonData.MOIS2 !== 'undefined' && jsonData.MOIS2 > 25) {
@@ -157,7 +157,7 @@
       img_sensor2.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS2 !== 'undefined' && jsonData.MOIS2 < 25) {
       soil2.setAttribute('data-payload', "Kering")
-      img_sensor2.src = '/static/img/sensor.png'
+      img_sensor2.src = '/static/img/sensor.gif'
     }
 
     if (typeof jsonData.MOIS3 !== 'undefined' && jsonData.MOIS3 > 25) {
@@ -165,7 +165,7 @@
       img_sensor3.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS3 !== 'undefined' && jsonData.MOIS3 < 25) {
       soil3.setAttribute('data-payload', "Kering")
-      img_sensor3.src = '/static/img/sensor.png'
+      img_sensor3.src = '/static/img/sensor.gif'
     }
 
     if (typeof jsonData.MOIS4 !== 'undefined' && jsonData.MOIS4 > 25) {
@@ -173,7 +173,7 @@
       img_sensor4.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS4 !== 'undefined' && jsonData.MOIS4 < 25) {
       soil4.setAttribute('data-payload', "Kering")
-      img_sensor4.src = '/static/img/sensor.png'
+      img_sensor4.src = '/static/img/sensor.gif'
     }
     
 
