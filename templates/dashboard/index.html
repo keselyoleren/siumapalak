@@ -180,8 +180,10 @@
     if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
       img_pompa1.src = '/static/img/p1_on.png'
       pompa1.setAttribute("data-payload", 'Pompa 1 ON');
+      img_pipa1.src = '/static/img/pipa1.gif'
     } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
       img_pompa1.src = '/static/img/p1.png'
+      img_pipa1.src = '/static/img/pipa1.png'
     }
 
     if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
