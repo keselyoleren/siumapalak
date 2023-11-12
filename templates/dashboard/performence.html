@@ -252,7 +252,7 @@
     </div>
   </div>
   
-  {% if request.user.is_superuser %}
+  {% if request.user.is_superuser or request.user.role_user == 'operator' %}
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">Control</h4>
@@ -1181,9 +1181,9 @@
         zone2 = jsonData.MOIS2
         d_zone2.refresh(zone2)
         if (zone2 > 25){
-          img_sensor2.src = "/static/img/sensor_on.png"
+          img_sensor3.src = "/static/img/sensor_on.png"
         }else{
-          img_sensor2.src = "/static/img/sensor.gif"
+          img_sensor3.src = "/static/img/sensor.gif"
         }
       }
     
@@ -1191,9 +1191,9 @@
         zone3 = jsonData.MOIS3
         d_zone3.refresh(zone3)
         if (zone3 > 25){
-          img_sensor3.src = "/static/img/sensor_on.png"
+          img_sensor2.src = "/static/img/sensor_on.png"
         }else{
-          img_sensor3.src = "/static/img/sensor.gif"
+          img_sensor2.src = "/static/img/sensor.gif"
         }
       }
     

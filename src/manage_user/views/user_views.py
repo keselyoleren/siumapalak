@@ -37,7 +37,7 @@ class AccountUserCreateView(LoginRequiredMixin, CreateView):
         return context
 
     def form_valid(self, form):
-        if form.cleaned_data.get('role_user') == RoleUser.OPERATOR:
+        if form.cleaned_data.get('role_user') == RoleUser.ADMIN:
             form.instance.is_superuser = True
         return super().form_valid(form)
 
@@ -54,7 +54,7 @@ class AccountUserUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        if form.cleaned_data.get('role_user') == RoleUser.OPERATOR:
+        if form.cleaned_data.get('role_user') == RoleUser.ADMIN:
             form.instance.is_superuser = True
         else:
             form.instance.is_superuser = False
