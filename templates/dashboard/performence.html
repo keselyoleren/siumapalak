@@ -1227,18 +1227,19 @@
         var data_pm_generator = document.getElementById('data_pm_generator')        
         var rpm_kincir = document.getElementById('rpm_kincir')
         if (jsonData.RPM > 0) {
-          img.src = '/static/img/kincir_on.gif'
+          img_kincir.src = '/static/img/kincir_on.gif'
         } 
-        
+
         if (jsonData.RPM < 0) {
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
-          img.src = '/static/img/kincir_off.png'
+          img_kincir.src = '/static/img/kincir_off.png'
           img_generator.src = '/static/img/cas_off.png'
         } else {
           var hasil_bagi_data_kincir = jsonData.RPM / 14
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           if (jsonData.RPM > 0){
+            img_generator.src = '/static/img/cas_on.png'
             if (batteryLevel > 100 ){
               img_generator.src = '/static/img/cas_off.png'
             }
