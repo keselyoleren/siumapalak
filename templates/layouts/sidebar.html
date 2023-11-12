@@ -42,11 +42,22 @@
             <span>Keterangan</span></a>
     </li>
 
+    {% if request.user.is_superuser %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user-list' %}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Manage User </span></a>
+        </li>
+    {% endif %}
+    
+    <hr class="sidebar-divider">
+
     <li class="nav-item">
         <a class="nav-link" href="/">
             <i class="fas fa-fw fa-home"></i>
             <span>Back To Home</span></a>
     </li>
+    <hr class="sidebar-divider">
 
     <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">
