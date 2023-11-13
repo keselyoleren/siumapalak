@@ -1239,7 +1239,11 @@
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           if (jsonData.RPM > 0){
-            img_generator.src = '/static/img/cas_on.png'
+            if (batteryLevel > 400 ){
+              img_generator.src = '/static/img/cas_on.png'
+            }else{
+              img_generator.src = '/static/img/cas_off.png'
+            }
             if (batteryLevel > 100 ){
               img_generator.src = '/static/img/cas_off.png'
             }
