@@ -901,11 +901,11 @@
     auto_on_off.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (auto_on_off.prop("checked")) {
-        client.publish(LORAMASTER2, '1000', { qos: 0, retain: false })
+        client.publish(POMPA_AUTO, '1000', { qos: 0, retain: false })
         console.log('auto_on_off is ON');
         // You can perform other actions here when it's checked
       } else {
-        client.publish(LORAMASTER2, '2000', { qos: 0, retain: false })
+        client.publish(POMPA_AUTO, '2000', { qos: 0, retain: false })
         console.log('auto_on_off is OFF');
         // You can perform other actions here when it's unchecked
       }
@@ -1010,7 +1010,7 @@
     
     client.on('message', (topic, message, packet) => {
       const jsonData = JSON.parse(message.toString())
-      
+      console.log(jsonData)
       //battery
       if (jsonData.VDC !== undefined) {
         var volt = ((jsonData.VDC - 47.5) / (50.1 - 47.5)) * 100;

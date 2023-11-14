@@ -149,6 +149,8 @@
         var LM3 = 'data/KMI/BALI/SIMORLM3';
         var LORAMASTER2 = 'LORAMASTER2/output'
         var LORAMASTER3 = 'LORAMASTER3/output'
+        var POMPA_AUTO = 'pumpauto'
+        var STATUS_POMPA_AUTO = 'Status_Auto_Pompa'
         //client.publish(topicLampu, '1', { qos: 0, retain: false })
     
         client.on('error', (err) => {
@@ -165,6 +167,7 @@
             client.subscribe(LM1, { qos: 2 })
             client.subscribe(LM2, { qos: 2 })
             client.subscribe(LM3, { qos: 2 })
+            client.subscribe(STATUS_POMPA_AUTO, { qos: 0 })
         });
     </script>
 
