@@ -1023,7 +1023,18 @@
           wr_pompa2.style.opacity = "0.5"
           wr_pompa3.style.opacity = "0.5"
           wr_pompa4.style.opacity = "0.5"
+        } else if (jsonData.status == 'OFF') {
+          wr_pompa1.style.pointerEvents = "auto"; // or "initial" depending on your needs
+          wr_pompa2.style.pointerEvents = "auto";
+          wr_pompa3.style.pointerEvents = "auto";
+          wr_pompa4.style.pointerEvents = "auto";
+      
+          wr_pompa1.style.opacity = "1"; // Normal opacity
+          wr_pompa2.style.opacity = "1";
+          wr_pompa3.style.opacity = "1";
+          wr_pompa4.style.opacity = "1";
         }
+
       }
 
       //battery
@@ -1374,6 +1385,24 @@
         }
         pompa4.bootstrapToggle('off', true);
         img_pompa4.src = '/static/img/pompa_off.png'
+      }
+
+      if (typeof jsonData.status !== 'undefined' && jsonData.status == 'ON') {
+        try {
+          wr_auto.style.display = "block";
+          wr_auto_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        auto_on_off.bootstrapToggle('on', true);
+      } else if (typeof jsonData.status !== 'undefined' && jsonData.status == 'OFF') {
+        try {
+          wr_pompa4.style.display = "block";
+          wr_pompa4_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        auto_on_off.bootstrapToggle('off', true);
       }
 
       if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 0) {
