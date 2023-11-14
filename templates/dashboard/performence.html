@@ -898,6 +898,7 @@
     const wr_pompa3_loading = document.getElementById("wr_pompa3_loading");
     const wr_pompa4_loading = document.getElementById("wr_pompa4_loading");
 
+
     auto_on_off.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (auto_on_off.prop("checked")) {
@@ -1010,7 +1011,21 @@
     
     client.on('message', (topic, message, packet) => {
       const jsonData = JSON.parse(message.toString())
-      console.log(jsonData)
+
+      if (jsonData.status !== undefined) {
+        if (jsonData.status == 'ON'){
+          wr_pompa1.style.pointerEvents = "none";
+          wr_pompa2.style.pointerEvents = "none";
+          wr_pompa3.style.pointerEvents = "none";
+          wr_pompa4.style.pointerEvents = "none";
+          
+          wr_pompa1.style.opacity = "0.5"
+          wr_pompa2.style.opacity = "0.5"
+          wr_pompa3.style.opacity = "0.5"
+          wr_pompa4.style.opacity = "0.5"
+        }
+      }
+
       //battery
       if (jsonData.VDC !== undefined) {
         var volt = ((jsonData.VDC - 47.5) / (50.1 - 47.5)) * 100;
@@ -1239,7 +1254,7 @@
           data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
           rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
           if (jsonData.RPM > 0){
-            if (batteryLevel > 400 ){
+            if (jsonData.RPM > 400 ){
               img_generator.src = '/static/img/cas_on.png'
             }else{
               img_generator.src = '/static/img/cas_off.png'
