@@ -189,19 +189,19 @@
     if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
       pompa2.setAttribute("data-payload", 'Pompa 2 ON');
       img_pompa2.src = '/static/img/p2_on.png'
-      img_pipa2.src = '/static/img/pipa2.gif'
+      img_pipa3.src = '/static/img/pipa3.gif'
     } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
       img_pompa2.src = '/static/img/p2.png'
-      img_pipa2.src = '/static/img/pipa2.png'
+      img_pipa3.src = '/static/img/pipa3.png'
     }
 
     if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
       pompa3.setAttribute("data-payload", 'Pompa 3 ON');
       img_pompa3.src = '/static/img/p1_on.png'
-      img_pipa3.src = '/static/img/pipa3.gif'
+      img_pipa2.src = '/static/img/pipa2.gif'
     } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
       img_pompa3.src = '/static/img/p1.png'
-      img_pipa3.src = '/static/img/pipa3.png'
+      img_pipa2.src = '/static/img/pipa2.png'
     }
 
     if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
@@ -295,12 +295,16 @@
     }
 
     function showSquareData(square) {
+      try {
         const payloadValue = square.getAttribute('data-payload');
         console.log(payloadValue)
         tooltip.innerHTML = `<strong class="tooltip-detail-pompa">Status </strong>: ${payloadValue}`;
         tooltip.style.top = (event.clientY - 110) + 'px';
         tooltip.style.left = (event.clientX - 250) + 'px';
         tooltip.style.display = 'block';
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     function hideSquareData(squareId) {
@@ -308,11 +312,15 @@
     }
 
     function showdoorData(door) {
+      try {
         const payloadValue = door.getAttribute('data-payload');
         tooltip.innerHTML = `<strong>Situation</strong>: ${payloadValue}`;
         tooltip.style.top = (event.clientY + 10) + 'px';
         tooltip.style.left = (event.clientX + 10) + 'px';
         tooltip.style.display = 'block';
+      } catch (error) {
+        console.log(error)
+      }      
     }
     
     function hidedoorData(doorId) {
