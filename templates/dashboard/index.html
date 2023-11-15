@@ -154,18 +154,18 @@
 
     if (typeof jsonData.MOIS2 !== 'undefined' && jsonData.MOIS2 > 25) {
       soil2.setAttribute('data-payload', "Lembab")
-      img_sensor2.src = '/static/img/sensor_on.png'
+      img_sensor3.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS2 !== 'undefined' && jsonData.MOIS2 < 25) {
       soil2.setAttribute('data-payload', "Kering")
-      img_sensor2.src = '/static/img/sensor.gif'
+      img_sensor3.src = '/static/img/sensor.gif'
     }
 
     if (typeof jsonData.MOIS3 !== 'undefined' && jsonData.MOIS3 > 25) {
       soil3.setAttribute('data-payload', "Lembab")
-      img_sensor3.src = '/static/img/sensor_on.png'
+      img_sensor2.src = '/static/img/sensor_on.png'
     } else if (typeof jsonData.MOIS3 !== 'undefined' && jsonData.MOIS3 < 25) {
       soil3.setAttribute('data-payload', "Kering")
-      img_sensor3.src = '/static/img/sensor.gif'
+      img_sensor2.src = '/static/img/sensor.gif'
     }
 
     if (typeof jsonData.MOIS4 !== 'undefined' && jsonData.MOIS4 > 25) {
@@ -189,19 +189,20 @@
     if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
       pompa2.setAttribute("data-payload", 'Pompa 2 ON');
       img_pompa2.src = '/static/img/p2_on.png'
-      img_pipa3.src = '/static/img/pipa3.gif'
+      img_pipa2.src = '/static/img/pipa2.gif'
     } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
       img_pompa2.src = '/static/img/p2.png'
-      img_pipa3.src = '/static/img/pipa3.png'
+      img_pipa2.src = '/static/img/pipa2.png'
     }
 
     if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
       pompa3.setAttribute("data-payload", 'Pompa 3 ON');
       img_pompa3.src = '/static/img/p1_on.png'
-      img_pipa2.src = '/static/img/pipa2.gif'
+      
+      img_pipa3.src = '/static/img/pipa3.gif'
     } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
       img_pompa3.src = '/static/img/p1.png'
-      img_pipa2.src = '/static/img/pipa2.png'
+      img_pipa3.src = '/static/img/pipa3.png'
     }
 
     if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
