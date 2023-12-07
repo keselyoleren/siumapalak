@@ -18,6 +18,10 @@ class BrokerConsumers(AsyncWebsocketConsumer):
         self.mqtt_client.subscribe("data/KMI/BALI/SIMORLM2")
         self.mqtt_client.subscribe("data/KMI/BALI/SIMORLM1")
         self.mqtt_client.subscribe("data/KMI/BALI/SIMORLM3")
+        self.mqtt_client.subscribe("LORAMASTER2/output")
+        self.mqtt_client.subscribe("LORAMASTER3/output")
+        self.mqtt_client.subscribe("pumpauto")
+        self.mqtt_client.subscribe("Status_Auto_Pompa")
         self.mqtt_client.subscribe("test_ws")
         self.mqtt_client.on_message = self.on_mqtt_message
         self.mqtt_client.loop_start()

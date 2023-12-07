@@ -21,96 +21,6 @@
     <h1 class="h3 mb-0 text-gray-800">Performance</h1>
   </div>
 
-  <div class="row">
-    <!-- Area Chart -->
-    <div class="col-md-8">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Data</h4>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <ul class="list-group">
-            <div class="row">
-              <div class="col-md-6">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  V DC
-                  <span id="vdc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  I DC
-                  <span id="idc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  P DC
-                  <span id="pdc" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  E DC
-                  <span id="edc" class="badge badge-primary badge-pill">0</span>
-                </li>
-              </div>
-              <div class="col-md-6">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  V AC
-                  <span id="vac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  I AC
-                  <span id="iac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  P AC
-                  <span id="pac" class="badge badge-primary badge-pill">0</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  E AC
-                  <span id="eac" class="badge badge-primary badge-pill">0</span>
-                </li>
-              </div>
-            </div>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h4 class="m-0 font-weight-bold text-primary">Gate</h4>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="col-xl-12 col-md-12 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <button class="btn btn-danger" id="gate">CLOSE</button>
-                        </div>
-                        <div class="col-auto">
-                          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M320 32c0-9.9-4.5-19.2-12.3-25.2S289.8-1.4 280.2 1l-179.9 45C79 51.3 64 70.5 64 92.5V448H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H96 288h32V480 32zM256 256c0 17.7-10.7 32-24 32s-24-14.3-24-32s10.7-32 24-32s24 14.3 24 32zm96-128h96V480c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H512V128c0-35.3-28.7-64-64-64H352v64z"/></svg>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-          {% comment %} <div class="col mr-2">
-            <div class="row">
-              <div class="col-sm-6">
-                <h4>Gate</h4>
-              </div>
-              <div class="col-sm-6">
-                <input type="checkbox"  id="gate" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-              </div>
-            </div>
-          </div> {% endcomment %}
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h4 class="m-0 font-weight-bold text-primary">General</h4>
@@ -119,193 +29,579 @@
     <div class="card-body">
       <div class="row">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-8">
-          <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-header">
-              <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Rpm Generator</h4>
-            </div>
+        <div class="col-md-12">
+          <div class="card border-left-default shadow h-100 py-2">
             <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div  style="position: absolute; top: 0px; left: 40px;">
-                                <img id="img_generator" src="{% static 'img/generator.png' %}" alt="Positive Image" style="height: 180px; width: 350px;">
-                            </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kincir</div>
+                        <img src="/static/img/kincir_off.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-primary" id="rpm_kincir">0 RPM</button>
                         </div>
-                        <div class="col-md-5">
-                            <div id="rpm_generator" class="gauge"></div>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">GENERATOR</div>
+                        <img src="/static/img/cas_off.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-primary" id="data_pm_generator">0 RPM</button>
                         </div>
-                      </div>
+                      </center>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Sensor Banjir</div>
+                        <br>
+                        <img src="/static/img/level_air_aman.png" id="img_level_air" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-default" id="level_tinggi_air"></button>
+                        </div>
+                      </center>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-md-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-header">
-                  <h4 class="text-xs font-weight-bold text-success text-uppercase mb-1">Kapasitas Baterai. Sinyal Wifi Gateway</h4>
+              <br>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">Kapasitas BATERAI</div>
+                      </center>
+                      <br>
+                      <div id="battery">
+                          <div id="charge"></div>
+                          <div id="charge-level"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div id="battery">
-                                <div id="charge"></div>
-                                <div id="charge-level"></div>
-                            </div>
-                            <br><br>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="waveStrength-3">
-                                        <center><h5>sw 1</h5></center>
-                                        <div id="height" class="wv4 wave" >
-                                            <div id="medium" class="wv4 wave">
-                                                <div id="normal" class="wv2 wave">
-                                                    <div id="low" class="wv1 wave">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="waveStrength-3">
-                                        <center><h5>sw 2</h5></center>
-                                        <div id="height2" class="wv4 wave" >
-                                            <div id="medium2" class="wv4 wave">
-                                                <div id="normal2" class="wv2 wave">
-                                                    <div id="low2" class="wv1 wave">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                  <div class="waveStrength-3">
-                                      <center><h5>sw 3</h5></center>
-                                      <div id="height3" class="wv4 wave" >
-                                          <div id="medium3" class="wv4 wave">
-                                              <div id="normal3" class="wv2 wave">
-                                                  <div id="low3" class="wv1 wave">
-                                                  </div>
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                      <div class="card-body">
+                        <center>
+                          <div class="text-xl font-weight-bold text-info text-uppercase mb-1">SINYAL WIFI</div>
+                          <br>
+                        </center>
+                        <div class="row">
+                          <div class="col-md-4">
+                              <div class="waveStrength-3">
+                                  <div id="height" class="wv4 wave" >
+                                      <div id="medium" class="wv4 wave">
+                                          <div id="normal" class="wv2 wave">
+                                              <div id="low" class="wv1 wave">
                                               </div>
                                           </div>
                                       </div>
                                   </div>
+                                  <center><h5>GW 1</h5></center>
                               </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="waveStrength-3">
+                                  <div id="height2" class="wv4 wave" >
+                                      <div id="medium2" class="wv4 wave">
+                                          <div id="normal2" class="wv2 wave">
+                                              <div id="low2" class="wv1 wave">
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <center><h5>GW 2</h5></center>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="waveStrength-3">
+                                <div id="height3" class="wv4 wave" >
+                                    <div id="medium3" class="wv4 wave">
+                                        <div id="normal3" class="wv2 wave">
+                                            <div id="low3" class="wv1 wave">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <center><h5>GW 3</h5></center>
                             </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <div class="col-md-4">
+                  <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                      <center>
+                        <div class="text-xl font-weight-bold text-info text-uppercase mb-1">PINTU RUMAH TEKNOLOGI</div>
+                        <img src="/static/img/pintu_tutup.png" id="st_pintu" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        <div class="col mr-2">
+                          <button class="btn btn-default" id="gate"></button>
+                        </div>
+                      </center>
+                    </div>
+                  </div>
+              </div>
             </div>
+          </div>
         </div>
 
       </div>
     </div>
   </div>
 
+  <br>
   
-  <div class="col-md-12">
-    <div class="card shadow mb-4">
-      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h4 class="m-0 font-weight-bold text-primary">Control</h4>
-      </div>
-  
-      <div class="card-body">
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary"> Data Input</h4>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <ul class="list-group">
+        <div class="row">
+          <div class="col-md-6">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <strong><b>PLTMH</b></strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V 
+              <span id="vdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I 
+              <span id="idc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P 
+              <span id="pdc" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E 
+              <span id="edc" class="badge badge-primary badge-pill">0</span>
+            </li>
+          </div>
+          <div class="col-md-6">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <strong><b>PLTS</b></strong>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V 
+              <span id="vdc" class="badge badge-primary badge-pill">0 V</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I 
+              <span id="idc" class="badge badge-primary badge-pill">0 A</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P 
+              <span id="pdc" class="badge badge-primary badge-pill">0 W</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E 
+              <span id="edc" class="badge badge-primary badge-pill">0 Wh</span>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Data Output</h4>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+      <ul class="list-group">
         <div class="row">
           <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Charging</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="charging" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 1</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 2</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                  <div class="col mr-2">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <h4>Pompa 3</h4>
-                      </div>
-                      <div class="col-sm-6">
-                        <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              V AC
+              <span id="vac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              I AC
+              <span id="iac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              P AC
+              <span id="pac" class="badge badge-primary badge-pill">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              E AC
+              <span id="eac" class="badge badge-primary badge-pill">0</span>
+            </li>
           </div>
         </div>
-  
-      </div>
+      </ul>
     </div>
   </div>
   
+  {% if request.user.is_superuser or request.user.role_user == 'operator' %}
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Control</h4>
+    </div>
 
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Auto </h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_auto" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <input type="checkbox" id="auto_on_off" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>ESD</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_esd">
+                        <input  type="checkbox" id="esd" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_esd_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% comment %} <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Charging</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/cas_off.png" id="img_cas" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_cas">
+                        <input  type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_cas_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Pompa 1</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_pompa1">
+                        <input  type="checkbox" id="pompa1" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa1_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Pompa 2</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_pompa2">
+                        <input type="checkbox" id="pompa2" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa2_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Pompa 3</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_pompa3">
+                        <input type="checkbox" id="pompa3" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa3_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h4>Pompa 4</h4>
+                    </div>
+                    <div class="col-sm-5">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa4" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    <div class="col-sm-2 text-right">
+                      <div id="wr_pompa4">
+                        <input type="checkbox" id="pompa4" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                      </div>
+                      <div id="wr_pompa4_loading" style="display: none;">
+                        <img src="/static/img/loading.gif" id="" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+  {% else %}
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h4 class="m-0 font-weight-bold text-primary">Control</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Auto </h4>
+                    </div>
+                    <div class="col-sm-6">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_auto" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>ESD</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/esd_off.png" id="img_esd" class="w-70" alt="Icon soilmoisture" style="height: 50px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 1</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa1" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 2</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa2" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 3</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa3" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h4>Pompa 4</h4>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <center>
+                        <img src="/static/img/pompa_off.png" id="img_pompa4" class="w-70" alt="Icon soilmoisture" style="height: 70px; width: px;">
+                      </center>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+
+    </div>
+  </div>
+
+  {% endif %}
   
-
+  
   <!-- Content Row -->
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-      <h4 class="m-0 font-weight-bold text-primary">Zone</h4>
+      <h4 class="m-0 font-weight-bold text-primary">Soil Moisture</h4>
     </div>
 
     <div class="card-body">
@@ -316,7 +612,14 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 1</div>
+                    <div class="d-flex flex-row justify-content-between mb-4">
+                        <div class="me-4 text-primary">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 1</div>
+                        </div>
+                        <div class="me-4 text-right">
+                            <img src="/static/img/sensor.gif" id="img_sensor1" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 30px;">
+                        </div>
+                    </div>
                   <div id="zone1" class="gauge"></div>
                 </div>
               </div>
@@ -330,8 +633,15 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Zone 2</div>
-                  <div id="zone2" class="gauge"></div>
+                    <div class="d-flex flex-row justify-content-between mb-4">
+                        <div class="me-4 text-primary">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 2</div>
+                        </div>
+                        <div class="me-4 text-right">
+                            <img src="/static/img/sensor.gif" id="img_sensor2" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 30px;">
+                        </div>
+                    </div>
+                  <div id="zone3" class="gauge"></div>
                 </div>
               </div>
             </div>
@@ -344,8 +654,15 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Zone 3</div>
-                  <div id="zone3" class="gauge"></div>
+                    <div class="d-flex flex-row justify-content-between mb-4">
+                        <div class="me-4 text-primary">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 3</div>
+                        </div>
+                        <div class="me-4 text-right">
+                            <img src="/static/img/sensor.gif" id="img_sensor3" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 30px;">
+                        </div>
+                    </div>
+                  <div id="zone2" class="gauge"></div>
                 </div>
               </div>
             </div>
@@ -358,7 +675,14 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Zone 4</div>
+                    <div class="d-flex flex-row justify-content-between mb-4">
+                        <div class="me-4 text-primary">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Zone 4</div>
+                        </div>
+                        <div class="me-4 text-right">
+                            <img src="/static/img/sensor.gif" id="img_sensor4" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 30px;">
+                        </div>
+                    </div>
                   <div id="zone4" class="gauge"></div>
                 </div>
               </div>
@@ -396,7 +720,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Batrey 1</div>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">BATERAI 1</div>
                   <div id="temp_bat_1" class="gauge"></div>
                 </div>
               </div>
@@ -410,7 +734,7 @@
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Baterai</div>
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">BATERAI 2</div>
                   <div id="temp_bat_2" class="gauge"></div>
                 </div>
               </div>
@@ -434,14 +758,18 @@
   </div>
 {% endblock %}
 {% block js %}
-  <script>
+
+<script>
+ 
+
+
+</script>
+
+<script>
     const chargeLevel = document.getElementById('charge-level')
     const charge = document.getElementById('charge')
     const chargingTimeRef = document.getElementById('charging-time')
     
-    let batteryLevel = `${parseInt(40)}%`
-    charge.style.width = batteryLevel
-    chargeLevel.textContent = batteryLevel
     
     var zone1 = 0
     var zone2 = 0
@@ -453,13 +781,13 @@
         id,
         value,
         min: 0,
-        max: 100,
+        max: 5000,
         symbol: ' RPM',
         donut: true,
         pointer: true,
-        gaugeWidthScale: 0.6,
+        gaugeWidthScale: 0.4,
         pointerOptions: {
-          toplength: 10,
+          toplength: 12,
           bottomlength: 10,
           bottomwidth: 8,
           color: '#000'
@@ -505,6 +833,8 @@
         ],
         counter: true
       })
+
+    
     
     // Define temperature gauges
     const createTempGauge = (id, symbol, value) =>
@@ -519,9 +849,7 @@
         counter: true,
         formatNumber: true
       })
-    
-    // rpm Generator
-    const rpmGenerator = npmGenerator('rpm_generator', 0)
+
     
     const d_zone1 = createZoneGauge('zone1', 0)
     const d_zone2 = createZoneGauge('zone2', 0)
@@ -529,10 +857,11 @@
     const d_zone4 = createZoneGauge('zone4', 0)
     
     // temperature
-    const tempGenerator = createTempGauge('temp_generator', ' C', 0)
-    const tempBat1 = createTempGauge('temp_bat_1', ' C', 0)
-    const tempBat2 = createTempGauge('temp_bat_2', ' C', 0)
-    const room_temp = createTempGauge('room_temp', ' C', 0)
+    const tempGenerator = createTempGauge('temp_generator', '°C', 0)
+    const tempBat1 = createTempGauge('temp_bat_1', '°C', 0)
+    const tempBat2 = createTempGauge('temp_bat_2', '°C', 0)
+    const room_temp = createTempGauge('room_temp', '°C', 0)
+    const level_air = createTempGauge('level_air', ' CM', 0)
 
     const height = document.getElementById('height')
     const medium = document.getElementById('medium')
@@ -550,201 +879,451 @@
     const normal3 = document.getElementById('normal3')
     const low3 = document.getElementById('low3')
 
+    
     mqtt_socket.onmessage = function (e) {
       const jsonData = JSON.parse(e.data);
-      console.log(jsonData.RPM)
-      if (jsonData.SW1 !== undefined) {
-        if (jsonData.SW1 >= -30) {
-            height.className = 'ww3 wave'
-            medium.className = 'ww3 wave'
-            normal.className = 'ww2 wave'
-            low.className = 'ww1 wave'
+      if (jsonData.status !== undefined) {
+        if (jsonData.status == 'ON'){
+          try {
+            wr_pompa1.style.pointerEvents = "none";
+            wr_pompa2.style.pointerEvents = "none";
+            wr_pompa3.style.pointerEvents = "none";
+            wr_pompa4.style.pointerEvents = "none";
             
-        } 
-        if (jsonData.SW1 >= -67) {
-            height.className = 'ww4 wave'
-            medium.className = 'ww4 wave'
-            normal.className = 'ww2 wave'
-            low.className = 'ww1 wave'
+            wr_pompa1.style.opacity = "0.5"
+            wr_pompa2.style.opacity = "0.5"
+            wr_pompa3.style.opacity = "0.5"
+            wr_pompa4.style.opacity = "0.5"
+          } catch (error) {
+            console.log(error)
+          }
+          
+        } else if (jsonData.status == 'OFF') {
+          try {
 
-        } 
-        if (jsonData.SW1 >= -70) {
-            height.className = 'ww4 wave'
-            medium.className = 'ww4 wave'
-            normal.className = 'ww2 wave'
-            low.className = 'ww1 wave'
+          } catch (error) {
+            wr_pompa1.style.pointerEvents = "auto"; // or "initial" depending on your needs
+            wr_pompa2.style.pointerEvents = "auto";
+            wr_pompa3.style.pointerEvents = "auto";
+            wr_pompa4.style.pointerEvents = "auto";
+        
+            wr_pompa1.style.opacity = "1"; // Normal opacity
+            wr_pompa2.style.opacity = "1";
+            wr_pompa3.style.opacity = "1";
+            wr_pompa4.style.opacity = "1";
+            console.log(error)
+          }
+          
+        }
 
+      }
+
+      //battery
+      if (jsonData.VDC !== undefined) {
+        var volt = ((jsonData.VDC - 47.5) / (50.1 - 47.5)) * 100;
+        batteryLevel = `${parseInt(volt)}%`
+        charge.style.width = batteryLevel
+        chargeLevel.textContent = batteryLevel
+        if (volt > 100 ){
+          batteryLevel = `${parseInt(100)}%`
+          charge.style.width = batteryLevel
+          chargeLevel.textContent = batteryLevel  
+        }
+      }
+      
+      // SW 
+      if (jsonData.SW1 !== undefined) {
+          if (jsonData.SW1 >= -30) {
+              height.className = 'ww3 wave'
+              medium.className = 'ww3 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
+
+              height2.className = 'ww3 wave'
+              medium2.className = 'ww3 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -67) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
+
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -70) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww2 wave'
+              low.className = 'ww1 wave'
+
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww2 wave'
+              low2.className = 'ww1 wave'
+          } 
+          if (jsonData.SW1 >= -80) {
+              height.className = 'ww4 wave'
+              medium.className = 'ww4 wave'
+              normal.className = 'ww4 wave'
+              low.className = 'ww1 wave'
+
+              height2.className = 'ww4 wave'
+              medium2.className = 'ww4 wave'
+              normal2.className = 'ww4 wave'
+              low2.className = 'ww1 wave'
+          } 
+          //document.getElementById('SW').innerHTML = jsonData.SW
+      }
+
+      if (jsonData.SW2 !== undefined) {
+        if (jsonData.SW2 >= -30) {
+            height2.className = 'ww3 wave'
+            medium2.className = 'ww3 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
         } 
-        if (jsonData.SW1 >= -80) {
-            height.className = 'ww4 wave'
-            medium.className = 'ww4 wave'
-            normal.className = 'ww4 wave'
-            low.className = 'ww1 wave'
+        if (jsonData.SW2 >= -67) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
+        } 
+        if (jsonData.SW2 >= -70) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww2 wave'
+            low2.className = 'ww1 wave'
+        } 
+        if (jsonData.SW2 >= -80) {
+            height2.className = 'ww4 wave'
+            medium2.className = 'ww4 wave'
+            normal2.className = 'ww4 wave'
+            low2.className = 'ww1 wave'
         } 
         //document.getElementById('SW').innerHTML = jsonData.SW
     }
 
-    if (jsonData.SW2 !== undefined) {
-      if (jsonData.SW2 >= -30) {
-          height2.className = 'ww3 wave'
-          medium2.className = 'ww3 wave'
-          normal2.className = 'ww2 wave'
-          low2.className = 'ww1 wave'
+    if (jsonData.SW3 !== undefined) {
+      if (jsonData.SW3 >= -30) {
+          height3.className = 'ww3 wave'
+          medium3.className = 'ww3 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
       } 
-      if (jsonData.SW2 >= -67) {
-          height2.className = 'ww4 wave'
-          medium2.className = 'ww4 wave'
-          normal2.className = 'ww2 wave'
-          low2.className = 'ww1 wave'
+      if (jsonData.SW3 >= -67) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
       } 
-      if (jsonData.SW2 >= -70) {
-          height2.className = 'ww4 wave'
-          medium2.className = 'ww4 wave'
-          normal2.className = 'ww2 wave'
-          low2.className = 'ww1 wave'
+      if (jsonData.SW3 >= -70) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww2 wave'
+          low3.className = 'ww1 wave'
       } 
-      if (jsonData.SW2 >= -80) {
-          height2.className = 'ww4 wave'
-          medium2.className = 'ww4 wave'
-          normal2.className = 'ww4 wave'
-          low2.className = 'ww1 wave'
+      if (jsonData.SW3 >= -80) {
+          height3.className = 'ww4 wave'
+          medium3.className = 'ww4 wave'
+          normal3.className = 'ww4 wave'
+          low3.className = 'ww1 wave'
       } 
       //document.getElementById('SW').innerHTML = jsonData.SW
-    }
-
-    if (jsonData.SW3 !== undefined) {
-          if (jsonData.SW3 >= -30) {
-              height3.className = 'ww3 wave'
-              medium3.className = 'ww3 wave'
-              normal3.className = 'ww2 wave'
-              low3.className = 'ww1 wave'
-          } 
-          if (jsonData.SW3 >= -67) {
-              height3.className = 'ww4 wave'
-              medium3.className = 'ww4 wave'
-              normal3.className = 'ww2 wave'
-              low3.className = 'ww1 wave'
-          } 
-          if (jsonData.SW3 >= -70) {
-              height3.className = 'ww4 wave'
-              medium3.className = 'ww4 wave'
-              normal3.className = 'ww2 wave'
-              low3.className = 'ww1 wave'
-          } 
-          if (jsonData.SW3 >= -80) {
-              height3.className = 'ww4 wave'
-              medium3.className = 'ww4 wave'
-              normal3.className = 'ww4 wave'
-              low3.className = 'ww1 wave'
-          } 
-          //document.getElementById('SW').innerHTML = jsonData.SW
-    }
-  
-    // update data
-    if (jsonData.IDC !== undefined) {
-      document.getElementById('idc').innerHTML = jsonData.IDC
-    }
-  
-    if (jsonData.PDC !== undefined) {
-      document.getElementById('pdc').innerHTML = jsonData.PDC
-    }
-  
-    if (jsonData.EDC !== undefined) {
-      document.getElementById('edc').innerHTML = jsonData.EDC
-    }
-  
-    if (jsonData.VAC !== undefined) {
-      document.getElementById('vac').innerHTML = jsonData.VAC
-    }
-  
-    if (jsonData.IAC !== undefined) {
-      document.getElementById('iac').innerHTML = jsonData.IAC
-    }
-  
-    if (jsonData.PAC !== undefined) {
-      document.getElementById('pac').innerHTML = jsonData.PAC
-    }
-  
-    if (jsonData.EAC !== undefined) {
-      document.getElementById('eac').innerHTML = jsonData.EAC
-    }
-  
-    if (jsonData.VDC !== undefined) {
-      document.getElementById('vdc').innerHTML = jsonData.VDC
-    }
-  
-    if (jsonData.EDC !== undefined) {
-      document.getElementById('edc').innerHTML = jsonData.EDC
-    }
-  
-    // Update zone values based on received JSON data
-    if (jsonData.MOIS1 !== undefined) {
-      zone1 = jsonData.MOIS1
-      d_zone1.refresh(zone1)
-    }
-  
-    if (jsonData.MOIS2 !== undefined) {
-      zone2 = jsonData.MOIS2
-      d_zone2.refresh(zone2)
-    }
-  
-    if (jsonData.MOIS3 !== undefined) {
-      zone3 = jsonData.MOIS3
-      d_zone3.refresh(zone3)
-    }
-  
-    if (jsonData.MOIS4 !== undefined) {
-      zone4 = jsonData.MOIS4
-      d_zone4.refresh(zone4)
-    }
-  
-    // temperature
-    if (jsonData.TEMP1 !== undefined) {
-      tempGenerator.refresh(jsonData.TEMP1)
-    }
-    if (jsonData.TEMP2 !== undefined) {
-      tempBat1.refresh(jsonData.TEMP2)
-    }
-    if (jsonData.TEMP3 !== undefined) {
-      tempBat2.refresh(jsonData.TEMP3)
-    }
-
-    if (jsonData.TEMP !== undefined) {
-      room_temp.refresh(jsonData.TEMP)
-    }
-  
-    if (jsonData.RPM !== undefined) {
-      const img = document.getElementById('img_generator')
-      
-      if (jsonData.RPM > 0) {
-        img.src = '/static/img/generator.gif'
-      } else {
-        img.src = '/static/img/generator.png'
-      }
-      rpmGenerator.refresh(jsonData.RPM)
-    }
+  }
     
-    if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
-      var gateButton = document.getElementById('gate');
-      gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
-      gateButton.innerHTML = 'OPEN'; // Replace 'Open' with the desired text
-    } else {
-      var gateButton = document.getElementById('gate');
-      gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
-      gateButton.innerHTML = 'CLOSE'; // Replace 'Open' with the desired text
+      // update data
+      if (jsonData.IDC !== undefined) {
+        document.getElementById('idc').innerHTML = jsonData.IDC + ' A'
+      }
+    
+      if (jsonData.PDC !== undefined) {
+        document.getElementById('pdc').innerHTML = jsonData.PDC + ' W'
+      }
+    
+      if (jsonData.EDC !== undefined) {
+        if (jsonData.EDC > 10000) {
+          document.getElementById('edc').innerHTML = jsonData.EDC + ' kWh'
+        } else {
+          document.getElementById('edc').innerHTML = jsonData.EDC + ' Wh'
+        }
+      }
+    
+      if (jsonData.VAC !== undefined) {
+        document.getElementById('vac').innerHTML = jsonData.VAC  + ' V'
+      }
+    
+      if (jsonData.IAC !== undefined) {
+        document.getElementById('iac').innerHTML = jsonData.IAC + ' A'
+      }
+    
+      if (jsonData.PAC !== undefined) {
+        document.getElementById('pac').innerHTML = jsonData.PAC + ' W'
+      }
+    
+      if (jsonData.EAC !== undefined) {
+        document.getElementById('eac').innerHTML = jsonData.EAC + ' Wh'
+      }
+    
+      if (jsonData.VDC !== undefined) {
+        document.getElementById('vdc').innerHTML = jsonData.VDC + ' V'
+      }
+    
+      // Update zone values based on received JSON data
+      if (jsonData.MOIS1 !== undefined) {
+        zone1 = jsonData.MOIS1
+        d_zone1.refresh(zone1)
+        if (zone1 > 25){
+          img_sensor1.src = "/static/img/sensor_on.png"
+        }else{
+          img_sensor1.src = "/static/img/sensor.gif"
+        }
+      }
+    
+      if (jsonData.MOIS2 !== undefined) {
+        zone2 = jsonData.MOIS2
+        d_zone2.refresh(zone2)
+        if (zone2 > 25){
+          img_sensor3.src = "/static/img/sensor_on.png"
+        }else{
+          img_sensor3.src = "/static/img/sensor.gif"
+        }
+      }
+    
+      if (jsonData.MOIS3 !== undefined) {
+        zone3 = jsonData.MOIS3
+        d_zone3.refresh(zone3)
+        if (zone3 > 25){
+          img_sensor2.src = "/static/img/sensor_on.png"
+        }else{
+          img_sensor2.src = "/static/img/sensor.gif"
+        }
+      }
+    
+      if (jsonData.MOIS4 !== undefined) {
+        zone4 = jsonData.MOIS4
+        d_zone4.refresh(zone4)
+        if (zone4 > 25){
+          img_sensor4.src = "/static/img/sensor_on.png"
+        }else{
+          img_sensor4.src = "/static/img/sensor.gif"
+        }
+      }
+    
+      // temperature
+      if (jsonData.TEMP1 !== undefined) {
+        tempGenerator.refresh(jsonData.TEMP1)
+      }
+      if (jsonData.TEMP2 !== undefined) {
+        tempBat1.refresh(jsonData.TEMP2)
+      }
+      if (jsonData.TEMP3 !== undefined) {
+        tempBat2.refresh(jsonData.TEMP3)
+      }
+
+      if (jsonData.TEMP !== undefined) {
+        room_temp.refresh(jsonData.TEMP)
+      }
+    
+      if (jsonData.RPM !== undefined) {
+        const img = document.getElementById('img_kincir')
+        var data_pm_generator = document.getElementById('data_pm_generator')        
+        var rpm_kincir = document.getElementById('rpm_kincir')
+        if (jsonData.RPM > 0) {
+          img_kincir.src = '/static/img/kincir_on.gif'
+        } 
+
+        if (jsonData.RPM < 0) {
+          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
+          img_kincir.src = '/static/img/kincir_off.png'
+          img_generator.src = '/static/img/cas_off.png'
+        } else {
+          var hasil_bagi_data_kincir = jsonData.RPM / 14
+          data_pm_generator.innerHTML = jsonData.RPM + ' RPM'
+          rpm_kincir.innerHTML = parseInt(hasil_bagi_data_kincir) + " RPM"
+          if (jsonData.RPM > 0){
+            if (jsonData.RPM > 400 ){
+              img_generator.src = '/static/img/cas_on.png'
+            }else{
+              img_generator.src = '/static/img/cas_off.png'
+            }
+            if (batteryLevel > 100 ){
+              img_generator.src = '/static/img/cas_off.png'
+            }
+          }
+        }
+      }
+
+      
+      var st_pintu = document.getElementById('st_pintu');
+      if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 1) {
+        var gateButton = document.getElementById('gate');
+        gateButton.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+        gateButton.innerHTML = 'TERBUKA'; // Replace 'Open' with the desired text
+        st_pintu.src = '/static/img/pintu_buka.png'
+      } else if (typeof jsonData.PINTU !== 'undefined' && jsonData.PINTU == 0) {
+        var gateButton = document.getElementById('gate');
+        gateButton.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+        gateButton.innerHTML = 'TERTUTUP'; // Replace 'Open' with the desired text
+        st_pintu.src = '/static/img/pintu_tutup.png'
+      }
+      
+      if (typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 1) {
+        var gateButtonlvl = document.getElementById('level_tinggi_air');
+        gateButtonlvl.className = 'btn btn-success'; // Replace 'btn-success' with the desired class
+        gateButtonlvl.innerHTML = 'AMAN'; // Replace 'Open' with the desired text
+        img_level_air.src = '/static/img/level_air_aman.png'
+      } else if (typeof typeof jsonData.Lvl !== 'undefined' && jsonData.Lvl == 0) {
+        var gateButtonlvl = document.getElementById('level_tinggi_air');
+        gateButtonlvl.className = 'btn btn-danger'; // Replace 'btn-success' with the desired class
+        gateButtonlvl.innerHTML = 'BAHAYA BANJIR'; // Replace 'Open' with the desired text
+        img_level_air.src = '/static/img/level_air_tidak_aman.png'
+      }
+      
+      // status pomp1
+      if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 1) {
+        
+        try {
+          wr_pompa1.style.display = "block";
+          wr_pompa1_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        
+        pompa1.bootstrapToggle('on', true);
+        img_pompa1.src = '/static/img/pompa_on.png'
+      } else if (typeof jsonData.POMPA3 !== 'undefined' && jsonData.POMPA3 == 0) {
+        try {
+          wr_pompa1.style.display = "block";
+          wr_pompa1_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        img_pompa1.src = '/static/img/pompa_off.png'
+        pompa1.bootstrapToggle('off', true);
+      }
+
+      if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 1) {
+        try {
+          wr_pompa2.style.display = "block";
+          wr_pompa2_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa2.bootstrapToggle('on', true);
+        img_pompa2.src = '/static/img/pompa_on.png'
+      } else if (typeof jsonData.POMPA2 !== 'undefined' && jsonData.POMPA2 == 0) {
+        try {
+          wr_pompa2.style.display = "block";
+          wr_pompa2_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa2.bootstrapToggle('off', true);
+        img_pompa2.src = '/static/img/pompa_off.png'
+
+      }
+
+      if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 1) {
+        try {
+          wr_pompa3.style.display = "block";
+          wr_pompa3_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa3.bootstrapToggle('on', true);
+        img_pompa3.src = '/static/img/pompa_on.png'
+      } else if (typeof jsonData.POMPA1 !== 'undefined' && jsonData.POMPA1 == 0) {
+        try {
+          wr_pompa3.style.display = "block";
+          wr_pompa3_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa3.bootstrapToggle('off', true);
+        img_pompa3.src = '/static/img/pompa_off.png'
+      }
+
+      if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 1) {
+        console.log('pompa4 on', jsonData.POMPA4)
+        try {
+          wr_pompa4.style.display = "block";
+          wr_pompa4_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa4.bootstrapToggle('on', true);
+        img_pompa4.src = '/static/img/pompa_on.png'
+      } else if (typeof jsonData.POMPA4 !== 'undefined' && jsonData.POMPA4 == 0) {
+        try {
+          wr_pompa4.style.display = "block";
+          wr_pompa4_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        pompa4.bootstrapToggle('off', true);
+        img_pompa4.src = '/static/img/pompa_off.png'
+      }
+
+      if (typeof jsonData.status !== 'undefined' && jsonData.status == 'ON') {
+        img_auto.src = '/static/img/esd_on.png'
+        try {
+          wr_auto.style.display = "block";
+          wr_auto_loading.style.display = "none";
+          
+        } catch (error) {
+          console.log('error')
+        }
+        auto_on_off.bootstrapToggle('on', true);
+      } else if (typeof jsonData.status !== 'undefined' && jsonData.status == 'OFF') {
+        img_auto.src = '/static/img/esd_off.png'
+        try {
+          wr_pompa4.style.display = "block";
+          wr_pompa4_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        auto_on_off.bootstrapToggle('off', true);
+      }
+
+      if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 0) {
+        esd.bootstrapToggle('on', true);
+        img_esd.src = '/static/img/esd_on.png'
+        try {
+          wr_esd.style.display = "block";
+          wr_esd_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+        
+      } else if (typeof jsonData.ESD !== 'undefined' && jsonData.ESD == 1) {
+        esd.bootstrapToggle('off', true);
+        img_esd.src = '/static/img/esd_off.png'
+        try {
+          wr_esd.style.display = "block";
+          wr_esd_loading.style.display = "none";
+        } catch (error) {
+          console.log('error')
+        }
+      }
+
     }
-    };
   </script>
 
   <script>
     const chargingCheckbox = $("#charging");
     chargingCheckbox.on("change", function() {
+      // Check if the checkbox is checked or unchecked
       if (chargingCheckbox.prop("checked")) {
-        mqtt_socket.send(JSON.stringify({message:1}))
+        client.publish(LORAMASTER2, '1', { qos: 0, retain: false })
         console.log('Charging is ON');
-      
+        // You can perform other actions here when it's checked
       } else {
-        mqtt_socket.send(JSON.stringify({message:"off"}))
+        client.publish(LORAMASTER2, '0', { qos: 0, retain: false })
         console.log('Charging is OFF');
         // You can perform other actions here when it's unchecked
       }
@@ -754,13 +1333,11 @@
     pompa1.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa1.prop("checked")) {
-        mqtt_socket.send(JSON.stringify({message:11}))
-        //client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '11', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         // You can perform other actions here when it's checked
       } else {
-        mqtt_socket.send(JSON.stringify({message:12}))
-        //client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '10', { qos: 0, retain: false })
         console.log('Pompa 1 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -770,13 +1347,11 @@
     pompa2.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa2.prop("checked")) {
-        mqtt_socket.send(JSON.stringify({message:21}))
-        //client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
+        client.publish(LORAMASTER2, '21', { qos: 0, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's checked
       } else {
-        //client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
-        mqtt_socket.send(JSON.stringify({message:20}))
+        client.publish(LORAMASTER2, '20', { qos: 0, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -786,13 +1361,11 @@
     pompa3.on("change", function() {
       // Check if the checkbox is checked or unchecked
       if (pompa3.prop("checked")) {
-        //client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
-        mqtt_socket.send(JSON.stringify({message:31}))
+        client.publish(LORAMASTER2, '31', { qos: 0, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's checked
       } else {
-        mqtt_socket.send(JSON.stringify({message:30}))
-        //client.publish(LORAMASTER2, '30', { qos: 30, retain: false })
+        client.publish(LORAMASTER2, '30', { qos: 0, retain: false })
         console.log('Pompa 2 is ON');
         // You can perform other actions here when it's unchecked
       }
@@ -800,5 +1373,6 @@
 
 
   </script>
+
   
 {% endblock %}

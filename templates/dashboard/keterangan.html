@@ -1,0 +1,256 @@
+{% extends 'layouts/main.html' %}
+<style>
+    #battery:before {
+        position: absolute;
+        content: "";
+        height: 1em !important;
+        width: 1.1em !important;
+        background-color: green;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        right: -1.3em !important;
+    }
+</style>
+{% load static %}
+
+{% block content %}
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Keterangan</h1>
+    </div>
+
+
+    <!-- Contact 2 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Kincir</h2>
+                    <hr>
+                    {% comment %} <p class="lead fs-4 text-secondary mb-5">Kincir akan berputar ketika RPM lebih da 0</p> {% endcomment %}
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/kincir_off.png" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Kincir Mati</h4>
+                        <address class="mb-0 text-secondary">RPM sama dengan 0</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/kincir_on.gif" id="img_kincir" class="w-90" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Kincir Hidup</h4>
+                        <address class="mb-0 text-secondary">RPM lebih dari 0 dan kincir berputar</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Generator</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/cas_off.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Generator Mati</h4>
+                        <address class="mb-0 text-secondary">Tidak ada arus listrik yang dihasilkan</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/cas_on.png" id="img_generator" class="w-90" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Generator Hidup</h4>
+                        <address class="mb-0 text-secondary">Ada arus listrik yang dihasilkan</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Sensor Banjir</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/level_air_aman.png" id="img_level_air" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Level Air Aman</h4>
+                        <address class="mb-0 text-secondary">kondisi air aman di rumah teknologi</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/level_air_tidak_aman.png" id="img_level_air" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Level Air tidak Aman</h4>
+                        <address class="mb-0 text-secondary">Kondisi air banjir di rumah teknologi</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Kapasitas Baterai</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <div id="battery" style="width: 5.5em">
+                                <div id="charge" style="width: 4.25em;"></div>
+                                <div id="charge-level" style="font-size: 21px;"> 100%</div>
+                            </div>
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Kapasitas Baterai Penuh</h4>
+                        <address class="mb-0 text-secondary">Kapasitas Baterai telah terisi penuh</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <div id="battery" style="width: 5.5em">
+                                <div id="charge" style="width: 3em;"></div>
+                                <div id="charge-level" style="font-size: 21px;">
+                                    <img src="/static/img/icon-flash.svg" id="img_flash" class="w-70" alt="Icon flash" style="height: auto; width: 35px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Baterai dalam Proses Carging</h4>
+                        <address class="mb-0 text-secondary">Baterai dalam proses pengisian</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Sinyal WIFI</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/icon-wifi-strong.svg" id="img_lsignal" class="w-70" alt="Icon signal" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Sinyal Wifi kuat</h4>
+                        <address class="mb-0 text-secondary">Sinyal wifi dalam kondisi stabil dan kuat</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/icon-wifi-low.svg" id="img_lsignal" class="w-70" alt="Icon signal" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Sinyal Wifi Lemah</h4>
+                        <address class="mb-0 text-secondary">Sinyal wifi dalam kondisi lemah</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Pintu Rumah Teknologi</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/pintu_tutup.png" id="st_pintu" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Pintu Tertutup</h4>
+                        <address class="mb-0 text-secondary">Pintu rumah teknolgi dalam kondisi tertutup</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/pintu_buka.png" id="st_pintu" class="w-70" alt="Icon soilmoisture" style="height: 150px; width: px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Pintu Terbuka</h4>
+                        <address class="mb-0 text-secondary">Pintu rumah teknolgi dalam kondisi terbuka</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Pompa Air</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/pompa_on.png" id="img_pompa" class="w-70" alt="Icon pompa" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Pompa Menyala</h4>
+                        <address class="mb-0 text-secondary">Pompa Air dalam kondisi menyala</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/pompa_off.png" id="img_pompa" class="w-70" alt="Icon pompa" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Pompa Mati</h4>
+                        <address class="mb-0 text-secondary">Pompa Air dalam kondisi mati</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-3">
+                <div class="row justify-content-xl-center">
+                    <div class="col-12 col-xl-11">
+                    <h2 class="h4 mb-3">Soil Moisture</h2>
+                    <hr>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/sensor_on.png" id="img_sensor" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Sensor Lembab</h4>
+                        <address class="mb-0 text-secondary">Soil moisture lebih dari 25%</address>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-4 mr-4 text-primary">
+                            <img src="/static/img/sensor.gif" id="img_sensor" class="w-70" alt="Icon soilmoisture" style="height: auto; width: 100px;">
+                        </div>
+                        <div>
+                        <h4 class="mb-3 h5">Sensor Tidak Lembab</h4>
+                        <address class="mb-0 text-secondary">Soil moisture kurang dari 25%</address>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock  %}
+{% block js %}
+
+{% endblock %}
